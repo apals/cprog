@@ -15,6 +15,9 @@ int mult(int x, int y);
 void executeBasic();
 void executeIO();
 void executeTypecasting();
+void executeComputerClass();
+void executeLinkedList();
+void generateAndPrintLinkedList(int num_elements);
 
 struct employee {
     int id_number;
@@ -22,13 +25,113 @@ struct employee {
     float salary;
 };
 
+struct node {
+    int x;
+    node *next;
+};
+
+class Computer
+{
+public:
+    Computer();
+    ~Computer();
+    void setSpeed(int p);
+    int readSpeed();
+protected:
+    int processorSpeed;
+};
+
+Computer::Computer()
+{
+    processorSpeed = 0;
+}
+
+Computer::~Computer()
+{
+    
+}
+
+void Computer::setSpeed(int p)
+{
+    processorSpeed = p;
+}
+
+int Computer::readSpeed()
+{
+    return processorSpeed;
+}
+
 int main(int argc, const char * argv[]) {
     // insert code here...
     cout << "Hello, World!\n";
     //executeBasic();
     //executeIO();
-    executeTypecasting();
+    //executeTypecasting();
+    //executeComputerClass();
+    executeLinkedList();
+    
     return 0;
+}
+
+void executeLinkedList()
+{
+   /* node *root;
+    node *conductor;
+    
+    root = new node;
+    root -> next = 0;
+    root -> x = 12;
+    
+    conductor = root;
+    if(conductor != 0){
+        while(conductor -> next != 0)
+            conductor = conductor -> next;
+    }
+    conductor -> next = new node;
+    conductor = conductor -> next;
+    conductor -> next = 0;
+    conductor -> x = 42;
+    
+    cout << root -> x << "\n";
+    cout << root -> next -> x << "\n";*/
+    generateAndPrintLinkedList(5);
+}
+
+void generateAndPrintLinkedList(int num_elements){
+    node *root;
+    node *conductor;
+    
+    root = new node;
+    root -> x = rand() % 5;
+    root -> next = 0;
+    
+    conductor = root;
+    // Create list
+    for(int i = 0; i<num_elements; i++){ // -1 as we create node manually
+        conductor -> next = new node;
+        conductor = conductor -> next;
+        
+        conductor -> x = rand() % 5;
+        conductor -> next = 0;
+    }
+    
+    conductor = root;
+    cout << "[";
+    if(conductor != 0){
+        while(conductor -> next != 0){
+            cout << conductor -> x;
+            conductor = conductor -> next;
+            if(conductor -> next != 0)
+                cout << ", ";
+        }
+        cout << "]";
+    }
+}
+
+void executeComputerClass(){
+    Computer compute;
+    compute.setSpeed(100);
+    cout << compute.readSpeed() << "\n";
 }
 
 void executeTypecasting(){
@@ -39,7 +142,8 @@ void executeTypecasting(){
         cout << x << ". " << (char)x << "\n";
     }
     
-    cin.get();
+    cout << 3/5 << "\n";
+    cout << (float)3/5 << "\n";
 }
 
 void executeIO(){
@@ -144,6 +248,6 @@ void executeBasic(){
      */
 }
 
-int mult(int x, int y){
+inline int mult(int x, int y){
     return x*y;
 }
