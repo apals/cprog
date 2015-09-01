@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		301DD44E1B957A25003A2BCC /* Burrito.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 301DD44C1B957A25003A2BCC /* Burrito.cpp */; };
 		45118E131B9459AD0010FCB8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45118E121B9459AD0010FCB8 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		301DD44C1B957A25003A2BCC /* Burrito.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Burrito.cpp; sourceTree = "<group>"; };
+		301DD44D1B957A25003A2BCC /* Burrito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Burrito.h; sourceTree = "<group>"; };
 		45118E0F1B9459AD0010FCB8 /* lab1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = lab1; sourceTree = BUILT_PRODUCTS_DIR; };
 		45118E121B9459AD0010FCB8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				45118E121B9459AD0010FCB8 /* main.cpp */,
+				301DD44C1B957A25003A2BCC /* Burrito.cpp */,
+				301DD44D1B957A25003A2BCC /* Burrito.h */,
 			);
 			path = lab1;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45118E131B9459AD0010FCB8 /* main.cpp in Sources */,
+				301DD44E1B957A25003A2BCC /* Burrito.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

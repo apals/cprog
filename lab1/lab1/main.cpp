@@ -8,6 +8,8 @@
 
 #include <iostream>
 #include <fstream>
+#include <cstdarg>
+#include "Burrito.h"
 
 using namespace std;
 
@@ -18,6 +20,9 @@ void executeTypecasting();
 void executeComputerClass();
 void executeLinkedList();
 void generateAndPrintLinkedList(int num_elements);
+void executeRecursion(int count);
+void executeVariableArguments(int num, ... );
+void executeBurrito();
 
 struct employee {
     int id_number;
@@ -68,9 +73,45 @@ int main(int argc, const char * argv[]) {
     //executeIO();
     //executeTypecasting();
     //executeComputerClass();
-    executeLinkedList();
+    //executeLinkedList();
+    //executeRecursion(1);
+    //executeVariableArguments(4, 5.2, 1.2, 10.1, 5);
+    executeBurrito();
     
     return 0;
+}
+
+void executeBurrito()
+{
+    Burrito burre;
+    for(int i = 0; i<5; i++)
+        burre.generateAmazingBurritoOfHangoverCuring();
+}
+
+void executeVariableArguments(int num, ... )
+{
+    va_list arguments;
+    double sum = 0;
+    
+    va_start(arguments, num);
+    for(int x = 0; x < num; x++)
+        sum+= va_arg(arguments, double);
+    va_end(arguments);
+    cout << sum/num;
+}
+
+void executeRecursion(int count)
+{
+    /*if(count == 0)
+        return;
+    cout << count << "\n";
+    executeRecursion(count - 1);*/
+    
+    cout << count << "-";
+    if(count < 9)
+        executeRecursion(count+1);
+    cout << "-" << count;
+    
 }
 
 void executeLinkedList()
