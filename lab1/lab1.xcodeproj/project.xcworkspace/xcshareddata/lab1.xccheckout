@@ -22,7 +22,7 @@
 		<key>DFA94E4151B81CE1A7C03374960EF682998876E7</key>
 		<string>../../..</string>
 		<key>FDCAC68CCA8B2F74579A6A1B33AA663C7764D705</key>
-		<string>../../../../..</string>
+		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>github.com:apals/cprog.git</string>
@@ -38,7 +38,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>FDCAC68CCA8B2F74579A6A1B33AA663C7764D705</string>
 			<key>IDESourceControlWCCName</key>
-			<string>..</string>
+			<string></string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
