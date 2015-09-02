@@ -1,0 +1,14 @@
+LAB1
+===============
+class Vector
+
+Vector 100 stor
+v.add(2); -> 101 element.
+
+*vec -> Minnesutrymme -> utöka (standard dubblera).
+Alltså. Vid full vector -> malloc 2x size -> kopiera över -> lägg till nytt element.
+
+Class som allokerar dynamiskt utrymme -> RULE OF THREE
+Ingen garbage collector -> skriv destruktor (delete [] ([] annars undefined))
+
+operator= <- copy constructor
