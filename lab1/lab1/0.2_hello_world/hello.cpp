@@ -19,7 +19,7 @@ void hello (const char * name, int count) {
 std::pair<const char *, int> parse_args (int argc, char * argv[]) {
     /* Error handling */
     if(argc > 3)
-        std::cout << "error: Too many arguments!" << std::endl;
+        std::cerr << "error: Too many arguments!" << std::endl;
 
     /* No errors -> Switch */
     switch(argc){
@@ -33,11 +33,11 @@ std::pair<const char *, int> parse_args (int argc, char * argv[]) {
             /* Begin case scope to declare variables */
             {
                 std::istringstream in(argv[2]);
-                int i;
+                int i = 0;
                 if(in >> i && in.eof())
                     return std::make_pair(argv[1], atoi(argv[2]));
                 else {
-                    std::cout << "error: 2nd argument must be an integral greater than zero!" << std::endl;
+                    std::cerr << "error: 2nd argument must be an integral greater than zero!" << std::endl;
                     return std::make_pair("error", -1);
                 }
                 break;
