@@ -5,17 +5,15 @@
 #include "hello.h"
 
 void hello (const char * name, int count) {
-    if(count == 0){
+    if(count == 0)
+        return;
+    std::cout << "Hello, ";
+    for(int i = 0; i<count; i++){
+        std::cout << name;
+        if(i < count-1)
+            std::cout << " ";
     }
-    else {
-        std::cout << "Hello, ";
-        for(int i = 0; i<count; i++){
-            std::cout << name;
-            if(i < count-1)
-                std::cout << " ";
-        }
-        std::cout << "!" << std::endl;
-    }
+    std::cout << "!" << std::endl;
 }
 
 std::pair<const char *, int> parse_args (int argc, char * argv[]) {
@@ -45,6 +43,6 @@ std::pair<const char *, int> parse_args (int argc, char * argv[]) {
                 break;
             }
         default:
-            return std::make_pair("error", -1);
+            return std::make_pair("undefined error", -1);
     }
 }
