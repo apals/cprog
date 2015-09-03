@@ -1,6 +1,7 @@
 *~
 *.swp
 *.xcodeproj
+*.dSYM
 # Compiled Object files
 *.slo
 *.lo
