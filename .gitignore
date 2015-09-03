@@ -1,5 +1,6 @@
 *~
 *.swp
+*.xcodeproj
 # Compiled Object files
 *.slo
 *.lo
