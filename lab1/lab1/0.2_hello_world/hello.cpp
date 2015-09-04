@@ -5,6 +5,8 @@
 #include "hello.h"
 
 void hello (const char * name, int count) {
+
+    /* Check if 0 */
     if(count == 0)
         return;
     std::cout << "Hello, ";
