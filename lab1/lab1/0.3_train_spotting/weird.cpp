@@ -17,7 +17,7 @@ int main () {
   float y = 3.1415;
 
   std::cout << a << "^" << b << " = " << x << ";\n";
-
+  std::cout <<  "sizeof float" << sizeof(float) << " sizeof double " << sizeof(double) << std::endl;
   if (y == 3.1415)
     std::cout << y << " is equal to 3.1415!\n";
   else
