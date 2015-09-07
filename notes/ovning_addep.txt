@@ -23,3 +23,8 @@ A() { std::cout << "konstruktor" << std::endl; }
 A() {A const&) { std::cout << "copy" << std::endl; }
 
 ~A() { destruktor }
+
+R-value
+A(A&&) { std::cout << "move" << std::endl;
+
+
