@@ -1,0 +1,17 @@
+
+
+void incr(int& ref) {
+
+    ref += 2;
+}
+
+int main() {
+
+    int x = 2;
+    incr(x);
+
+}
+
+
+void by_ref(int& val);
+void by_value(int val);
