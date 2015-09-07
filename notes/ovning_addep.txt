@@ -15,3 +15,11 @@ int main() {
 
 void by_ref(int& val);
 void by_value(int val);
+
+
+konstrukdtor/destruktor/copy
+A() { std::cout << "konstruktor" << std::endl; }
+
+A() {A const&) { std::cout << "copy" << std::endl; }
+
+~A() { destruktor }
