@@ -9,7 +9,7 @@ class UIntVector {
         unsigned int * first;
     public:
         UIntVector();
-        UIntVector(const std::size_t);
+        explicit UIntVector(const std::size_t);
         UIntVector(const UIntVector &);
         UIntVector(UIntVector&&);
         UIntVector(const std::initializer_list<unsigned int>);
