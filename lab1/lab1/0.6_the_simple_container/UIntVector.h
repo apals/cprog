@@ -1,6 +1,8 @@
 #ifndef UINTVECTOR
 #define UINTVECTOR
 
+#include <cstring>
+
 class UIntVector {
 
     private:
@@ -8,7 +10,7 @@ class UIntVector {
     public:
         UIntVector();
         UIntVector(size_t);
-        UIntVector(std::initializer_list);
-}
+        UIntVector(std::initializer_list<unsigned int> l);
+};
 
 #endif
