@@ -63,5 +63,6 @@ int main() {
     std::cout << v[0] << std::endl;
     std::cout << v[6] << std::endl;
     std::cout << v[3] << std::endl;
+    std::cout << v.size() << std::endl;
     return 0;
 }
