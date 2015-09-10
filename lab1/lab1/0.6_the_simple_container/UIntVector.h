@@ -1,7 +1,6 @@
 #ifndef UINTVECTOR
 #define UINTVECTOR
 
-#include <cstring>
 
 class UIntVector {
 
