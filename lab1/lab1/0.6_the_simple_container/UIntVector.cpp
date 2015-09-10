@@ -99,5 +99,7 @@ int main() {
     v1[4] = 7;
     v1[4]++;
     std::cout << "v1[4] == " << v1[4] << std::endl;
+    UIntVector m1, m2;
+    m1 = std::move(m2);
     return 0;
 }
