@@ -4,10 +4,11 @@
 
 UIntVector::UIntVector()
 {
+    vector_size = 0;
     first = new unsigned int;
 }
 
-UIntVector::UIntVector(size_t size)
+UIntVector::UIntVector(const std::size_t size)
 {
     vector_size = size;
     first = new unsigned int[size];
@@ -49,35 +50,37 @@ UIntVector& UIntVector::operator=(UIntVector && other) {
     return *this;
 }
 
-unsigned int& UIntVector::operator[](int index) 
+unsigned int& UIntVector::operator[](const size_t index) 
 {
-    if(index < vector_size || index < 0)
+    std::cout << "INTE CONST MADDAFAKKA" << std::endl;
+    if(index < vector_size)
         return first[index];
     throw std::out_of_range("Index out of range");
 }
 
-UIntVector& UIntVector::operator=(const UIntVector& other)
+const unsigned int& UIntVector::operator[](const size_t index) const
 {
-    UIntVector tmp(other);
-    std::cout << "jag är en dIck" << std::endl;
-    std::swap(vector_size, tmp.vector_size);
-    std::swap(first, tmp.first);
-    return *this;
-}
-
-const unsigned int& UIntVector::operator[](int index) const
-{
-    if(index < vector_size || index < 0)
+    std::cout << "CONST MADDAFAKKA" << std::endl;
+    if(index < vector_size)
         return first[index];
     else
         throw std::out_of_range("Index out of range");
 }
 
+UIntVector& UIntVector::operator=(const UIntVector& other)
+{
+    UIntVector tmp(other);
+    std::swap(vector_size, tmp.vector_size);
+    std::swap(first, tmp.first);
+    return *this;
+}
+
+
+
 
 UIntVector::~UIntVector()
 {
     std::cout << "destructor" << std::endl;
-    std::cout << "sizeof first: " << sizeof(first) << std::endl;
     delete [] first;
 }
 
@@ -92,20 +95,10 @@ std::size_t UIntVector::size() const
 {
     return vector_size;
 }
-/*
-int main() {
-    UIntVector a(7);
-    UIntVector b(a);
-    UIntVector c = a;
 
-    a = b;
-    a[5] = 7;
-
-    const UIntVector e(10);
-    int i = e[5];
-    i = a[0];
-    i = a[5];
-    a[5]++;
-    return 0;
+void printVector(UIntVector& v)
+{
+    for(int i = 0; i < v.size(); i++)
+        std::cout << v[i] << ", ";
+    std::cout << std::endl;
 }
-*/

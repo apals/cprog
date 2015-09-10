@@ -5,19 +5,22 @@
 class UIntVector {
 
     private:
-        size_t vector_size;
+        std::size_t vector_size;
         unsigned int * first;
     public:
         UIntVector();
-        UIntVector(size_t);
-        UIntVector(std::initializer_list<unsigned int>);
-        UIntVector(const UIntVector & obj);
-        UIntVector& operator =(const UIntVector&);
+        UIntVector(const std::size_t);
+        UIntVector(const UIntVector &);
         UIntVector(UIntVector&&);
-        UIntVector& operator=(UIntVector&&);
+        UIntVector(const std::initializer_list<unsigned int>);
+
         ~UIntVector();
-        unsigned int& operator[] (int);
-        const unsigned int& operator[] (int) const;
+
+        UIntVector& operator=(const UIntVector&);
+        UIntVector& operator=(UIntVector&&);
+
+        unsigned int& operator[] (const std::size_t);
+        const unsigned int& operator[] (const std::size_t) const;
         void reset();
         std::size_t size() const;
 };
