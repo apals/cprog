@@ -22,7 +22,15 @@ UIntVector::UIntVector(std::initializer_list<unsigned int> list)
     }
 }
 
-unsigned int UIntVector::operator[](const int index)
+UIntVector::UIntVector(const UIntVector & obj) {
+    std::cout << "Copy constructor" << std::endl;
+    first = new unsigned int[obj.size()];
+    for(int i = 0; i < obj.size(); i++) {
+            first[i] = obj[i];
+    }
+}
+
+unsigned int UIntVector::operator[](const int index) const
 {
     if(index < vector_size || index < 0)
         return first[index];
@@ -42,7 +50,7 @@ void UIntVector::reset()
     }
 }
 
-std::size_t UIntVector::size()
+std::size_t UIntVector::size() const
 {
     return vector_size;
 }
@@ -51,6 +59,9 @@ int main() {
     const size_t size = 5;
     UIntVector v1({1, 2, 3, 4, 5}); // copy list-initialization
     UIntVector v(size);
+    UIntVector c = v;
+    std::cout << v[0] << std::endl;
+    std::cout << v[6] << std::endl;
     std::cout << v[3] << std::endl;
     std::cout << v.size() << std::endl;
     return 0;
