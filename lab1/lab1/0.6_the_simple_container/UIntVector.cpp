@@ -31,11 +31,13 @@ UIntVector::UIntVector(const UIntVector & obj) {
     }
 }
 
-UIntVector::UIntVector(const UIntVector && obj) {
+UIntVector::UIntVector(UIntVector && obj) {
     std::cout << "move constructor" << std::endl;
+    first = std::move(obj.first);
+
 }
 
-UIntVector& UIntVector::operator=(const UIntVector && other) {
+UIntVector& UIntVector::operator=(UIntVector && other) {
     std::cout << "move assignment operator" << std::endl;
     vector_size = other.vector_size;
     first = other.first;
@@ -100,5 +102,6 @@ int main() {
     v1[4] = 7;
     v1[4]++;
     std::cout << "v1[4] == " << v1[4] << std::endl;
+//    v1 = std::move(UIntVector(5));
     return 0;
 }

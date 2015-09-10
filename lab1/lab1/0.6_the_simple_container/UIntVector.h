@@ -13,8 +13,8 @@ class UIntVector {
         UIntVector(std::initializer_list<unsigned int>);
         UIntVector(const UIntVector & obj);
         UIntVector& operator =(const UIntVector&);
-        UIntVector(const UIntVector&&);
-        UIntVector& operator=(const UIntVector&&);
+        UIntVector(UIntVector&&);
+        UIntVector& operator=(UIntVector&&);
         ~UIntVector();
         unsigned int& operator[] (int);
         const unsigned int& operator[] (int) const;
