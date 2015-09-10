@@ -37,8 +37,8 @@ UIntVector::UIntVector(const UIntVector && obj) {
 
 UIntVector& UIntVector::operator=(const UIntVector && other) {
     std::cout << "move assignment operator" << std::endl;
-    vector_size = other.vector_size;
-    first = other.first;
+    vector_size = std::move(other.vector_size);
+    first = std::move(other.first);
     return *this;
 }
 
@@ -46,8 +46,7 @@ unsigned int& UIntVector::operator[](int index)
 {
     if(index < vector_size || index < 0)
         return first[index];
-    else
-        throw std::out_of_range("Index out of range");
+    throw std::out_of_range("Index out of range");
 }
 
 UIntVector& UIntVector::operator=(const UIntVector& other)
@@ -91,8 +90,8 @@ int main() {
     UIntVector v1({1, 2, 3, 4, 5}); // copy list-initialization
     UIntVector v(size);
     UIntVector c = v;
-    
-    
+
+
     std::cout << "================" << std::endl;
     std::cout << "================" << std::endl;
     const UIntVector v2(size + 2);
