@@ -9,6 +9,7 @@ class UIntVector {
         UIntVector();
         UIntVector(size_t);
         UIntVector(std::initializer_list<unsigned int>);
+        ~UIntVector();
         void reset();
         std::size_t size();
 };

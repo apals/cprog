@@ -13,6 +13,10 @@ UIntVector::UIntVector(std::initializer_list<unsigned int> list)
 {
 }
 
+UIntVector::~UIntVector()
+{
+}
+
 void UIntVector::reset()
 {
 }
