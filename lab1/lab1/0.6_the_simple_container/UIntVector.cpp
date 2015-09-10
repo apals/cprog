@@ -7,11 +7,13 @@ UIntVector::UIntVector()
 
 UIntVector::UIntVector(size_t size)
 {
+    vector_size = size;
     first = new unsigned int[size];
 }
 
 UIntVector::UIntVector(std::initializer_list<unsigned int> list)
 {
+    vector_size = list.size();
     first = new unsigned int[list.size()];
     for(int i = 0; i < list.size(); i++) {
         //Use pointer arithmetic to dereference the elements in list
