@@ -10,7 +10,7 @@ class UIntVector {
     public:
         UIntVector();
         UIntVector(size_t);
-        UIntVector(std::initializer_list<unsigned int> l);
+        UIntVector(std::initializer_list<unsigned int>);
 };
 
 #endif
