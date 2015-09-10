@@ -37,6 +37,8 @@ UIntVector::UIntVector(const UIntVector && obj) {
 
 UIntVector& UIntVector::operator=(const UIntVector && other) {
     std::cout << "move assignment operator" << std::endl;
+    vector_size = other.vector_size;
+    first = other.first;
     return *this;
 }
 
