@@ -1,4 +1,5 @@
 #include <iostream>
+#include <typeinfo>
 
 int powerof (int x, int y) {
   int res = 1;
@@ -18,7 +19,7 @@ int main () {
 
   std::cout << a << "^" << b << " = " << x << ";\n";
 
-  if (y == 3.1415)
+  if (y == 3.1415f)
     std::cout << y << " is equal to 3.1415!\n";
   else
     std::cout << y << " is not equal to 3.1415!\n";
