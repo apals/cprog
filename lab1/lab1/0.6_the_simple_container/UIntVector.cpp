@@ -30,9 +30,9 @@ UIntVector::UIntVector(const UIntVector & obj) {
     }
 }
 
-unsigned int UIntVector::operator[](const int index) const
+unsigned int& UIntVector::operator[](int index) 
 {
-    if(index < vector_size)
+    if(index < vector_size || index < 0)
         return first[index];
     else
         throw std::out_of_range("Index out of range");
@@ -55,6 +55,16 @@ UIntVector::UIntVector & operator= (const UIntVector & other)
     // by convention, always return *this
     return *this;
 }
+
+const unsigned int& UIntVector::operator[](int index) const
+{
+    if(index < vector_size || index < 0)
+        return first[index];
+    else
+        throw std::out_of_range("Index out of range");
+}
+
+
 UIntVector::~UIntVector()
 {
     delete [] first;
@@ -80,5 +90,13 @@ int main() {
     std::cout << v[0] << std::endl;
     std::cout << v[3] << std::endl;
     std::cout << v.size() << std::endl;
+
+    std::cout << "================" << std::endl;
+    v[2] = 5;
+    std::cout << v[2] << std::endl;
+
+    std::cout << "================" << std::endl;
+    const UIntVector v2(size);
+    v2[5] = 3;
     return 0;
 }
