@@ -39,10 +39,11 @@ unsigned int& UIntVector::operator[](int index)
         throw std::out_of_range("Index out of range");
 }
 
-UIntVector & operator=(const UIntVector & other)
+UIntVector& UIntVector::operator=(const UIntVector& other)
 {
-    UIntVector v(other);
-    return v;
+    if(this != &other)
+        std::cout << "apa";
+    return *this;
 }
 
 const unsigned int& UIntVector::operator[](int index) const
