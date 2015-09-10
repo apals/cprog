@@ -9,6 +9,7 @@ UIntVector::UIntVector(size_t size)
 {
     vector_size = size;
     first = new unsigned int[size];
+    reset();
 }
 
 UIntVector::UIntVector(std::initializer_list<unsigned int> list)
@@ -31,7 +32,10 @@ UIntVector::UIntVector(const UIntVector & obj) {
 
 unsigned int UIntVector::operator[](const int index) const
 {
-    return first[index];
+    if(index < vector_size)
+        return first[index];
+    else
+        throw std::out_of_range("Index out of range");
 }
 
 UIntVector::~UIntVector()
@@ -58,5 +62,6 @@ int main() {
     UIntVector c = v;
     std::cout << v[0] << std::endl;
     std::cout << v[6] << std::endl;
+    std::cout << v[3] << std::endl;
     return 0;
 }
