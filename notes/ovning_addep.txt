@@ -1,0 +1,30 @@
+
+
+void incr(int& ref) {
+
+    ref += 2;
+}
+
+int main() {
+
+    int x = 2;
+    incr(x);
+
+}
+
+
+void by_ref(int& val);
+void by_value(int val);
+
+
+konstrukdtor/destruktor/copy
+A() { std::cout << "konstruktor" << std::endl; }
+
+A() {A const&) { std::cout << "copy" << std::endl; }
+
+~A() { destruktor }
+
+R-value
+A(A&&) { std::cout << "move" << std::endl;
+
+
