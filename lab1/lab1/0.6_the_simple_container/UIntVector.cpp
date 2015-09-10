@@ -26,6 +26,7 @@ unsigned int UIntVector::operator[](const int index)
 
 UIntVector::~UIntVector()
 {
+    delete [] first;
 }
 
 void UIntVector::reset()
