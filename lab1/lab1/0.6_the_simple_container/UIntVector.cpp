@@ -25,6 +25,7 @@ UIntVector::UIntVector(std::initializer_list<unsigned int> list)
 UIntVector::UIntVector(const UIntVector & obj) {
     std::cout << "Copy constructor" << std::endl;
     first = new unsigned int[obj.size()];
+    vector_size = obj.size();
     for(int i = 0; i < obj.size(); i++) {
         first[i] = obj[i];
     }
@@ -38,22 +39,10 @@ unsigned int& UIntVector::operator[](int index)
         throw std::out_of_range("Index out of range");
 }
 
-UIntVector::UIntVector & operator= (const UIntVector & other)
+UIntVector & operator=(const UIntVector & other)
 {
-    if (this != &other) // protect against invalid self-assignment
-    {
-        unsigned int * new_array = new unsigned int[other.vector_size];
-        std::copy(other.first, other.first + other.size(), new_array);
-
-        // 2: deallocate old memory
-        delete [] first;
-
-        // 3: assign the new memory to the object
-        first = new_array;
-        vector_size = other.size();
-    }
-    // by convention, always return *this
-    return *this;
+    UIntVector v(other);
+    return v;
 }
 
 const unsigned int& UIntVector::operator[](int index) const
@@ -97,6 +86,5 @@ int main() {
 
     std::cout << "================" << std::endl;
     const UIntVector v2(size);
-    v2[5] = 3;
     return 0;
 }
