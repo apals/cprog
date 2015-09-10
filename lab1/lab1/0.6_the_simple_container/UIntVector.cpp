@@ -21,7 +21,10 @@ UIntVector::UIntVector(std::initializer_list<unsigned int> list)
 
 unsigned int UIntVector::operator[](const int index)
 {
-    return first[index];
+    if(index < vector_size)
+        throw std::out_of_range("Index out of range");
+    else
+        return first[index];
 }
 
 UIntVector::~UIntVector()
