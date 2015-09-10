@@ -38,6 +38,7 @@ unsigned int& UIntVector::operator[](int index)
         throw std::out_of_range("Index out of range");
 }
 
+/*
 UIntVector::UIntVector & operator= (const UIntVector & other)
 {
     if (this != &other) // protect against invalid self-assignment
@@ -55,7 +56,7 @@ UIntVector::UIntVector & operator= (const UIntVector & other)
     // by convention, always return *this
     return *this;
 }
-
+*/
 const unsigned int& UIntVector::operator[](int index) const
 {
     if(index < vector_size || index < 0)
@@ -97,6 +98,6 @@ int main() {
 
     std::cout << "================" << std::endl;
     const UIntVector v2(size);
-    v2[5] = 3;
+//    v2[5] = 3; //gives error
     return 0;
 }
