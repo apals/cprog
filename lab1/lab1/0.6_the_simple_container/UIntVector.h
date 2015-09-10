@@ -6,7 +6,7 @@ class UIntVector {
 
     private:
         size_t vector_size;
-        unsigned int ** first;
+        unsigned int * first;
     public:
         UIntVector();
         UIntVector(size_t);

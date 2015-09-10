@@ -7,12 +7,7 @@ UIntVector::UIntVector()
 
 UIntVector::UIntVector(size_t size)
 {
-    first = new unsigned int * [size];
-    std::cout << "allocated first ***" << std::endl;
-    for(int i = 0; i < size; i++) {
-        first[i] = new unsigned int;
-        std::cout << "ALLOCATED AN INTE" << std::endl;
-    }
+    first = new unsigned int[size];
 }
 
 UIntVector::UIntVector(std::initializer_list<unsigned int> list)
@@ -21,6 +16,8 @@ UIntVector::UIntVector(std::initializer_list<unsigned int> list)
 
 void UIntVector::reset()
 {
+    for(int i = 0; i < vector_size; i++) {
+    }
 }
 
 std::size_t UIntVector::size()
