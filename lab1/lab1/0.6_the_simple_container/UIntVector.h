@@ -1,3 +1,5 @@
+#ifndef UINTVECTOR
+#define UINTVECTOR
 
 class UIntVector {
 
@@ -8,3 +10,5 @@ class UIntVector {
         UIntVector(size_t);
         UIntVector(initializer_list);
 }
+
+#endif
