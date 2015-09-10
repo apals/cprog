@@ -52,5 +52,6 @@ int main() {
     UIntVector v1({1, 2, 3, 4, 5}); // copy list-initialization
     UIntVector v(size);
     std::cout << v[3] << std::endl;
+    std::cout << v.size() << std::endl;
     return 0;
 }
