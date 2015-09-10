@@ -85,7 +85,6 @@ int main() {
     std::cout << "================" << std::endl;
     std::cout << "================" << std::endl;
     const UIntVector v2(size + 2);
-    v2 = v1;
     std::cout << "hejhej" << std::endl;
     return 0;
 }
