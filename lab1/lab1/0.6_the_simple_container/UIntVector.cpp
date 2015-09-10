@@ -41,8 +41,10 @@ unsigned int& UIntVector::operator[](int index)
 
 UIntVector& UIntVector::operator=(const UIntVector& other)
 {
-    if(this != &other)
-        std::cout << "apa";
+    UIntVector tmp(other);
+    std::cout << "jag är en dIck" << std::endl;
+    std::swap(vector_size, tmp.vector_size);
+    std::swap(first, tmp.first);
     return *this;
 }
 
@@ -57,6 +59,7 @@ const unsigned int& UIntVector::operator[](int index) const
 
 UIntVector::~UIntVector()
 {
+    std::cout << "destructor" << std::endl;
     delete [] first;
 }
 
@@ -77,15 +80,12 @@ int main() {
     UIntVector v1({1, 2, 3, 4, 5}); // copy list-initialization
     UIntVector v(size);
     UIntVector c = v;
-    std::cout << v[0] << std::endl;
-    std::cout << v[3] << std::endl;
-    std::cout << v.size() << std::endl;
-
+    
+    
     std::cout << "================" << std::endl;
-    v[2] = 5;
-    std::cout << v[2] << std::endl;
-
     std::cout << "================" << std::endl;
-    const UIntVector v2(size);
+    const UIntVector v2(size + 2);
+    v2 = v1;
+    std::cout << "hejhej" << std::endl;
     return 0;
 }
