@@ -31,6 +31,15 @@ UIntVector::UIntVector(const UIntVector & obj) {
     }
 }
 
+UIntVector::UIntVector(const UIntVector && obj) {
+    std::cout << "move constructor" << std::endl;
+}
+
+UIntVector& UIntVector::operator=(const UIntVector && other) {
+    std::cout << "move assignment operator" << std::endl;
+    return *this;
+}
+
 unsigned int& UIntVector::operator[](int index) 
 {
     if(index < vector_size || index < 0)
