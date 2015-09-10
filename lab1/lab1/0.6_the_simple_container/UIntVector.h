@@ -6,5 +6,5 @@ class UIntVector {
     public:
         UIntVector();
         UIntVector(size_t);
-        UIntVector(initializer_list);
-}
+        UIntVector(std::initializer_list<unsigned int>);
+};
