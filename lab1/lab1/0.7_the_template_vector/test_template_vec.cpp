@@ -4,6 +4,7 @@
 
 int main()
 {
+    /*
     Vector<double> v;           // ok: defaultkonstruktor ger vektor med flyttal
     Vector<char> *a = new Vector<char>[3];  // dynamiskt allokerade ser ut så här
     delete [] a;
@@ -37,4 +38,5 @@ int main()
     Vector<char> c = v;         // fel: tilldelning av olika typer
 
     return 0;
+    */
 }
