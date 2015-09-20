@@ -7,8 +7,8 @@ template <class T> class Vector {
         T* vect;
     public:
         Vector();
-        Vector(const std::size_t, const T);
         Vector(const std::size_t);
+        Vector(const std::size_t, const T);
         Vector(const Vector &);
         Vector(Vector&&);
         Vector(const std::initializer_list<T>);
@@ -24,7 +24,7 @@ template <class T> class Vector {
 
 
         void push_back(T);
-        void insert(std::size_z, T);
+        void insert(std::size_t, T);
         void clear(); // reset
         void erease(std::size_t);
 
@@ -34,9 +34,11 @@ template <class T> class Vector {
         void checkIfConstructibleAssignable();
         void increaseVectorSize();
 
+        /*
         iterator begin();
         iterator end();
         iterator find(T const&);
+        */
 };
 
 #endif
