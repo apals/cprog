@@ -26,13 +26,13 @@ template <class T> class Vector {
         void push_back(T);
         void insert(std::size_t, T);
         void clear(); // reset
-        void erease(std::size_t);
+        void erase(std::size_t);
 
-        std::size_t size();
-        std::size_t capacity();
+        std::size_t size() const;
+        std::size_t capacity() const;
 
         void checkIfConstructibleAssignable();
-        void increaseVectorSize();
+        void increaseVectorCapacity();
 
         /*
         iterator begin();
