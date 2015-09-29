@@ -3,10 +3,12 @@
 #include <iostream>
 #include <stdexcept>
 #include <assert.h>
+#include <initializer_list>
 #include <type_traits>
 #include <iterator>
 
-template <class T> class Vector {
+template <class T> 
+class Vector {
     private:
         std::size_t vector_size, vector_capacity;
         T* vect;
@@ -22,7 +24,7 @@ template <class T> class Vector {
         Vector(const std::initializer_list<T>);
 
 
-        ~Vector();
+        virtual ~Vector();
 
         Vector<T>& operator=(const Vector<T>&);
         Vector<T>& operator=(Vector<T>&&);
@@ -54,4 +56,5 @@ template <class T> class Vector {
         const_iterator find(T const&) const;
 };
 
+#include "Vector_impl.hpp"
 #endif
