@@ -33,7 +33,6 @@ template <class T> class Vector {
 
         std::string print();
 
-
         void push_back(T);
         void insert(std::size_t, T);
         void clear();

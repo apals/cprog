@@ -69,7 +69,6 @@ template <typename T>
 Vector<T>::~Vector()
 {
     delete []vect;
-    clear();
 }
 
 template <typename T>
@@ -167,16 +166,16 @@ void Vector<T>::insert(std::size_t index, T obj)
 template <typename T>
 void Vector<T>::clear()
 {
-    for(std::size_t i = 0; i < vector_capacity; i++)
-        vect[i] = 0;
     vector_size = 0;
+    delete [] vect;
+    vect = new T[vector_capacity];
 }
 
 template <typename T>
 void Vector<T>::reset()
 {
     for(std::size_t i = 0; i < vector_capacity; i++)
-        vect[i] = 0;
+        vect[i] = T();
 }
 
 template <typename T>
@@ -232,17 +231,20 @@ typename Vector<T>::iterator Vector<T>::begin()
 template <typename T>
 typename Vector<T>::iterator Vector<T>::end() 
 {
-    return vect + vector_size - 1; // from literature
+    return vect + vector_size; // from literature
 }
 
 template <typename T>
-typename Vector <T>::iterator Vector<T>::find(T const& val)
+typename Vector<T>::iterator Vector<T>::find(T const& val)
 {
-    for(auto iterator = val.begin(); iterator != val.end(); iterator++)
+    for(auto iterator = begin(); iterator != end(); iterator++)
     {
-        if(val == *iterator)
-            return iterator;
+            if(val == *iterator){
+                return iterator;
+            }
     }
+
+    return end();
 }
 
 template <typename T>
@@ -254,22 +256,17 @@ typename Vector<T>::const_iterator Vector<T>::begin() const
 template <typename T>
 typename Vector<T>::const_iterator Vector<T>::end() const
 {
-    return vect + vector_size - 1; // from literature
+    return vect + vector_size; // from literature
 }
 
 template <typename T>
-typename Vector <T>::const_iterator Vector<T>::find(T const& val) const
+typename Vector<T>::const_iterator Vector<T>::find(T const& val) const
 {
-    for(auto iterator = val.begin(); iterator != val.end(); iterator++)
+    for(auto iterator = begin(); iterator != end(); iterator++)
     {
         if(val == *iterator)
-            return iterator;
+                return iterator;
     }
+    return end();
 }
 
-
-int main(){
-    Vector<int> a(3);
-    std::cout << a.begin();
-    return 0;
-}
