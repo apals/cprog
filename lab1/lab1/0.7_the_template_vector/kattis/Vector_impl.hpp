@@ -3,7 +3,7 @@ Vector<T>::Vector()
 {
     checkIfConstructibleAssignable();
     vector_size = 0;
-    vector_capacity = 0;
+    vector_capacity = 1;
     vect = new T[vector_capacity];
 }
 
@@ -12,7 +12,7 @@ Vector<T>::Vector(const std::size_t size)
 {
     checkIfConstructibleAssignable();
     vector_size = size;
-    vector_capacity = size;
+    vector_capacity = 2*size + 1;
     vect = new T[vector_capacity];
     reset();
 }
@@ -22,7 +22,7 @@ Vector<T>::Vector(const std::size_t size, const T value)
 {
     checkIfConstructibleAssignable();
     vector_size = size;
-    vector_capacity = 2*size;
+    vector_capacity = 2*size + 1;
     vect = new T[vector_capacity];
     for(std::size_t i = 0; i < size; i++)
     {
@@ -37,7 +37,7 @@ Vector<T>::Vector(const Vector& v)
     vector_size = v.size();
     vector_capacity = v.capacity();
     vect = new T[vector_capacity];
-    for(std::size_t i = 0; i < vector_capacity; i++)
+    for(std::size_t i = 0; i < vector_size; i++)
         vect[i] = v[i];
 }
 
@@ -185,9 +185,13 @@ void Vector<T>::reset()
 template <class T>
 void Vector<T>::erase(std::size_t index)
 {
-    for(std::size_t i = index; i < vector_size; i++)
+    if(index > vector_size - 1 || index < 0 || vector_size == 0)
+        throw std::out_of_range("Index out of range");
+
+    for(std::size_t i = index; i < vector_size - 1; i++)
     {
         vect[i] = vect[i+1];
+        //std::cout << vector_size << " " << i << std::endl;
     }
     vect[vector_size - 1] = T();
     vector_size -= 1;
