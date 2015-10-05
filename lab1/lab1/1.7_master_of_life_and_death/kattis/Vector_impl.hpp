@@ -83,9 +83,15 @@ template <class T>
 Vector<T>& Vector<T>::operator=(const Vector<T>& other)
 {
     Vector<T> tmp(other);
-    std::swap(vector_size, tmp.vector_size);
-    std::swap(vector_capacity, tmp.vector_capacity);
-    std::swap(vect, tmp.vect);
+    try {
+        std::swap(vector_size, tmp.vector_size);
+        std::swap(vector_capacity, tmp.vector_capacity);
+        std::swap(vect, tmp.vect);
+    }
+    catch(...)
+    {
+        throw;
+    }
     return *this;
 }
 
