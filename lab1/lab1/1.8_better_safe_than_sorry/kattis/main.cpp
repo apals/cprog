@@ -1,6 +1,4 @@
 #include "Vector.hpp"
-/*
-
 #include <string>
 struct T1 {
     public:
@@ -15,8 +13,8 @@ int main () {
     Vector<int> vec(1000, 1024);
     Vector<int> vec2 = {12, 252};
     Vector<int> vec3 = vec;
-    Vector<int> vec5(5);
+    Vector<int> vec5 = std::move(std::move(vec2));
     vec.push_back(2048);
     vec.erase(0);
+
 }
-*/
