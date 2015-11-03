@@ -70,6 +70,31 @@ unsigned int Date::days_this_month() {
 }
 
 std::string Date::month_name() {
+    std::string name;
+    if(curr_month == 1) 
+        name = "JANUARY";
+    else if(curr_month == 2) 
+        name = "FEBRUARY";
+    else if(curr_month == 3) 
+        name = "MARCH";
+    else if(curr_month == 4) 
+        name = "APRIL";
+    else if(curr_month == 5) 
+        name = "MAY";
+    else if(curr_month == 6) 
+        name = "JUNE";
+    else if(curr_month == 7) 
+        name = "JULY";
+    else if(curr_month == 8) 
+        name = "AUGUST";
+    else if(curr_month == 9) 
+        name = "SEPTEMBER";
+    else if(curr_month == 10) 
+        name = "OCTOBER";
+    else if(curr_month == 11) 
+        name = "NOVEMBER";
+    else if(curr_month == 12) 
+        name = "DECEMBER";
     return "-1";
 }
 
