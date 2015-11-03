@@ -3,6 +3,22 @@
 Date::Date(){
 }
 
+//Copy assignment
+Date& Date::operator=(const Date& other) {
+    Date tmp(other);
+    std::swap(curr_year, tmp.curr_year);
+    std::swap(curr_month, tmp.curr_month);
+    std::swap(curr_day, tmp.curr_day);
+    std::swap(curr_week_day, tmp.curr_week_day);
+    std::swap(curr_days_per_week, tmp.curr_days_per_week);
+    return *this;
+}
+
+//Copy constructor
+Date::Date(const Date & obj) {
+    
+}
+
 int Date::year() {
     return curr_year;
 }

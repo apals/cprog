@@ -4,6 +4,8 @@
 class Date {
     public:
         Date();
+        Date& operator=(const Date& other);
+        Date(const Date & obj);
         int year();
         unsigned int month();
         unsigned int day();
