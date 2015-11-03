@@ -1,7 +1,9 @@
-#ifndef __DATE__
+#ifndef __LABDATE__
+#define __LABDATE__
 #include <iostream>
 class Date {
     public:
+        Date();
         int year();
         unsigned int month();
         unsigned int day();
@@ -10,8 +12,8 @@ class Date {
         unsigned int days_this_month();
         std::string week_day_name();
         std::string month_name();
-        int add_year(int n);
-        int add_month(int n);
+        void add_year(int n);
+        void add_month(int n);
         int mod_julian_day();
 
     private:

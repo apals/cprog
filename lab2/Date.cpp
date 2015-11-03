@@ -1,6 +1,7 @@
 #include "Date.hpp"
-#include <string>
 
+Date::Date(){
+}
 
 int Date::year() {
     return curr_year;
@@ -35,10 +36,16 @@ std::string Date::month_name() {
     return "-1";
 }
 
-void Date::add_year() {
+void Date::add_year(int n) {
 
+}
+
+void Date::add_month(int n){
 }
 
 int Date::mod_julian_day() {
     return 0;    
+}
+
+int main(){
 }
