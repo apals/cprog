@@ -13,7 +13,7 @@ class Date {
         virtual unsigned int week_day();
         virtual unsigned int days_per_week();
         virtual unsigned int days_this_month();
-        virtual std::string week_day_name() = 0;
+        virtual std::string week_day_name();
         virtual std::string month_name();
         virtual void add_year(int n);
         virtual void add_month(int n);
