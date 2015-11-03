@@ -10,11 +10,13 @@ struct T1 {
 
 unsigned int T1::object_count = 0;
 int main () {
-    Vector<int> vec(1000, 1024);
     Vector<int> vec2 = {12, 252};
-    Vector<int> vec3 = vec;
     Vector<int> vec5 = std::move(std::move(vec2));
-    vec.push_back(2048);
-    vec.erase(0);
+    Vector<int> vec(2);
+    vec.insert(0, 1);
+    vec.insert(0, 1);
+    vec.insert(0, 1);
+    vec.insert(0, 1);
+    vec.insert(0, 1);
 
 }
