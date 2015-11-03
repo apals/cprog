@@ -71,6 +71,7 @@ unsigned int Date::days_this_month() {
 
 std::string Date::month_name() {
     std::string name;
+
     if(curr_month == 1) 
         name = "JANUARY";
     else if(curr_month == 2) 
@@ -95,7 +96,7 @@ std::string Date::month_name() {
         name = "NOVEMBER";
     else if(curr_month == 12) 
         name = "DECEMBER";
-    return "-1";
+    return name;
 }
 
 void Date::add_year(int n) {
