@@ -4,9 +4,9 @@ Date::Date(){
 }
 
 Date::Date(int year, int month, int day){
-    this.curr_year = year;
-    this.curr_month = month;
-    this.curr_day = day;
+    curr_year = year;
+    curr_month = month;
+    curr_day = day;
 }
 
 int Date::year() {
@@ -34,10 +34,6 @@ unsigned int Date::days_this_month() {
     return -1;
 }
 
-std::string Date::week_day_name() {
-    return "-1";
-}
-
 std::string Date::month_name() {
     return "-1";
 }
@@ -53,5 +49,3 @@ int Date::mod_julian_day() {
     return 0;    
 }
 
-int main(){
-}
