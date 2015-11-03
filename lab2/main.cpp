@@ -3,9 +3,5 @@
 #include <iostream>
 
 int main(){
-    Date d;
-    
-    std::cout << d.year() << std::endl;
-    std::cout << d.month() << std::endl;
-    std::cout << d.day() << std::endl;
+    Date d(1, 1, 1);
 }

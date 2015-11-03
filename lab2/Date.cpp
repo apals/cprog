@@ -80,3 +80,7 @@ int Date::mod_julian_day() {
     return 0;    
 }
 
+std::string Date::week_day_name() {
+    return "1";
+}
+
