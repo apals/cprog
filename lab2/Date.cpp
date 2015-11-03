@@ -34,6 +34,12 @@ Date::Date(const Date & obj) {
     curr_days_per_week = obj.curr_days_per_week;
 }
 
+Date::Date(int year, int month, int day){
+    curr_year = year;
+    curr_month = month;
+    curr_day = day;
+}
+
 int Date::year() {
     return curr_year;
 }
@@ -59,10 +65,6 @@ unsigned int Date::days_this_month() {
     return -1;
 }
 
-std::string Date::week_day_name() {
-    return "-1";
-}
-
 std::string Date::month_name() {
     return "-1";
 }
@@ -78,10 +80,3 @@ int Date::mod_julian_day() {
     return 0;    
 }
 
-int main() {
-    Date d;
-    std::cout << d.year() << std::endl;
-    std::cout << d.month() << std::endl;
-    std::cout << d.day() << std::endl;
-
-}
