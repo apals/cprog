@@ -4,9 +4,10 @@
 Date::Date(){
     // För att få nuvarande tid
     time_t mytime;
-    k_time(&mytime);
+    //k_time(&mytime);
 
     // För att få ut datum lokalt 
+    time(&mytime);
     struct tm *t = gmtime(&mytime);
     curr_year  = t->tm_year + 1900;
     curr_month = t->tm_mon + 1;      // månaderna och dagarna
@@ -57,6 +58,10 @@ unsigned int Date::week_day() {
 
 unsigned int Date::days_per_week() {
     return curr_days_per_week;
+}
+
+std::string Date::week_day_name(){
+    return "1";
 }
 
 unsigned int Date::days_this_month() {

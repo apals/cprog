@@ -1,8 +1,8 @@
 #include "Date.hpp"
 #include "Gregorian.hpp"
-#include "Date.hpp"
+#include <iostream>
 
 int main(){
-    Date d;
-    std::cout << d.year() << std::endl;
+    Gregorian g;
+    std::cout << g.year() << std::endl;
 }
