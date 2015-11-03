@@ -4,9 +4,10 @@
 Date::Date(){
     // För att få nuvarande tid
     time_t mytime;
-    k_time(&mytime);
+    //k_time(&mytime);
 
     // För att få ut datum lokalt 
+    time(&mytime);
     struct tm *t = gmtime(&mytime);
     curr_year  = t->tm_year + 1900;
     curr_month = t->tm_mon + 1;      // månaderna och dagarna
@@ -77,5 +78,10 @@ int Date::mod_julian_day() {
     return 0;    
 }
 
-int main(){
+int main() {
+    Date d;
+    std::cout << d.year() << std::endl;
+    std::cout << d.month() << std::endl;
+    std::cout << d.day() << std::endl;
+
 }
