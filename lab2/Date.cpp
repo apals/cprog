@@ -61,7 +61,23 @@ unsigned int Date::days_per_week() {
 }
 
 std::string Date::week_day_name(){
-    return "1";
+    switch(curr_week_day) {
+    case 1:
+        return "MONDAY";
+    case 2:
+        return "TUESDAY";
+    case 3:
+        return "WEDNESDAY";
+    case 4: 
+        return "THURSDAY";
+    case 5:
+        return "FRIDAY";
+    case 6:
+        return "SATURDAY";
+    case 7:
+        return "SUNDAY";
+    }
+    throw std::out_of_range("Week day is smaller than 1 or bigger than 7");
 }
 
 unsigned int Date::days_this_month() {
