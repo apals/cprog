@@ -2,7 +2,7 @@ CC = g++
 
 FLAGS = -std=c++11 -g -Wall -pedantic
 
-main.out: Date.o Gregorian.o Julian.o
+main.out: Date.o Gregorian.o Julian.o main.cpp
 		$(CC) $(FLAGS) main.cpp -o main.out
 
 Date.o: Date.cpp
