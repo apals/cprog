@@ -3,6 +3,12 @@
 Date::Date(){
 }
 
+Date::Date(int year, int month, int day){
+    this.curr_year = year;
+    this.curr_month = month;
+    this.curr_day = day;
+}
+
 int Date::year() {
     return curr_year;
 }

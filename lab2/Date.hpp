@@ -4,6 +4,7 @@
 class Date {
     public:
         Date();
+        Date(int year, int month, int day);
         int year();
         unsigned int month();
         unsigned int day();
