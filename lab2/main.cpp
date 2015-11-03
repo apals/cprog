@@ -1,7 +1,10 @@
-#include "Date.hpp"
+#include "Date.cpp"
 #include "Gregorian.hpp"
 #include <iostream>
 
 int main(){
-    Date d(1, 1, 1);
+    Date d;
+    std::cout << d.year() << std::endl;
+    std::cout << d.month() << std::endl;
+    std::cout << d.day() << std::endl;
 }
