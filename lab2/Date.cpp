@@ -65,8 +65,21 @@ std::string Date::week_day_name(){
 }
 
 unsigned int Date::days_this_month() {
-    //TODO: impl
-    return -1;
+    int days_this_month;
+
+    //Count knuckles
+    if (curr_month % 2 != 0) {
+        days_this_month = 31;
+    }
+
+    //If february and leap year
+    if (curr_month == 2) {
+        if (curr_year % 4 == 0) 
+            days_this_month = 29;
+        else 
+            days_this_month = 28;
+    }
+    return days_this_month;
 }
 
 std::string Date::month_name() {
