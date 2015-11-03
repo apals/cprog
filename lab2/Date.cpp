@@ -16,7 +16,11 @@ Date& Date::operator=(const Date& other) {
 
 //Copy constructor
 Date::Date(const Date & obj) {
-    
+   curr_year = obj.curr_year;
+   curr_month = obj.curr_month;
+   curr_day = obj.curr_day;
+   curr_week_day = obj.curr_week_day;
+   curr_days_per_week = obj.curr_days_per_week;
 }
 
 int Date::year() {
