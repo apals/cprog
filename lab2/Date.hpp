@@ -8,12 +8,13 @@ class Date {
         Date(int year, int month, int day);
         Date& operator=(const Date& other);
 
-        //Post increment
+        //Pre increment
         Date& operator++();
+        //Post increment
         Date operator++(int);
-
-        //Post decrement
+        //Pre decrement
         Date& operator--();
+        //Post decrement
         Date operator--(int);
         virtual int year();
         virtual unsigned int month();

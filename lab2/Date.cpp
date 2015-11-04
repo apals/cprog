@@ -35,32 +35,44 @@ Date::Date(const Date & obj) {
 }
 
 
-//postdecrement operator
+
+/**
+ * Reference for ++, -- operators
+ * http://en.cppreference.com/w/cpp/language/operators
+ * http://en.cppreference.com/w/cpp/language/operator_incdec
+ */
+
+//predecrement operator
 Date& Date::operator--() {
     //TODO: logic with days < 0 etc
     curr_day--;
     return *this;
 }
 
+//postdecrement operator
 Date Date::operator--(int) {
     Date tmp(*this);
     operator--();
     return tmp;
 }
 
-
-//postincrement operator
+//preincrement operator
 Date& Date::operator++() {
     //TODO: logic with days > 30, 31 etc
     curr_day++;
     return *this;
 }
 
+//postincrement operator
 Date Date::operator++(int) {
     Date tmp(*this);
     operator++();
     return tmp;
 }
+
+/**
+ * END ++ AND -- OPERATORS
+ */
 
 Date::Date(int year, int month, int day){
     curr_year = year;
