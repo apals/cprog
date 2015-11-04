@@ -35,7 +35,7 @@ Date::Date(const Date & obj) {
 }
 
 
-
+//-- operator
 Date& Date::operator--() {
     //TODO: logic with days < 0 etc
     curr_day--;
@@ -47,7 +47,6 @@ Date Date::operator--(int) {
     operator--();
     return tmp;
 }
-
 
 
 //++ operator
