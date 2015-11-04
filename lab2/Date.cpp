@@ -35,7 +35,7 @@ Date::Date(const Date & obj) {
 }
 
 
-//-- operator
+//postdecrement operator
 Date& Date::operator--() {
     //TODO: logic with days < 0 etc
     curr_day--;
@@ -49,7 +49,7 @@ Date Date::operator--(int) {
 }
 
 
-//++ operator
+//postincrement operator
 Date& Date::operator++() {
     //TODO: logic with days > 30, 31 etc
     curr_day++;
