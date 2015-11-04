@@ -34,6 +34,35 @@ Date::Date(const Date & obj) {
     curr_days_per_week = obj.curr_days_per_week;
 }
 
+
+
+Date& Date::operator--() {
+    //TODO: logic with days < 0 etc
+    curr_day--;
+    return *this;
+}
+
+Date Date::operator--(int) {
+    Date tmp(*this);
+    operator--();
+    return tmp;
+}
+
+
+
+//++ operator
+Date& Date::operator++() {
+    //TODO: logic with days > 30, 31 etc
+    curr_day++;
+    return *this;
+}
+
+Date Date::operator++(int) {
+    Date tmp(*this);
+    operator++();
+    return tmp;
+}
+
 Date::Date(int year, int month, int day){
     curr_year = year;
     curr_month = month;
@@ -129,7 +158,7 @@ std::string Date::month_name() {
 }
 
 void Date::add_year(int n) {
-
+    
 }
 
 void Date::add_month(int n){
