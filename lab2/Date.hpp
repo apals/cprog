@@ -7,8 +7,12 @@ class Date {
         Date(const Date & obj);
         Date(int year, int month, int day);
         Date& operator=(const Date& other);
+
+        //Post increment
         Date& operator++();
         Date operator++(int);
+
+        //Post decrement
         Date& operator--();
         Date operator--(int);
         virtual int year();
