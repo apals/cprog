@@ -86,6 +86,16 @@ Date& Date::operator-=(const int & n) {
     return *this;
 }
 
+Date Date::operator+(const Date &b) const {
+    Date d;
+    return d;
+}
+
+Date Date::operator-(const Date &b) const {
+    Date d;
+    return d;
+}
+
 
 Date::Date(int year, int month, int day){
     curr_year = year;

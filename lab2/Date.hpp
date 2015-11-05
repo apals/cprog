@@ -10,6 +10,10 @@ class Date {
 
         Date& operator+=(const int & n);
         Date& operator-=(const int & n);
+
+        Date operator+(const Date & b) const;
+        Date operator-(const Date & b) const;
+
         //Pre increment
         Date& operator++();
         //Post increment
