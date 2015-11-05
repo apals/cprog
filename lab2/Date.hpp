@@ -8,8 +8,8 @@ class Date {
         Date(int year, int month, int day);
         Date& operator=(const Date& other);
 
-        Date& operator+=(const Date& b);
-        Date& operator-=(const Date& b);
+        Date& operator+=(const int & n);
+        Date& operator-=(const int & n);
         //Pre increment
         Date& operator++();
         //Post increment

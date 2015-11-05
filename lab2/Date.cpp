@@ -75,13 +75,13 @@ Date Date::operator++(int) {
  */
 
 //+= operator
-Date& Date::operator+=(const Date& other) {
+Date& Date::operator+=(const int & n) {
     //TODO: impl
     return *this;
 }
 
 //+= operator
-Date& Date::operator-=(const Date& other) {
+Date& Date::operator-=(const int & n) {
     //TODO: impl
     return *this;
 }
