@@ -74,6 +74,19 @@ Date Date::operator++(int) {
  * END ++ AND -- OPERATORS
  */
 
+//+= operator
+Date& Date::operator+=(const Date& other) {
+    //TODO: impl
+    return *this;
+}
+
+//+= operator
+Date& Date::operator-=(const Date& other) {
+    //TODO: impl
+    return *this;
+}
+
+
 Date::Date(int year, int month, int day){
     curr_year = year;
     curr_month = month;
