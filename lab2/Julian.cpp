@@ -15,3 +15,7 @@ int Julian::mod_julian_day() {
 bool Julian::operator==(const Gregorian & g) const {
     return true;
 }
+
+bool Julian::asd(){
+    return true;
+}

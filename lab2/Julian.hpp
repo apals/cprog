@@ -8,6 +8,7 @@ class Julian : public Gregorian {
         Julian(const Gregorian & obj);
         virtual int mod_julian_day();
         bool operator==(const Gregorian & g) const;
+        bool asd();
 
 };
 
