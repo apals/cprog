@@ -103,15 +103,15 @@ Date::Date(int year, int month, int day){
     curr_day = day;
 }
 
-const int Date::year() {
+int Date::year() const {
     return curr_year;
 }
 
-const unsigned int Date::month() {
+unsigned int Date::month() const {
     return curr_month;
 }
 
-const unsigned int Date::day() {
+unsigned int Date::day() const {
     return curr_day;
 }
 
