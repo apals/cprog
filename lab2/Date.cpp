@@ -223,7 +223,17 @@ void Date::add_month(int n){
 }
 
 int Date::mod_julian_day() {
-    return 0;    
+    int a = floor((14 - curr_month)/12);
+    int y = curr_year + 4800 - a;
+    int m = curr_month + 12 * a - 3;
+    int jdn = curr_day 
+        + floor((153 * m + 2)/5)
+        + 365 * y
+        + floor(y/4)
+        - floor(y/100)
+        + floor(y/400)
+        - 32045;
+    return jdn;
 }
 
 
