@@ -34,6 +34,9 @@ Date::Date(const Date & obj) {
     curr_days_per_week = obj.curr_days_per_week;
 }
 
+std::ostream &operator<<(std::ostream &os, Date const &m) { 
+        return os << m.i;
+}
 
 
 /**
@@ -96,6 +99,27 @@ Date Date::operator-(const Date &b) const {
     return d;
 }
 
+bool Date::operator>(const Date & l, const Date & r) {
+    if (l.year() < r.year())
+        return true;
+    else if(l.year() > r.year())
+        return false;
+
+    if(l.month() < r.month())
+        return true;
+    else if(l.month() > r.month())
+        return false;
+
+    if(l.day() < r.day())
+        return true;
+    else if(l.day > r.day())
+        return false;
+
+    //They are equal
+    return false;
+
+}
+
 
 Date::Date(int year, int month, int day){
     curr_year = year;
@@ -125,20 +149,20 @@ unsigned int Date::days_per_week() {
 
 std::string Date::week_day_name(){
     switch(curr_week_day) {
-    case 1:
-        return "MONDAY";
-    case 2:
-        return "TUESDAY";
-    case 3:
-        return "WEDNESDAY";
-    case 4: 
-        return "THURSDAY";
-    case 5:
-        return "FRIDAY";
-    case 6:
-        return "SATURDAY";
-    case 7:
-        return "SUNDAY";
+        case 1:
+            return "MONDAY";
+        case 2:
+            return "TUESDAY";
+        case 3:
+            return "WEDNESDAY";
+        case 4: 
+            return "THURSDAY";
+        case 5:
+            return "FRIDAY";
+        case 6:
+            return "SATURDAY";
+        case 7:
+            return "SUNDAY";
     }
     throw std::out_of_range("Week day is smaller than 1 or bigger than 7");
 }
@@ -192,7 +216,7 @@ std::string Date::month_name() {
 }
 
 void Date::add_year(int n) {
-    
+
 }
 
 void Date::add_month(int n){
