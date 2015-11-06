@@ -5,11 +5,11 @@
 
 int main(){
     { 
-        Gregorian g (1900, 1, 1);
+        Gregorian g (1899, 12, 19);
         Julian j (1899, 12, 19);
         std::cout << j << std::endl;
-        std::cout << j.
-        std::cout << (j == g) << std::endl; // shall yield false
+        std::cout << g.mod_julian_day() << std::endl;
+        std::cout << j.mod_julian_day() << std::endl;
         //j++; // increment ‘j‘ by one day
         //j == g; // shall yield true
     }
