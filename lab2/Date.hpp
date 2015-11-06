@@ -7,6 +7,21 @@ class Date {
         Date(const Date & obj);
         Date(int year, int month, int day);
         Date& operator=(const Date& other);
+
+        Date& operator+=(const int & n);
+        Date& operator-=(const int & n);
+
+        Date operator+(const Date & b) const;
+        Date operator-(const Date & b) const;
+
+        //Pre increment
+        Date& operator++();
+        //Post increment
+        Date operator++(int);
+        //Pre decrement
+        Date& operator--();
+        //Post decrement
+        Date operator--(int);
         int year();
         unsigned int month();
         unsigned int day();
