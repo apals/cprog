@@ -4,29 +4,11 @@
 #include <iostream>
 
 int main(){
-    Date d;
-    std::cout << d.year() << std::endl;
-    std::cout << d.month() << std::endl;
-    std::cout << d.day() << std::endl;
-    std::cout << d << std::endl;
-
-
-    --d;
-    std::cout << d.day()  << std::endl;
-    d--;
-    std::cout << d.day()  << std::endl;
-    ++d;
-    std::cout << d.day()  << std::endl;
-    d++;
-    std::cout << d.day()  << std::endl;
-    Gregorian g;
-    std::cout << g << std::endl;
-
     { 
         Gregorian g (1900, 1, 1);
         Julian j (1899, 12, 19);
         std::cout << j << std::endl;
-        j.asd();
+        std::cout << j.
         std::cout << (j == g) << std::endl; // shall yield false
         //j++; // increment ‘j‘ by one day
         //j == g; // shall yield true
