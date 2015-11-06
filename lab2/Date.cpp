@@ -34,8 +34,8 @@ Date::Date(const Date & obj) {
     curr_days_per_week = obj.curr_days_per_week;
 }
 
-std::ostream &operator<<(std::ostream &os, Date const &m) { 
-        return os << m.i;
+std::ostream& operator<<(std::ostream &os, Date const &m) { 
+        return os << printf("%d-%d-%d", m.year(), m.month(), m.day());
 }
 
 
