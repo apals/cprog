@@ -36,7 +36,7 @@ class Date {
         std::string month_name();
         virtual void add_year(int n);
         virtual void add_month(int n);
-        int mod_julian_day();
+        virtual int mod_julian_day();
 
     private:
         int curr_year;
