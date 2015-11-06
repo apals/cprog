@@ -1,6 +1,6 @@
 #include "Julian.hpp"
 
-int Julian::mod_julian_day() {
+int Julian::mod_julian_day() const {
     int a = floor((14 - month())/12);
     int y = year() + 4800 - a;
     int m = month() + 12 * a - 3;

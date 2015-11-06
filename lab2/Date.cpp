@@ -100,7 +100,10 @@ Date Date::operator-(const Date &b) const {
 }
 
 bool Date::operator<(const Date & r) {
-    if (year() < r.year())
+
+    return mod_julian_day() < r.mod_julian_day();
+
+    /*if (year() < r.year())
         return true;
     else if(year() > r.year())
         return false;
@@ -116,7 +119,7 @@ bool Date::operator<(const Date & r) {
         return false;
 
     //They are equal
-    return false;
+    return false;*/
 
 }
 
@@ -222,7 +225,7 @@ void Date::add_year(int n) {
 void Date::add_month(int n){
 }
 
-int Date::mod_julian_day() {
+int Date::mod_julian_day() const {
     int a = floor((14 - curr_month)/12);
     int y = curr_year + 4800 - a;
     int m = curr_month + 12 * a - 3;
