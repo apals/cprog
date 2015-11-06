@@ -26,14 +26,16 @@ int main(){
         Gregorian g (1900, 1, 1);
         Julian j (1899, 12, 19);
         j == g; // shall yield false
-        j++; // increment ‘j‘ by one day
-        j == g; // shall yield true
+        //j++; // increment ‘j‘ by one day
+        //j == g; // shall yield true
     }
     { 
+        /*
         Gregorian g (1858, 11, 16);
         Julian j (g);
         std::cout << j; // shall print 1858-11-4
         std::cout << g; // shall print 1858-11-16
+        */
     }
     { 
         /*
