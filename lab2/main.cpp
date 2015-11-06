@@ -1,4 +1,4 @@
-#include "Date.cpp"
+#include "Date.hpp"
 #include "Gregorian.hpp"
 #include "Julian.hpp"
 #include <iostream>
@@ -25,7 +25,9 @@ int main(){
     { 
         Gregorian g (1900, 1, 1);
         Julian j (1899, 12, 19);
-        j == g; // shall yield false
+        std::cout << j << std::endl;
+        j.asd();
+        std::cout << (j == g) << std::endl; // shall yield false
         //j++; // increment ‘j‘ by one day
         //j == g; // shall yield true
     }
