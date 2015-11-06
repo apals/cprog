@@ -26,9 +26,9 @@ class Date {
         Date& operator--();
         //Post decrement
         Date operator--(int);
-        const int year();
-        const unsigned int month();
-        const unsigned int day();
+        int year() const;
+        unsigned int month() const;
+        unsigned int day() const;
         virtual unsigned int week_day();
         unsigned int days_per_week();
         virtual unsigned int days_this_month();
