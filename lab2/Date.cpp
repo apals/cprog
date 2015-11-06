@@ -99,20 +99,20 @@ Date Date::operator-(const Date &b) const {
     return d;
 }
 
-bool Date::operator<(const Date & l, const Date & r) {
-    if (l.year() < r.year())
+bool Date::operator<(const Date & r) {
+    if (year() < r.year())
         return true;
-    else if(l.year() > r.year())
+    else if(year() > r.year())
         return false;
 
-    if(l.month() < r.month())
+    if(month() < r.month())
         return true;
-    else if(l.month() > r.month())
+    else if(month() > r.month())
         return false;
 
-    if(l.day() < r.day())
+    if(day() < r.day())
         return true;
-    else if(l.day() > r.day())
+    else if(day() > r.day())
         return false;
 
     //They are equal
