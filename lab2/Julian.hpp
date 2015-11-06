@@ -6,7 +6,7 @@ class Julian : public Gregorian {
         Julian(): Gregorian() {}
         Julian(int year, int month, int day): Gregorian(year, month, day) {}
         Julian(const Gregorian & obj);
-        virtual int mod_julian_day();
+        virtual int mod_julian_day() const;
         bool asd();
 
 };

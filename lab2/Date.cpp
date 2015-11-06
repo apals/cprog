@@ -104,7 +104,10 @@ Date Date::operator-(const Date &b) const {
 }
 
 bool Date::operator<(const Date & r) {
-    if (year() < r.year())
+
+    return mod_julian_day() < r.mod_julian_day();
+
+    /*if (year() < r.year())
         return true;
     else if(year() > r.year())
         return false;
@@ -120,7 +123,7 @@ bool Date::operator<(const Date & r) {
         return false;
 
     //They are equal
-    return false;
+    return false;*/
 
 }
 
@@ -226,7 +229,7 @@ void Date::add_year(int n) {
 void Date::add_month(int n){
 }
 
-int Date::mod_julian_day() {
+int Date::mod_julian_day() const {
     int a = floor((14 - curr_month)/12);
     int y = curr_year + 4800 - a;
     int m = curr_month + 12 * a - 3;
@@ -238,6 +241,55 @@ int Date::mod_julian_day() {
         + floor(y/400)
         - 32045;
     return jdn-2400001;
+}
+
+int Date::mjd_to_greg_date(int mjd, int mode) const {
+    mjd+=2400001;
+    int y = 4716;
+    int j = 1401;
+    int m = 2;
+    int n = 12;
+    int r = 4;
+    int p = 1461;
+    int v = 3;
+    int u = 5;
+    int s = 153;
+    int w = 2;
+    int B = 274277;
+    int C = -38;
+
+    int f = mjd 
+        + j 
+        + (((4*mjd+B)/146097)*3)/4
+        + C;
+    int e = r * f + v;
+    int g = (e%p)/r;
+    int h = u * g + w;
+    int D = (h%s)/u + 1;
+    int M = (h/s+m)%n + 1;
+    int Y = e/p - y + (n + m - M)/n;
+    switch(mode){
+        case 0:
+            return D;
+        case 1:
+            return M;
+        case 2:
+            return Y;
+        default:
+            throw std::invalid_argument("Invalid mode");
+    }
+}
+
+int Date::mjd_to_greg_day(int mjd) const {
+    return mjd_to_greg_date(mjd, 0);
+}
+
+int Date::mjd_to_greg_month(int mjd) const {
+    return mjd_to_greg_date(mjd, 1);
+}
+
+int Date::mjd_to_greg_year(int mjd) const {
+    return mjd_to_greg_date(mjd, 2);
 }
 
 
