@@ -1,6 +1,7 @@
 #ifndef __LABDATE__
 #define __LABDATE__
 #include <iostream>
+#include <math.h>
 class Date {
     public:
         Date();
