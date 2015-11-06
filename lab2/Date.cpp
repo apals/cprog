@@ -35,7 +35,7 @@ Date::Date(const Date & obj) {
 }
 
 std::ostream& operator<<(std::ostream &os, Date const &m) { 
-        return os << printf("%d-%d-%d", m.year(), m.month(), m.day());
+        return os << printf("%d-%u-%u\n", m.year(), m.month(), m.day());
 }
 
 
