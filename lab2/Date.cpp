@@ -34,6 +34,10 @@ Date::Date(const Date & obj) {
     curr_days_per_week = obj.curr_days_per_week;
 }
 
+bool Date::operator==(const Date & b) const {
+    return this -> mod_julian_day() == b.mod_julian_day();
+}
+
 std::ostream& operator<<(std::ostream &os, Date const &m) { 
         return os << "" << m.curr_year << "-" << m.curr_month << "-" << m.curr_day;
 }
@@ -233,7 +237,7 @@ int Date::mod_julian_day() {
         - floor(y/100)
         + floor(y/400)
         - 32045;
-    return jdn;
+    return jdn-2400001;
 }
 
 

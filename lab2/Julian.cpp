@@ -9,13 +9,8 @@ int Julian::mod_julian_day() {
         + 365 * y
         + floor(y/4)
         - 32083;
-    return jdn;
+    return jdn-2400001;
 }
-
-bool Julian::operator==(const Gregorian & g) const {
-    return true;
-}
-
 bool Julian::asd(){
     return true;
 }

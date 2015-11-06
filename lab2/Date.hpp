@@ -17,6 +17,7 @@ class Date {
 
         bool operator<(const Date & r);
         friend std::ostream &operator<<(std::ostream &os, Date const &m);
+        bool operator==(const Date & b) const;
 
         //Pre increment
         Date& operator++();
