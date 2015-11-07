@@ -1,5 +1,11 @@
 #include "Julian.hpp"
 
+Julian::Julian(const Gregorian& g){
+    curr_year = g.mjd_to_julian_year(g.mod_julian_day());
+    curr_month = g.mjd_to_julian_month(g.mod_julian_day());
+    curr_day = g.mjd_to_julian_day(g.mod_julian_day());
+}
+
 int Julian::mod_julian_day() const {
     int a = floor((14 - month())/12);
     int y = year() + 4800 - a;

@@ -46,7 +46,7 @@ class Date {
         int mjd_to_julian_month(int mjd) const;
         int mjd_to_julian_year(int mjd) const;
 
-    private:
+    protected:
         int curr_year;
         unsigned int curr_month;
         unsigned int curr_day;
