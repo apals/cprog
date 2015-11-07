@@ -41,7 +41,7 @@ namespace lab2 {
     template <typename DateType>
     bool Calendar<DateType>::remove_event(std::string event_name, int d, int m, int y) {
         for(auto a : event_list) {
-            if(a.event_name == event_name) {
+            if(a.event_name == event_name && a.d == d && a.m == m && a.y == y) {
                 event_list.remove(a);
             }
         }
