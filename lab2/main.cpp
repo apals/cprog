@@ -2,7 +2,7 @@
 #include "Gregorian.hpp"
 #include "Julian.hpp"
 #include <iostream>
-
+using namespace lab2;
 int main(){
     { 
         // DOM HÄR TESTFALLEN FUNGEAR BrOR
