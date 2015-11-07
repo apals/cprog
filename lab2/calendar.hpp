@@ -2,6 +2,7 @@
 #define __LABCALENDAR__
 #include <string>
 #include <list>
+#include <iostream>
 namespace lab2 {
     struct Event {
         std::string event_name;
@@ -22,6 +23,8 @@ namespace lab2 {
                 bool remove_event(int d, int m, int y);
                 bool remove_event(int d, int m);
                 bool remove_event(int d);
+
+                friend std::ostream& operator<<(std::ostream &os, Calendar<DateType> const & c);
 
             private:
                 std::list<Event> event_list;

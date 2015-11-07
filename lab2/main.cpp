@@ -8,7 +8,7 @@ int main(){
     { 
         // DOM HÄR TESTFALLEN FUNGEAR BrOR
         
-           const Date d (1900, 1, 1);
+/*           const Date d (1900, 1, 1);
            std::cout << d.week_day() << std::endl;
            Gregorian g (1900, 1, 1);
            Julian j (1899, 12, 19);
@@ -17,27 +17,27 @@ int main(){
            std::cout << "SHOULD BE TRUE: " <<  (j == g) << std::endl;
            j++; // increment ‘j‘ by one day
            std::cout << "SHOULD BE FALSE: " <<  (j == g) << std::endl;
-    }
+  */  }
     { 
         // WORKS!!!
-           Gregorian g (1858, 11, 16);
+    /*       Gregorian g (1858, 11, 16);
            Julian j (g);
            std::cout << "SHOULD BE 1858-11-4 " << j << std::endl; // shall print 1858-11-4
            std::cout << "should be 1858-11-16 " << g << std::endl; // shall print 1858-11-16
-    }
+    */}
     { 
         /** THIS WORKS TOO **/
-         Date * p1 = new Julian ();
+      /*   Date * p1 = new Julian ();
            Date * p2 = new Gregorian ();
            std::cout << "should be true: " << (*p1 == *p2) << std::endl; // shall be true
 
         //TODO: impl virtual destructors
         delete p1;
-        delete p2;
+        delete p2;*/
     }
 
     {
-        std::cout << "1 ----------- " << std::endl;
+ /*       std::cout << "1 ----------- " << std::endl;
         Gregorian g1(2004, 1, 30);
         std::cout << g1 << std::endl;
         g1.add_month(1);
@@ -70,26 +70,26 @@ int main(){
         std::cout << g5 << std::endl;
         g5.add_year(4);
         std::cout << g5 << std::endl;
-
+*/
     }
 
     {
-        Julian j(2015, 7, 5);
+  /*      Julian j(2015, 7, 5);
         std::cout << j.days_this_month() << std::endl;
-    }
+   */ }
 
     {
-        Julian g(2097, 3, 5);
+     /*   Julian g(2097, 3, 5);
         std::cout << "GREGGE:  " << g << " : " << g.mod_julian_day() << std::endl;
         Gregorian j;
         std::cout << "JullI:  " << j << " : " << j.mod_julian_day() << std::endl;
         j = g;
         std::cout << "julle2:  " << j << " : " << j.mod_julian_day() <<  std::endl;
         std::cout << "GREGGE:  " << g << " : " << g.mod_julian_day() << std::endl;
-    }
+    */}
 
     {
-        Gregorian g(1988, 2, 5);
+      /*  Gregorian g(1988, 2, 5);
         g.add_year(2);
         g += 2;
         g.add_month(2);
@@ -102,11 +102,16 @@ int main(){
         g--;
 
         std::cout << "GREGGE:  " << g << " : " << g.days_this_month() << std::endl;
-
+*/
     }
 
     {
-        Calendar<Gregorian> c;
+        Calendar<Gregorian> cal;
+        cal.set_date(2000, 12, 2);
+        cal.add_event("Basketträning", 4, 12, 2000);
+        cal.add_event("Basketträning", 11, 12, 2000);
+        cal.add_event("Nyårsfrukost", 1, 1, 2001);
+       std::cout << cal << std::endl;
     }
 
 }
