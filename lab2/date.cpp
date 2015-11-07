@@ -1,4 +1,5 @@
 #include "date.hpp"
+#include <stdexcept>
 #include "kattistime.h"
 namespace lab2 {
     Date::Date(){
