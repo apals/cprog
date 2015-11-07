@@ -1,6 +1,6 @@
 #ifndef __LABGREGORIAN__
 #define __LABGREGORIAN__
-#include "Date.hpp"
+#include "date.hpp"
 namespace lab2 {
     class Gregorian : public Date {
         public:

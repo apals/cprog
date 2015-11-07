@@ -1,6 +1,6 @@
 #ifndef __LABJULIAN__
 #define __LABJULIAN__
-#include "Gregorian.hpp"
+#include "gregorian.hpp"
 namespace lab2 {
     class Julian : public Gregorian {
         public:

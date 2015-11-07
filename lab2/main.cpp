@@ -1,6 +1,6 @@
-#include "Date.hpp"
-#include "Gregorian.hpp"
-#include "Julian.hpp"
+#include "date.hpp"
+#include "gregorian.hpp"
+#include "julian.hpp"
 #include <iostream>
 using namespace lab2;
 int main(){

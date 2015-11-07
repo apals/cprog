@@ -1,4 +1,4 @@
-#include "Julian.hpp"
+#include "julian.hpp"
 namespace lab2 {
 
     Julian::Julian(): Gregorian() {
