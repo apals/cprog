@@ -54,7 +54,7 @@ namespace lab2 {
             unsigned int curr_month;
             unsigned int curr_day;
             unsigned int curr_week_day;
-            unsigned int curr_days_per_week;
+            unsigned int curr_days_per_week = 7;
     };
 }
 #endif
