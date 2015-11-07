@@ -5,10 +5,14 @@ namespace lab2 {
     Date::Date(){
         // För att få nuvarande tid
         time_t mytime;
-        //k_time(&mytime);
+        
+        
+        //time(&mytime);
+        
+        
+        k_time(&mytime);
 
         // För att få ut datum lokalt 
-        time(&mytime);
         struct tm *t = gmtime(&mytime);
         curr_year  = t->tm_year + 1900;
         curr_month = t->tm_mon + 1;      // månaderna och dagarna
@@ -173,10 +177,12 @@ namespace lab2 {
     }
 
     unsigned int Date::days_this_month() const{
-        int days_this_month;
+        int days_this_month = 30;
 
         //Count knuckles
-        if (curr_month % 2 != 0) {
+        if (curr_month % 2 != 0 && curr_month <= 7) {
+            days_this_month = 31;
+        } else if (curr_month > 7 && curr_month % 2 == 0){
             days_this_month = 31;
         }
 
@@ -251,33 +257,23 @@ namespace lab2 {
     }
 
     void Date::add_month(int n){
-        int years_to_add = floor((abs(n)+curr_month)/12);
-        int months_to_add = n % 12;
-        //std::cout << "Years to add: " << years_to_add << std::endl;
-          //std::cout << "Months to add: " << months_to_add << std::endl;
-          //std::cout << "Curr year " << year() << std::endl;
-          //std::cout << "Curr month " << month() << std::endl;
+        int curr_month_holder = curr_month + n;
+        int years_to_add = 0;
         if(n > 0) {
-            //std::cout << " adding " << std::endl;
-            curr_year += years_to_add;
-            curr_month += months_to_add;
+            for(int i = 0; curr_month_holder > 12; i++) {
+                curr_month_holder -= 12;
+                years_to_add++;
+            }
         }
         else {
-            //std::cout << "not  adding " << std::endl;
-            curr_year -= years_to_add;
-            if(curr_month < abs(months_to_add)) {
-                curr_year--;
-            }
-            if(months_to_add < 0) {
-                if(curr_month <= abs(months_to_add)) {
-                    curr_month = 12 - (abs(months_to_add) - curr_month);
-                }
-            } else {
-            curr_month -= months_to_add;
+            for(int i = 0; curr_month_holder < 1; i++) {
+                curr_month_holder += 12;
+                years_to_add--;
             }
         }
+        curr_month = curr_month_holder;
+        curr_year+= years_to_add;
 
-        curr_month = curr_month % 12;
         if (curr_day > days_this_month()) {
             curr_day = days_this_month();
         }

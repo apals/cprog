@@ -73,46 +73,8 @@ int main(){
     }
 
     {
-        Julian g(2140, 8, 9);
-        g.add_year(18);
-        //std::cout << g << " : " << g.mod_julian_day() << std::endl;
-        g += 18;
-        //std::cout << g << " : " << g.mod_julian_day() << std::endl;
-        g.add_month(18);
-        //std::cout << g << " : " << g.mod_julian_day() << std::endl;
-        std::cout << " ----- " << std::endl;
-        g -= 18;
-        std::cout << g << " : " << g.mod_julian_day() << std::endl;
-        g += -18;
-        std::cout << g << " : " << g.mod_julian_day() << std::endl;
-        g.add_year(-18);
-        std::cout << g << " : " << g.mod_julian_day() << std::endl;
-        g -= -18;
-        std::cout << g << " : " << g.mod_julian_day() << std::endl;
-        ++g;
-        std::cout << g << " : " << g.mod_julian_day() << std::endl;
-        std::cout << "about to get fukc ed up " << std::endl;
-        g.add_month(-18);
-        std::cout << g << " : " << g.mod_julian_day() << std::endl;
-        --g;
-        std::cout << g << " : " << g.mod_julian_day() << std::endl;
-        std::cout << g.days_per_week() << std::endl;
-        std::cout << g.week_day() << std::endl;
-        std::cout << g.week_day_name() << std::endl;
-        g.add_year(5);
-        g+=5;
-        g.add_month(5);
-        g-= 5;
-        g+= (-5);
-        g.add_year(-5);
-        g-= (-5);
-        ++g;
-        g.add_month(-5);
-        std::cout << g << " : " << g.mod_julian_day() << std::endl;
-        Julian j;
-        std::cout << j << " : " << j.mod_julian_day() << std::endl;
-
-
+        Julian j(2015, 7, 5);
+        std::cout << j.days_this_month() << std::endl;
     }
 
 }

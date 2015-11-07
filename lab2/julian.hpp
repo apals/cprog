@@ -7,6 +7,7 @@ namespace lab2 {
             Julian();
             Julian(int year, int month, int day): Gregorian(year, month, day) {}
             Julian(const Date & obj);
+            Julian& operator=(const Date& other);
             virtual ~Julian();
             virtual int mod_julian_day() const override;
             virtual bool is_leap_year(int year) const override;
