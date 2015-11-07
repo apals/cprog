@@ -1,14 +1,15 @@
 #include "date.hpp"
 #include <stdexcept>
-#include "kattistime.h"
+#include "kattistime.cpp"
 namespace lab2 {
     Date::Date(){
         // För att få nuvarande tid
         time_t mytime;
-        //k_time(&mytime);
+        //time(&mytime);
+        //set_k_time(mytime);
+        k_time(&mytime);
 
         // För att få ut datum lokalt 
-        time(&mytime);
         struct tm *t = gmtime(&mytime);
         curr_year  = t->tm_year + 1900;
         curr_month = t->tm_mon + 1;      // månaderna och dagarna
