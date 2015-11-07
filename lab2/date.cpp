@@ -41,6 +41,20 @@ namespace lab2 {
         return mod_julian_day() == b.mod_julian_day();
     }
 
+    bool Date::operator!=(const Date & b) const {
+        return !(*this == b);
+    }
+
+    bool Date::operator<=(const Date & b) const{
+        return mod_julian_day() <= b.mod_julian_day();
+    }
+    bool Date::operator>(const Date & b) const{
+        return mod_julian_day() > b.mod_julian_day();
+    }
+    bool Date::operator>=(const Date & b) const{
+        return mod_julian_day() >= b.mod_julian_day();
+    }
+
     std::ostream& operator<<(std::ostream &os, Date const &m) { 
         return os << "" << m.year() << "-" << m.month() << "-" << m.day();
     }
@@ -103,7 +117,7 @@ namespace lab2 {
         return std::abs(mod_julian_day() - b.mod_julian_day());
     }
 
-    bool Date::operator<(const Date & r) {
+    bool Date::operator<(const Date & r) const{
         return mod_julian_day() < r.mod_julian_day();
     }
 
@@ -126,15 +140,15 @@ namespace lab2 {
         return curr_day;
     }
 
-    unsigned int Date::week_day() {
+    unsigned int Date::week_day() const{
         return curr_week_day;
     }   
 
-    unsigned int Date::days_per_week() {
+    unsigned int Date::days_per_week() const{
         return curr_days_per_week;
     }
 
-    std::string Date::week_day_name(){
+    std::string Date::week_day_name() const{
         switch(curr_week_day) {
             case 1:
                 return "MONDAY";
@@ -154,7 +168,7 @@ namespace lab2 {
         throw std::out_of_range("Week day is smaller than 1 or bigger than 7");
     }
 
-    unsigned int Date::days_this_month() {
+    unsigned int Date::days_this_month() const{
         int days_this_month;
 
         //Count knuckles
@@ -178,7 +192,7 @@ namespace lab2 {
      * 2: If the year can be evenly divided by 100, it is NOT a leap year, unless;
      * 3: The year is also evenly divisible by 400. Then it is a leap year.
      */
-    bool Date::is_leap_year(int year) {
+    bool Date::is_leap_year(int year) const{
 
         //CRITERIA 1
         if(year % 4 != 0) {
@@ -195,7 +209,7 @@ namespace lab2 {
         return false;
     }
 
-    std::string Date::month_name() {
+    std::string Date::month_name() const {
         std::string name;
 
         if(curr_month == 1) 

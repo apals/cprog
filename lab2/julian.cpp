@@ -8,7 +8,7 @@ namespace lab2 {
         curr_day = mjd_to_day(mjd);
     }
 
-    Julian::Julian(const Gregorian& g){
+    Julian::Julian(const Date& g){
         curr_year = mjd_to_year(g.mod_julian_day());
         curr_month = mjd_to_month(g.mod_julian_day());
         curr_day = mjd_to_day(g.mod_julian_day());
@@ -31,7 +31,7 @@ namespace lab2 {
         return true;
     }
 
-    bool Julian::is_leap_year(int year) {
+    bool Julian::is_leap_year(int year) const {
         return year % 4 == 0;
     }
 

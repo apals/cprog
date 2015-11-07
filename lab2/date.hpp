@@ -16,9 +16,13 @@ namespace lab2 {
 
             int operator-(const Date & b) const;
 
-            bool operator<(const Date & r);
             friend std::ostream &operator<<(std::ostream &os, Date const &m);
             bool operator==(const Date & b) const;
+            bool operator!=(const Date & b) const;
+            bool operator<(const Date & b) const;
+            bool operator<=(const Date & b) const;
+            bool operator>(const Date & b) const;
+            bool operator>=(const Date & b) const;
 
             //Pre increment
             Date& operator++();
@@ -31,11 +35,11 @@ namespace lab2 {
             int year() const;
             unsigned int month() const;
             unsigned int day() const;
-            virtual unsigned int week_day();
-            unsigned int days_per_week();
-            virtual unsigned int days_this_month();
-            std::string week_day_name();
-            std::string month_name();
+            virtual unsigned int week_day() const;
+            unsigned int days_per_week() const;
+            virtual unsigned int days_this_month() const;
+            std::string week_day_name() const;
+            std::string month_name() const;
             virtual void add_year(int n);
             virtual void add_month(int n);
             virtual int mod_julian_day() const;
@@ -43,7 +47,7 @@ namespace lab2 {
             virtual int mjd_to_day(int mjd) const;
             virtual int mjd_to_month(int mjd) const;
             virtual int mjd_to_year(int mjd) const;
-            virtual bool is_leap_year(int year);
+            virtual bool is_leap_year(int year) const;
 
         protected:
             int curr_year;

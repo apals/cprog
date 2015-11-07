@@ -7,6 +7,8 @@ int main(){
     { 
         // DOM HÄR TESTFALLEN FUNGEAR BrOR
         
+           const Date d (1900, 1, 1);
+           std::cout << d.week_day() << std::endl;
            Gregorian g (1900, 1, 1);
            Julian j (1899, 12, 19);
            std::cout << "SHOULD BE FALSE: " << (j == g) << std::endl;
