@@ -87,4 +87,21 @@ int main(){
         std::cout << "GREGGE:  " << g << " : " << g.mod_julian_day() << std::endl;
     }
 
+    {
+        Gregorian g(1988, 2, 5);
+        g.add_year(2);
+        g += 2;
+        g.add_month(2);
+        g -= 2;
+        g += -2;
+        g.add_year(-2);
+        g -= -2;
+        g++;
+        g.add_month(-2);
+        g--;
+
+        std::cout << "GREGGE:  " << g << " : " << g.days_this_month() << std::endl;
+
+    }
+
 }

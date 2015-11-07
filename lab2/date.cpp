@@ -5,11 +5,11 @@ namespace lab2 {
     Date::Date(){
         // För att få nuvarande tid
         time_t mytime;
-        
-        
+
+
         //time(&mytime);
-        
-        
+
+
         k_time(&mytime);
 
         // För att få ut datum lokalt 
@@ -215,12 +215,13 @@ namespace lab2 {
 
         //CRITERIA 2 && 3
         if(year % 100 == 0) {
-            if(year % 400 == 0) {
-                return true;
+            if(year % 400 != 0) {
+                return false;
             }
+
         }
 
-        return false;
+        return true;
     }
 
     std::string Date::month_name() const {
