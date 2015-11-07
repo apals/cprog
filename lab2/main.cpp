@@ -109,6 +109,9 @@ int main(){
         ++g;
         g.add_month(-5);
         std::cout << g << " : " << g.mod_julian_day() << std::endl;
+        Julian j;
+        std::cout << j << " : " << j.mod_julian_day() << std::endl;
+
 
     }
 
