@@ -6,9 +6,7 @@ namespace lab2 {
         // För att få nuvarande tid
         time_t mytime;
 
-
         time(&mytime);
-
 
        // k_time(&mytime);
 

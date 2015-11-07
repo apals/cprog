@@ -6,6 +6,6 @@
 using namespace lab2;
 int main(){
     {
-
+        Calendar<Gregorian> c;
     }
 }
