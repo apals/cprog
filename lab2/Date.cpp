@@ -39,7 +39,7 @@ bool Date::operator==(const Date & b) const {
 }
 
 std::ostream& operator<<(std::ostream &os, Date const &m) { 
-        return os << "" << m.curr_year << "-" << m.curr_month << "-" << m.curr_day;
+    return os << "" << m.curr_year << "-" << m.curr_month << "-" << m.curr_day;
 }
 
 
@@ -52,7 +52,9 @@ std::ostream& operator<<(std::ostream &os, Date const &m) {
 //predecrement operator
 Date& Date::operator--() {
     //TODO: logic with days < 0 etc
-    curr_day--;
+    int mjd = mod_julian_day();
+    mjd--;
+
     return *this;
 }
 
@@ -108,19 +110,19 @@ bool Date::operator<(const Date & r) {
     return mod_julian_day() < r.mod_julian_day();
 
     /*if (year() < r.year())
-        return true;
-    else if(year() > r.year())
-        return false;
+      return true;
+      else if(year() > r.year())
+      return false;
 
-    if(month() < r.month())
-        return true;
-    else if(month() > r.month())
-        return false;
+      if(month() < r.month())
+      return true;
+      else if(month() > r.month())
+      return false;
 
-    if(day() < r.day())
-        return true;
-    else if(day() > r.day())
-        return false;
+      if(day() < r.day())
+      return true;
+      else if(day() > r.day())
+      return false;
 
     //They are equal
     return false;*/
@@ -184,12 +186,35 @@ unsigned int Date::days_this_month() {
 
     //If february and leap year
     if (curr_month == 2) {
-        if (curr_year % 4 == 0) 
+        if (is_leap_year(curr_year)) 
             days_this_month = 29;
         else 
             days_this_month = 28;
     }
     return days_this_month;
+}
+/**
+ * In the Gregorian calendar 3 criteria must be taken into account to identify leap years:
+ *
+ * 1: The year is evenly divisible by 4;
+ * 2: If the year can be evenly divided by 100, it is NOT a leap year, unless;
+ * 3: The year is also evenly divisible by 400. Then it is a leap year.
+ */
+bool Date::is_leap_year(int year) {
+
+    //CRITERIA 1
+    if(year % 4 != 0) {
+        return false;
+    }
+
+    //CRITERIA 2 && 3
+    if(year % 100 == 0) {
+        if(year % 400 == 0) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 std::string Date::month_name() {
@@ -223,10 +248,17 @@ std::string Date::month_name() {
 }
 
 void Date::add_year(int n) {
-
+    curr_year += n;
+    if (curr_day > days_this_month()) {
+        curr_day = days_this_month();
+    }
 }
 
 void Date::add_month(int n){
+    curr_month += n;
+    if (curr_day > days_this_month()) {
+        curr_day = days_this_month();
+    }
 }
 
 int Date::mod_julian_day() const {
@@ -261,10 +293,10 @@ int Date::mjd_to_date(int mjd, int mode, bool greg) const {
     int f;
     if(greg == true)
     {
-    f = mjd 
-        + j 
-        + (((4*mjd+B)/146097)*3)/4
-        + C;
+        f = mjd 
+            + j 
+            + (((4*mjd+B)/146097)*3)/4
+            + C;
     }
     else
     {

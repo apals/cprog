@@ -45,6 +45,7 @@ class Date {
         int mjd_to_julian_day(int mjd) const;
         int mjd_to_julian_month(int mjd) const;
         int mjd_to_julian_year(int mjd) const;
+        bool is_leap_year(int year);
 
     protected:
         int curr_year;
