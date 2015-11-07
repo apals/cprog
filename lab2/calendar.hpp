@@ -4,8 +4,9 @@
 #include <list>
 namespace lab2 {
     struct Event {
-        std::string event_name;
-        int day, month, year;
+        public: 
+            std::string event_name;
+            int day, month, year;
     };
     template <typename DateType>
         class Calendar {
