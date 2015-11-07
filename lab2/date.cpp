@@ -251,6 +251,7 @@ namespace lab2 {
         int months_to_add = n % 12;
         curr_year += years_to_add;
         curr_month += months_to_add;
+        curr_month %= 12;
         if (curr_day > days_this_month()) {
             curr_day = days_this_month();
         }
