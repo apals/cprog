@@ -33,6 +33,10 @@ int main(){
     { 
         Date * p1 = new Julian ();
         Date * p2 = new Gregorian ();
+        std::cout << (*p1).mod_julian_day() << std::endl;
+        std::cout << (*p2).mod_julian_day() << std::endl;
+        std::cout << (*p1) << std::endl;
+        std::cout << (*p2) << std::endl;
         std::cout << (*p1 == *p2) << std::endl; // shall be true
         delete p1;
         delete p2;

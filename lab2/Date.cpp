@@ -35,7 +35,7 @@ Date::Date(const Date & obj) {
 }
 
 bool Date::operator==(const Date & b) const {
-    return this -> mod_julian_day() == b.mod_julian_day();
+    return mod_julian_day() == b.mod_julian_day();
 }
 
 std::ostream& operator<<(std::ostream &os, Date const &m) { 
