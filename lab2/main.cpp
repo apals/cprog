@@ -1,6 +1,7 @@
 #include "date.hpp"
 #include "gregorian.hpp"
 #include "julian.hpp"
+#include "calendar.hpp"
 #include <iostream>
 using namespace lab2;
 int main(){
@@ -102,6 +103,10 @@ int main(){
 
         std::cout << "GREGGE:  " << g << " : " << g.days_this_month() << std::endl;
 
+    }
+
+    {
+        Calendar<Gregorian> c;
     }
 
 }

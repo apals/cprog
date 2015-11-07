@@ -7,7 +7,7 @@ namespace lab2 {
         std::string event_name;
         int day, month, year;
     };
-    template <typename DateTime>
+    template <typename DateType>
         class Calendar {
             public:
                 Calendar();
@@ -24,7 +24,8 @@ namespace lab2 {
                 bool remove_event(int d);
 
             private:
-                std::list<Event> integer_list;
+                std::list<Event> event_list;
+                DateType * date;
         };
 }
 
