@@ -253,10 +253,10 @@ namespace lab2 {
     void Date::add_month(int n){
         int years_to_add = floor((abs(n)+curr_month)/12);
         int months_to_add = n % 12;
-        /*std::cout << "Years to add: " << years_to_add << std::endl;
-          std::cout << "Months to add: " << months_to_add << std::endl;
-          std::cout << "Curr year " << year() << std::endl;
-          std::cout << "Curr month " << month() << std::endl;*/
+        //std::cout << "Years to add: " << years_to_add << std::endl;
+          //std::cout << "Months to add: " << months_to_add << std::endl;
+          //std::cout << "Curr year " << year() << std::endl;
+          //std::cout << "Curr month " << month() << std::endl;
         if(n > 0) {
             //std::cout << " adding " << std::endl;
             curr_year += years_to_add;
@@ -268,7 +268,13 @@ namespace lab2 {
             if(curr_month < abs(months_to_add)) {
                 curr_year--;
             }
+            if(months_to_add < 0) {
+                if(curr_month <= abs(months_to_add)) {
+                    curr_month = 12 - (abs(months_to_add) - curr_month);
+                }
+            } else {
             curr_month -= months_to_add;
+            }
         }
 
         curr_month = curr_month % 12;

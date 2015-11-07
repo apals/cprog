@@ -94,11 +94,21 @@ int main(){
         std::cout << "about to get fukc ed up " << std::endl;
         g.add_month(-18);
         std::cout << g << " : " << g.mod_julian_day() << std::endl;
-        g--;
+        --g;
         std::cout << g << " : " << g.mod_julian_day() << std::endl;
         std::cout << g.days_per_week() << std::endl;
         std::cout << g.week_day() << std::endl;
         std::cout << g.week_day_name() << std::endl;
+        g.add_year(5);
+        g+=5;
+        g.add_month(5);
+        g-= 5;
+        g+= (-5);
+        g.add_year(-5);
+        g-= (-5);
+        ++g;
+        g.add_month(-5);
+        std::cout << g << " : " << g.mod_julian_day() << std::endl;
 
     }
 
