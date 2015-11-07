@@ -38,10 +38,13 @@ class Date {
         virtual void add_year(int n);
         virtual void add_month(int n);
         virtual int mod_julian_day() const;
-        int mjd_to_greg_date(int mjd, int mode) const;
+        int mjd_to_date(int mjd, int mode, bool greg) const;
         int mjd_to_greg_day(int mjd) const;
         int mjd_to_greg_month(int mjd) const;
         int mjd_to_greg_year(int mjd) const;
+        int mjd_to_julian_day(int mjd) const;
+        int mjd_to_julian_month(int mjd) const;
+        int mjd_to_julian_year(int mjd) const;
 
     private:
         int curr_year;

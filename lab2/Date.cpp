@@ -243,7 +243,8 @@ int Date::mod_julian_day() const {
     return jdn-2400001;
 }
 
-int Date::mjd_to_greg_date(int mjd, int mode) const {
+
+int Date::mjd_to_date(int mjd, int mode, bool greg) const {
     mjd+=2400001;
     int y = 4716;
     int j = 1401;
@@ -257,11 +258,18 @@ int Date::mjd_to_greg_date(int mjd, int mode) const {
     int w = 2;
     int B = 274277;
     int C = -38;
-
-    int f = mjd 
+    int f;
+    if(greg == true)
+    {
+    f = mjd 
         + j 
         + (((4*mjd+B)/146097)*3)/4
         + C;
+    }
+    else
+    {
+        f = mjd + j;
+    }
     int e = r * f + v;
     int g = (e%p)/r;
     int h = u * g + w;
@@ -281,15 +289,27 @@ int Date::mjd_to_greg_date(int mjd, int mode) const {
 }
 
 int Date::mjd_to_greg_day(int mjd) const {
-    return mjd_to_greg_date(mjd, 0);
+    return mjd_to_date(mjd, 0, true);
 }
 
 int Date::mjd_to_greg_month(int mjd) const {
-    return mjd_to_greg_date(mjd, 1);
+    return mjd_to_date(mjd, 1, true);
 }
 
 int Date::mjd_to_greg_year(int mjd) const {
-    return mjd_to_greg_date(mjd, 2);
+    return mjd_to_date(mjd, 2, true);
+}
+
+int Date::mjd_to_julian_day(int mjd) const {
+    return mjd_to_date(mjd, 0, false);
+}
+
+int Date::mjd_to_julian_month(int mjd) const {
+    return mjd_to_date(mjd, 1, false);
+}
+
+int Date::mjd_to_julian_year(int mjd) const {
+    return mjd_to_date(mjd, 2, false);
 }
 
 

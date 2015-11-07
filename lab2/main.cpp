@@ -10,7 +10,12 @@ int main(){
         std::cout << (j == g) << std::endl;
         j++; // increment ‘j‘ by one day
         std::cout << (j == g) << std::endl;
+        std::cout << j.mjd_to_julian_year(j.mod_julian_day()) << std::endl;
+        std::cout << j.mjd_to_julian_month(j.mod_julian_day()) << std::endl;
+        std::cout << j.mjd_to_julian_day(j.mod_julian_day()) << std::endl;
         std::cout << j.mjd_to_greg_year(j.mod_julian_day()) << std::endl;
+        std::cout << j.mjd_to_greg_month(j.mod_julian_day()) << std::endl;
+        std::cout << j.mjd_to_greg_day(j.mod_julian_day()) << std::endl;
         //j++; // increment ‘j‘ by one day
         //j == g; // shall yield true
     }
