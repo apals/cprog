@@ -247,10 +247,14 @@ namespace lab2 {
     }
 
     void Date::add_month(int n){
-        curr_month += n;
+        int years_to_add = floor(n/12);
+        int months_to_add = n % 12;
+        curr_year += years_to_add;
+        curr_month += months_to_add;
         if (curr_day > days_this_month()) {
             curr_day = days_this_month();
         }
+
     }
 
     int Date::mod_julian_day() const {

@@ -72,4 +72,14 @@ int main(){
 
     }
 
+    {
+        Julian g(2140, 8, 9);
+        g.add_year(18);
+        std::cout << g << " : " << g.mod_julian_day() << std::endl;
+        g += 18;
+        std::cout << g << " : " << g.mod_julian_day() << std::endl;
+        g.add_month(18);
+        std::cout << g << " : " << g.mod_julian_day() << std::endl;
+    }
+
 }
