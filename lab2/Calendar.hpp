@@ -1,4 +1,5 @@
-
+#ifndef __LABCALENDAR__
+#define __LABCALENDAR__
 namespace lab2 {
     template <typename DateTime>
         class Calendar {
@@ -16,3 +17,5 @@ namespace lab2 {
                 bool remove_event(int d);
         }
 }
+#include "Calendar_impl.hpp"
+#endif
