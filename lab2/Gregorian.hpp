@@ -6,6 +6,7 @@ namespace lab2 {
         public:
             Gregorian(): Date() {}
             Gregorian(int year, int month, int day): Date(year, month, day){}
+            virtual ~Gregorian();
 
     };
 }
