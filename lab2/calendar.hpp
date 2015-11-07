@@ -17,5 +17,5 @@ namespace lab2 {
                 bool remove_event(int d);
         }
 }
-#include "Calendar_impl.hpp"
+#include "calendar_impl.hpp"
 #endif
