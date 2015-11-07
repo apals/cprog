@@ -14,6 +14,8 @@ namespace lab2 {
         curr_day = mjd_to_day(g.mod_julian_day());
     }
 
+    Julian::~Julian(){}
+
     int Julian::mod_julian_day() const {
         int a = floor((14 - month())/12);
         int y = year() + 4800 - a;

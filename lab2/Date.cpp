@@ -34,6 +34,8 @@ namespace lab2 {
         curr_days_per_week = obj.curr_days_per_week;
     }
 
+    Date::~Date(){}
+
     bool Date::operator==(const Date & b) const {
         return mod_julian_day() == b.mod_julian_day();
     }

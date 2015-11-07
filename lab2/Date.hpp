@@ -8,6 +8,7 @@ namespace lab2 {
             Date();
             Date(const Date & obj);
             Date(int year, int month, int day);
+            virtual ~Date();
             Date& operator=(const Date& other);
 
             Date& operator+=(const int & n);
