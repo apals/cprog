@@ -27,6 +27,10 @@ namespace lab2 {
         std::swap(curr_day, tmp.curr_day);
         std::swap(curr_week_day, tmp.curr_week_day);
         std::swap(curr_days_per_week, tmp.curr_days_per_week);
+        int mjd = other.mod_julian_day();
+        curr_year = mjd_to_year(mjd);
+        curr_month = mjd_to_month(mjd);
+        curr_day = mjd_to_day(mjd);
         return *this;
     }
 

@@ -77,4 +77,14 @@ int main(){
         std::cout << j.days_this_month() << std::endl;
     }
 
+    {
+        Julian g(2097, 3, 5);
+        std::cout << "GREGGE:  " << g << " : " << g.mod_julian_day() << std::endl;
+        Gregorian j;
+        std::cout << "JullI:  " << j << " : " << j.mod_julian_day() << std::endl;
+        j = g;
+        std::cout << "julle2:  " << j << " : " << j.mod_julian_day() <<  std::endl;
+        std::cout << "GREGGE:  " << g << " : " << g.mod_julian_day() << std::endl;
+    }
+
 }
