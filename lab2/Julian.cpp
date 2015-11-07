@@ -2,15 +2,15 @@
 
 Julian::Julian(): Gregorian() {
     int mjd = Gregorian::mod_julian_day();
-    curr_year = mjd_to_julian_year(mjd);
-    curr_month = mjd_to_julian_month(mjd);
-    curr_day = mjd_to_julian_day(mjd);
+    curr_year = mjd_to_year(mjd);
+    curr_month = mjd_to_month(mjd);
+    curr_day = mjd_to_day(mjd);
 }
 
 Julian::Julian(const Gregorian& g){
-    curr_year = g.mjd_to_julian_year(g.mod_julian_day());
-    curr_month = g.mjd_to_julian_month(g.mod_julian_day());
-    curr_day = g.mjd_to_julian_day(g.mod_julian_day());
+    curr_year = mjd_to_year(g.mod_julian_day());
+    curr_month = mjd_to_month(g.mod_julian_day());
+    curr_day = mjd_to_day(g.mod_julian_day());
 }
 
 int Julian::mod_julian_day() const {
@@ -26,4 +26,20 @@ int Julian::mod_julian_day() const {
 }
 bool Julian::asd(){
     return true;
+}
+
+bool Julian::is_leap_year(int year) {
+    return year % 4 == 0;
+}
+
+int Julian::mjd_to_day(int mjd) const {
+        return mjd_to_date(mjd, 0, false);
+}
+
+int Julian::mjd_to_month(int mjd) const {
+        return mjd_to_date(mjd, 1, false);
+}
+
+int Julian::mjd_to_year(int mjd) const {
+        return mjd_to_date(mjd, 2, false);
 }

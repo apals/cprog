@@ -6,39 +6,31 @@
 int main(){
     { 
         // DOM HÄR TESTFALLEN FUNGEAR BrOR
-        /*
+        
            Gregorian g (1900, 1, 1);
            Julian j (1899, 12, 19);
-           std::cout << (j == g) << std::endl;
+           std::cout << "SHOULD BE FALSE: " << (j == g) << std::endl;
            j++; // increment ‘j‘ by one day
-           std::cout << (j == g) << std::endl;
-           std::cout << j.mjd_to_julian_year(j.mod_julian_day()) << std::endl;
-           std::cout << j.mjd_to_julian_month(j.mod_julian_day()) << std::endl;
-           std::cout << j.mjd_to_julian_day(j.mod_julian_day()) << std::endl;
-           std::cout << j.mjd_to_greg_year(j.mod_julian_day()) << std::endl;
-           std::cout << j.mjd_to_greg_month(j.mod_julian_day()) << std::endl;
-           std::cout << j.mjd_to_greg_day(j.mod_julian_day()) << std::endl;
+           std::cout << "SHOULD BE TRUE: " <<  (j == g) << std::endl;
            j++; // increment ‘j‘ by one day
-           j == g; // shall yield true */
+           std::cout << "SHOULD BE FALSE: " <<  (j == g) << std::endl;
     }
     { 
         // WORKS!!!
-        /*
            Gregorian g (1858, 11, 16);
            Julian j (g);
-           std::cout << j << std::endl; // shall print 1858-11-4
-           std::cout << g << std::endl; // shall print 1858-11-16
-           */
+           std::cout << "SHOULD BE 1858-11-4 " << j << std::endl; // shall print 1858-11-4
+           std::cout << "should be 1858-11-16 " << g << std::endl; // shall print 1858-11-16
     }
     { 
         /** THIS WORKS TOO **/
-        /* Date * p1 = new Julian ();
+         Date * p1 = new Julian ();
            Date * p2 = new Gregorian ();
-           std::cout << (*p1 == *p2) << std::endl; // shall be true
+           std::cout << "should be true: " << (*p1 == *p2) << std::endl; // shall be true
 
         //TODO: impl virtual destructors
         delete p1;
-        delete p2;*/
+        delete p2;
     }
 
     {

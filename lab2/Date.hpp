@@ -13,7 +13,7 @@ class Date {
         Date& operator-=(const int & n);
 
         Date operator+(const Date & b) const;
-        Date operator-(const Date & b) const;
+        int operator-(const Date & b) const;
 
         bool operator<(const Date & r);
         friend std::ostream &operator<<(std::ostream &os, Date const &m);
@@ -39,13 +39,10 @@ class Date {
         virtual void add_month(int n);
         virtual int mod_julian_day() const;
         int mjd_to_date(int mjd, int mode, bool greg) const;
-        int mjd_to_greg_day(int mjd) const;
-        int mjd_to_greg_month(int mjd) const;
-        int mjd_to_greg_year(int mjd) const;
-        int mjd_to_julian_day(int mjd) const;
-        int mjd_to_julian_month(int mjd) const;
-        int mjd_to_julian_year(int mjd) const;
-        bool is_leap_year(int year);
+        virtual int mjd_to_day(int mjd) const;
+        virtual int mjd_to_month(int mjd) const;
+        virtual int mjd_to_year(int mjd) const;
+        virtual bool is_leap_year(int year);
 
     protected:
         int curr_year;

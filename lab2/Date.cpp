@@ -51,10 +51,7 @@ std::ostream& operator<<(std::ostream &os, Date const &m) {
 
 //predecrement operator
 Date& Date::operator--() {
-    //TODO: logic with days < 0 etc
-    int mjd = mod_julian_day();
-    mjd--;
-
+    (*this) -= 1;
     return *this;
 }
 
@@ -67,8 +64,7 @@ Date Date::operator--(int) {
 
 //preincrement operator
 Date& Date::operator++() {
-    //TODO: logic with days > 30, 31 etc
-    curr_day++;
+    (*this) += 1;
     return *this;
 }
 
@@ -85,48 +81,27 @@ Date Date::operator++(int) {
 
 //+= operator
 Date& Date::operator+=(const int & n) {
-    //TODO: impl
+    int mjd = mod_julian_day();
+    mjd += n;
+    curr_day = mjd_to_day(mjd);
+    curr_month = mjd_to_month(mjd);
+    curr_year = mjd_to_year(mjd);
     return *this;
 }
 
 //+= operator
 Date& Date::operator-=(const int & n) {
-    //TODO: impl
+    (*this) += -n;
     return *this;
 }
 
-Date Date::operator+(const Date &b) const {
-    Date d;
-    return d;
-}
 
-Date Date::operator-(const Date &b) const {
-    Date d;
-    return d;
+int Date::operator-(const Date &b) const {
+    return std::abs(mod_julian_day() - b.mod_julian_day());
 }
 
 bool Date::operator<(const Date & r) {
-
     return mod_julian_day() < r.mod_julian_day();
-
-    /*if (year() < r.year())
-      return true;
-      else if(year() > r.year())
-      return false;
-
-      if(month() < r.month())
-      return true;
-      else if(month() > r.month())
-      return false;
-
-      if(day() < r.day())
-      return true;
-      else if(day() > r.day())
-      return false;
-
-    //They are equal
-    return false;*/
-
 }
 
 
@@ -320,28 +295,15 @@ int Date::mjd_to_date(int mjd, int mode, bool greg) const {
     }
 }
 
-int Date::mjd_to_greg_day(int mjd) const {
+int Date::mjd_to_day(int mjd) const {
     return mjd_to_date(mjd, 0, true);
 }
 
-int Date::mjd_to_greg_month(int mjd) const {
+int Date::mjd_to_month(int mjd) const {
     return mjd_to_date(mjd, 1, true);
 }
 
-int Date::mjd_to_greg_year(int mjd) const {
+int Date::mjd_to_year(int mjd) const {
     return mjd_to_date(mjd, 2, true);
 }
-
-int Date::mjd_to_julian_day(int mjd) const {
-    return mjd_to_date(mjd, 0, false);
-}
-
-int Date::mjd_to_julian_month(int mjd) const {
-    return mjd_to_date(mjd, 1, false);
-}
-
-int Date::mjd_to_julian_year(int mjd) const {
-    return mjd_to_date(mjd, 2, false);
-}
-
 
