@@ -75,10 +75,24 @@ int main(){
     {
         Julian g(2140, 8, 9);
         g.add_year(18);
-        std::cout << g << " : " << g.mod_julian_day() << std::endl;
+        //std::cout << g << " : " << g.mod_julian_day() << std::endl;
         g += 18;
-        std::cout << g << " : " << g.mod_julian_day() << std::endl;
+        //std::cout << g << " : " << g.mod_julian_day() << std::endl;
         g.add_month(18);
+        //std::cout << g << " : " << g.mod_julian_day() << std::endl;
+        std::cout << " ----- " << std::endl;
+        g -= 18;
+        std::cout << g << " : " << g.mod_julian_day() << std::endl;
+        g += -18;
+        std::cout << g << " : " << g.mod_julian_day() << std::endl;
+        g.add_year(-18);
+        std::cout << g << " : " << g.mod_julian_day() << std::endl;
+        g -= -18;
+        std::cout << g << " : " << g.mod_julian_day() << std::endl;
+        ++g;
+        std::cout << g << " : " << g.mod_julian_day() << std::endl;
+        std::cout << "about to get fukc ed up " << std::endl;
+        g.add_month(-18);
         std::cout << g << " : " << g.mod_julian_day() << std::endl;
     }
 
