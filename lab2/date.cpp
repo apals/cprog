@@ -247,11 +247,11 @@ namespace lab2 {
     }
 
     void Date::add_month(int n){
-        int years_to_add = floor(n/12);
+        int years_to_add = floor((n+curr_month)/12);
         int months_to_add = n % 12;
         curr_year += years_to_add;
         curr_month += months_to_add;
-        curr_month %= 12;
+        curr_month = curr_month % 12;
         if (curr_day > days_this_month()) {
             curr_day = days_this_month();
         }
