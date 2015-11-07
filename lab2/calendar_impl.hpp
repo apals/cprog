@@ -1,5 +1,11 @@
 //This is the impl
+#include <string>
 namespace lab2 {
+
+    template <typename DateType>
+    Calendar<DateType>::Calendar() {
+        
+    }
 
     template <typename DateType>
     void Calendar<DateType>::set_date(int d, int m, int y) {
