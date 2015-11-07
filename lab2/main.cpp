@@ -96,6 +96,10 @@ int main(){
         std::cout << g << " : " << g.mod_julian_day() << std::endl;
         g--;
         std::cout << g << " : " << g.mod_julian_day() << std::endl;
+        std::cout << g.days_per_week() << std::endl;
+        std::cout << g.week_day() << std::endl;
+        std::cout << g.week_day_name() << std::endl;
+
     }
 
 }

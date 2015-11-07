@@ -141,7 +141,9 @@ namespace lab2 {
     }
 
     unsigned int Date::week_day() const{
-        return curr_week_day;
+        int mjd = mod_julian_day() + 2400001;
+        int day = mjd % 7 + 1;
+        return day;
     }   
 
     unsigned int Date::days_per_week() const{
@@ -149,8 +151,7 @@ namespace lab2 {
     }
 
     std::string Date::week_day_name() const{
-        int mjd = mod_julian_day();
-        int day = mjd % 7 + 1;
+        int day = week_day();
 
         switch(day) {
             case 1:
