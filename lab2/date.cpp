@@ -149,7 +149,10 @@ namespace lab2 {
     }
 
     std::string Date::week_day_name() const{
-        switch(curr_week_day) {
+        int mjd = mod_julian_day();
+        int day = mjd % 7 + 1;
+
+        switch(day) {
             case 1:
                 return "MONDAY";
             case 2:

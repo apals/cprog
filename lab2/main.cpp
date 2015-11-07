@@ -94,6 +94,8 @@ int main(){
         std::cout << "about to get fukc ed up " << std::endl;
         g.add_month(-18);
         std::cout << g << " : " << g.mod_julian_day() << std::endl;
+        g--;
+        std::cout << g << " : " << g.mod_julian_day() << std::endl;
     }
 
 }
