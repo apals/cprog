@@ -62,7 +62,7 @@ namespace lab2 {
         }
 
     template <typename DateType>
-        std::ostream& operator<<(std::ostream &os, Calendar<DateType> const & c) {
+        std::ostream& operator<<(std::ostream &os, const Calendar<DateType> & c) {
             return os << " printing calendar " << std::endl;
         }
 
