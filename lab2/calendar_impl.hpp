@@ -3,6 +3,11 @@
 #include <iostream>
 namespace lab2 {
 
+    /*template <typename , typename DateType>
+        Calendar<DateType>::Calendar(Calendar<T> other) {
+            date = new DateType(other.date);
+        }
+*/
     template <typename DateType>
         Calendar<DateType>::Calendar() {
             date = new DateType();
@@ -68,6 +73,7 @@ namespace lab2 {
                 {
                     event_list.remove(a);
                     delete a;
+                    return true;
                 }
             }
             return false;
@@ -80,6 +86,7 @@ namespace lab2 {
                 {
                     event_list.remove(a);
                     delete a;
+                    return true;
                 }
             }
             return false;
@@ -91,6 +98,7 @@ namespace lab2 {
                 {
                     event_list.remove(a);
                     delete a;
+                    return true;
                 }
             }
             return false;

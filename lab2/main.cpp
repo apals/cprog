@@ -107,10 +107,12 @@ int main(){
 
     {
         Calendar<Gregorian> cal;
-        cal.set_date(2000, 12, 2);
+/*        cal.set_date(2000, 12, 2);
         cal.add_event("Basketträning", 4, 12, 2000);
         cal.add_event("Basketträning", 11, 12, 2000);
         cal.add_event("Nyårsfrukost", 1, 1, 2001);
         std::cout << cal;
+*/
+        Calendar<Julian> c2(cal);
     }
 }
