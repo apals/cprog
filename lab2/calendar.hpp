@@ -27,7 +27,9 @@ namespace lab2 {
                 template <typename U>
                     Calendar(const Calendar<U> & other) {
                         std::cout << "thiniges " << std::endl;
-                        date = new DateType((*other.date));
+                        date = new DateType((*other.date));/*other.date->year(),
+                                other.date->month(),
+                                other.date->day());*/
                     }
                 ~Calendar();
                 void set_date(int d, int m, int y);
