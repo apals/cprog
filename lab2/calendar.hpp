@@ -18,6 +18,8 @@ namespace lab2 {
         class Calendar {
             public:
                 Calendar();
+                template <typename T>
+                Calendar(Calendar<T> other);
                 ~Calendar();
                 void set_date(int d, int m, int y);
 
