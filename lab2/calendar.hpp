@@ -34,7 +34,7 @@ namespace lab2 {
                 friend std::ostream& operator<<(std::ostream &os, Calendar<Other> const & c);
 
             private:
-                std::list<Event> event_list;
+                std::list<Event *> event_list;
                 DateType * date;
         };
 }
