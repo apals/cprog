@@ -29,19 +29,19 @@ namespace lab2 {
 
     template <typename DateType>
         bool Calendar<DateType>::add_event(std::string event_name, int d, int m, int y) {
-            Event * e = new Event(event_name, d, m, y);
+            Event<DateType> * e = new Event<DateType>(event_name, d, m, y);
             event_list.push_back(e);
             return true;
         }
     template <typename DateType>
         bool Calendar<DateType>::add_event(std::string event_name, int d, int m) {
-            Event * e = new Event(event_name, d, m);
+            Event<DateType> * e = new Event<DateType>(event_name, d, m, date -> year());
             event_list.push_back(e);
             return true;
         }
     template <typename DateType>
         bool Calendar<DateType>::add_event(std::string event_name, int d) {
-            Event * e = new Event(event_name, d);
+            Event<DateType> * e = new Event<DateType>(event_name, d, date -> month(), date -> year());
             event_list.push_back(e);
             return true;
         }
@@ -56,7 +56,6 @@ namespace lab2 {
             }
             return false;
         }
-
 
     template <typename DateType>
         bool Calendar<DateType>::remove_event(std::string event_name, int d, int m) {
