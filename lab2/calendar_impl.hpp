@@ -73,6 +73,7 @@ namespace lab2 {
                 {
                     event_list.remove(a);
                     delete a;
+                    return true;
                 }
             }
             return false;
@@ -85,6 +86,7 @@ namespace lab2 {
                 {
                     event_list.remove(a);
                     delete a;
+                    return true;
                 }
             }
             return false;
@@ -96,6 +98,7 @@ namespace lab2 {
                 {
                     event_list.remove(a);
                     delete a;
+                    return true;
                 }
             }
             return false;
