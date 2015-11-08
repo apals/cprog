@@ -103,7 +103,16 @@ namespace lab2 {
 
     template <typename DateType>
         std::ostream& operator<<(std::ostream &os, const Calendar<DateType> & c) {
-            return os << " printing calendar " << std::endl;
+            std::string output = "BEGIN:VCALENDAR\n";
+            output += "VERSION2.0\n";
+            output += "PRODID:-//hacksw/handcal//NONSGML v1.0//EN\n";
+            
+            for(auto a : c.event_list) {
+                output += a->event_name;
+                output += "\n";
+            }
+            output += "END:VCALENDAR\n";
+            return os << output << std::endl;
         }
 
 }
