@@ -27,6 +27,8 @@ namespace lab2 {
                 Calendar(Calendar<T> other);
                 ~Calendar();
                 void set_date(int d, int m, int y);
+                bool isEqual(Event<DateType> * e, std::string event_name, int d, int m, int y);
+                bool isValid(std::string event_name, int d, int m, int y);
 
                 bool add_event(std::string event_name, int d, int m, int y);
                 bool add_event(std::string event_name, int d, int m);
