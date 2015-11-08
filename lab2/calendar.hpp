@@ -25,7 +25,6 @@ namespace lab2 {
 
                 template <typename U>
                     Calendar(const Calendar<U> & other) {
-                        std::cout << "thiniges " << std::endl;
                         date = new DateType((*other.date));
                         for(auto a : other.event_list){
                             event_list.push_back(new Event<DateType>(a -> event_name, a -> date -> day(), a -> date -> month(), a -> date -> year()));
