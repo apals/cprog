@@ -7,9 +7,8 @@ namespace lab2 {
     struct Event {
         public: 
             Event();
-            Event(int d) : day(d) {}
-            Event(int d, int m) : day(d), month(m) {}
-            Event(int d, int m, int y) : day(d), month(m), year(y) {}
+            Event(std::string n, int d) : event_name(n), day(d) {}
+            Event(std::string n, int d, int m) : event_name(n), day(d), month(m) {}
             Event(std::string n, int d, int m, int y) : event_name(n), day(d), month(m), year(y) {}
             std::string event_name;
             int day, month, year;
