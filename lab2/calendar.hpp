@@ -7,7 +7,6 @@ namespace lab2 {
     template <typename DateType>
     struct Event {
         public: 
-            Event();
             ~Event(){
                 delete date;
             };
