@@ -3,6 +3,11 @@
 #include <iostream>
 namespace lab2 {
 
+    /*template <typename , typename DateType>
+        Calendar<DateType>::Calendar(Calendar<T> other) {
+            date = new DateType(other.date);
+        }
+*/
     template <typename DateType>
         Calendar<DateType>::Calendar() {
             date = new DateType();

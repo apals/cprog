@@ -17,8 +17,12 @@ namespace lab2 {
         class Calendar {
             public:
                 Calendar();
-                template <typename T>
-                Calendar(Calendar<T> other);
+
+                template <typename U>
+                Calendar(const Calendar<U> & other) {
+                    std::cout << "thiniges " << std::endl;
+                    date = new DateType((*other.date));
+                }
                 ~Calendar();
                 void set_date(int d, int m, int y);
 
@@ -32,10 +36,10 @@ namespace lab2 {
         
                 template <typename Other>
                 friend std::ostream& operator<<(std::ostream &os, Calendar<Other> const & c);
+                DateType * date;
 
             private:
                 std::list<Event *> event_list;
-                DateType * date;
         };
 }
 
