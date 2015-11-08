@@ -29,20 +29,14 @@ namespace lab2 {
             return true;
         }
     template <typename DateType>
-        bool Calendar<DateType>::add_event(int d, int m, int y) {
-            Event * e = new Event(d, m, y);
+        bool Calendar<DateType>::add_event(std::string event_name, int d, int m) {
+            Event * e = new Event(event_name, d, m);
             event_list.push_back(e);
             return true;
         }
     template <typename DateType>
-        bool Calendar<DateType>::add_event(int d, int m) {
-            Event * e = new Event(d, m);
-            event_list.push_back(e);
-            return true;
-        }
-    template <typename DateType>
-        bool Calendar<DateType>::add_event(int d) {
-            Event * e = new Event(d);
+        bool Calendar<DateType>::add_event(std::string event_name, int d) {
+            Event * e = new Event(event_name, d);
             event_list.push_back(e);
             return true;
         }
