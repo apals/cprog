@@ -8,6 +8,14 @@ namespace lab2 {
             date = new DateType();
         }
 
+    template <typename DataType>
+        Calendar<DataType>::~Calendar() {
+            for(auto a : event_list) {
+                delete a;
+            }
+            delete date;
+        }
+
     template <typename DateType>
         void Calendar<DateType>::set_date(int y, int m, int d) {
             delete date;
