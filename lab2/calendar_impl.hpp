@@ -16,29 +16,28 @@ namespace lab2 {
 
     template <typename DateType>
         bool Calendar<DateType>::add_event(std::string event_name, int d, int m, int y) {
-            Event * e = new Event();
+            Event * e = new Event(event_name, d, m, y);
             event_list.push_back(*e);
             return true;
         }
     template <typename DateType>
         bool Calendar<DateType>::add_event(int d, int m, int y) {
-            Event * e = new Event();
+            Event * e = new Event(d, m, y);
             event_list.push_back(*e);
             return true;
         }
     template <typename DateType>
         bool Calendar<DateType>::add_event(int d, int m) {
-            Event * e = new Event();
+            Event * e = new Event(d, m);
             event_list.push_back(*e);
             return true;
         }
     template <typename DateType>
         bool Calendar<DateType>::add_event(int d) {
-            Event * e = new Event();
+            Event * e = new Event(d);
             event_list.push_back(*e);
             return true;
         }
-
     template <typename DateType>
         bool Calendar<DateType>::remove_event(std::string event_name, int d, int m, int y) {
             for(auto a : event_list) {
@@ -63,8 +62,8 @@ namespace lab2 {
         }
 
     template <typename DateType>
-    std::ostream& operator<<(std::ostream &os, Calendar<DateType> const & c) {
-        return os << " printing calendar " << std::endl;
-    }
+        std::ostream& operator<<(std::ostream &os, Calendar<DateType> const & c) {
+            return os << " printing calendar " << std::endl;
+        }
 
 }

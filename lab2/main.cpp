@@ -113,5 +113,4 @@ int main(){
         cal.add_event("Nyårsfrukost", 1, 1, 2001);
        std::cout << cal << std::endl;
     }
-
 }
