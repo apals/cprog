@@ -4,14 +4,20 @@
 #include <list>
 #include <iostream>
 namespace lab2 {
+    template <typename DateType>
     struct Event {
         public: 
             Event();
-            Event(std::string n, int d) : event_name(n), day(d) {}
-            Event(std::string n, int d, int m) : event_name(n), day(d), month(m) {}
-            Event(std::string n, int d, int m, int y) : event_name(n), day(d), month(m), year(y) {}
+            ~Event(){
+                delete date;
+            };
+            Event(std::string n, int d, int m, int y){
+                event_name = n;
+                date = new DateType(y, m, d);
+            };
+
             std::string event_name;
-            int day, month, year;
+            DateType * date;
     };
     template <typename DateType>
         class Calendar {
@@ -32,7 +38,7 @@ namespace lab2 {
                 friend std::ostream& operator<<(std::ostream &os, Calendar<Other> const & c);
 
             private:
-                std::list<Event *> event_list;
+                std::list<Event<DateType> *> event_list;
                 DateType * date;
         };
 }
