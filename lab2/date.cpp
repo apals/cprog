@@ -8,7 +8,7 @@ namespace lab2 {
 
         time(&mytime);
 
-       // k_time(&mytime);
+        // k_time(&mytime);
 
         // För att få ut datum lokalt 
         struct tm *t = gmtime(&mytime);
@@ -34,11 +34,18 @@ namespace lab2 {
 
     //Copy constructor
     Date::Date(const Date & obj) {
-        curr_year = obj.curr_year;
+        //std::cout << "Date::copy constructor" << std::endl;
+        int mjd = obj.mod_julian_day();
+          curr_year = mjd_to_year(mjd);
+          curr_month = mjd_to_month(mjd);
+          curr_day = mjd_to_day(mjd);
+          curr_days_per_week = obj.curr_days_per_week;
+        
+      /* curr_year = obj.curr_year;
         curr_month = obj.curr_month;
         curr_day = obj.curr_day;
         curr_week_day = obj.curr_week_day;
-        curr_days_per_week = obj.curr_days_per_week;
+        curr_days_per_week = obj.curr_days_per_week;*/
     }
 
     Date::~Date(){}

@@ -52,7 +52,9 @@ namespace lab2 {
         bool Calendar<DateType>::add_event(std::string event_name, int d, int m, int y) {
             if(!isValid(event_name, d, m, y))
                 return false;
+            //std::cout << "Adding event: " << d << " - " << m << " - " << y << std::endl;
             Event<DateType> * e = new Event<DateType>(event_name, d, m, y);
+            //std::cout << "Added event : " << *(e->date) << std::endl;
             event_list.push_back(e);
             return true;
         }
@@ -141,7 +143,7 @@ namespace lab2 {
 
             for(auto a : c.event_list) {
                 DateType b = *(a->date);
-
+                
 
                 if(b.year() < c.date->year()
                         || (b.year() == c.date->year() && b.month() < c.date->month())
@@ -151,14 +153,18 @@ namespace lab2 {
 
                 os << "BEGIN:VEVENT" << std::endl;
                 os << "SUMMARY:" + a->event_name << std::endl;
-                if(b.month() >= 10)
-                    os << "DTSTART:" << b.year() << b.month() << b.day() << "T000000" << std::endl;
+
+
+
+                //TODO: DO THIS WITH DAY TOO!
+                if((*(a->date)).month() >= 10)
+                    os << "DTSTART:" << (*a->date).year() <<(*a->date).month() <<(*a->date).day() << "T000000" << std::endl;
                 else
-                    os << "DTSTART:" << b.year() << "0" << b.month() << b.day() << "T000000" << std::endl;
+                    os << "DTSTART:" <<(*a->date).year() << "0" <<(*a->date).month() <<(*a->date).day() << "T000000" << std::endl;
                 os << "END:VEVENT" << std::endl;
             }
-            os << "END:VCALENDAR";
-            return os << std::endl;
+            return os << "END:VCALENDAR";
+           
         }
 
 }

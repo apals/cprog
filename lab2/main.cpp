@@ -20,11 +20,16 @@ int main(){
                      */  }
     { 
         // WORKS!!!
-        /*       Gregorian g (1858, 11, 16);
-                 Julian j (g);
-                 std::cout << "SHOULD BE 1858-11-4 " << j << std::endl; // shall print 1858-11-4
-                 std::cout << "should be 1858-11-16 " << g << std::endl; // shall print 1858-11-16
-                 */}
+/*                       Gregorian g (1858, 11, 16);
+                         Julian j (g);
+                         std::cout << "SHOULD BE 1858-11-4 " << j << std::endl; // shall print 1858-11-4
+                         std::cout << "should be 1858-11-16 " << g << std::endl; // shall print 1858-11-16
+
+                         Julian j2(1858, 11, 4);
+                         Gregorian g2(j2);
+                         std::cout << "SHOULD BE 1858-11-4 " << j2 << std::endl; // shall print 1858-11-4
+                         std::cout << "should be 1858-11-16 " << g2 << std::endl; // shall print 1858-11-16
+  */                        }
     { 
         /** THIS WORKS TOO **/
         /*   Date * p1 = new Julian ();
@@ -106,13 +111,24 @@ int main(){
     }
 
     {
-        Calendar<Gregorian> cal;
-        cal.set_date(2000, 12, 2);
-        cal.add_event("Basketträning", 4, 12, 2000);
-        cal.add_event("Basketträning", 11, 12, 2000);
-        cal.add_event("Nyårsfrukost", 1, 1, 2001);
-        std::cout << cal;
+        Calendar<Julian> cal;
+        cal.add_event("fizbar", 12, 8, 2015);
+        cal.set_date(1900, 1, 1);
+        cal.add_event("birbaz", 12, 10);
+        cal.add_event("foobar", 12);
+        cal.add_event("fizbar", -1, -1, -1);
+        cal.add_event("fizbar", 0, 0, 0);
+        cal.remove_event("foobar", 12, 8, 2015);
+       std::cout << cal << std::endl;
+       std::cout << (*cal.date) << std::endl;
+       std::cout << "----------------" << std::endl;
+        
+        //std::cout << "check below ----------------" << std::endl;
+        
+        Calendar<Gregorian> cal2(cal);
+        std::cout << cal2 << std::endl;
+        std::cout << "----------------" << std::endl;
+        std::cout << (*cal2.date) << std::endl;
 
-        Calendar<Julian> c2(cal);
     }
 }

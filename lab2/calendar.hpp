@@ -5,15 +5,15 @@
 #include <iostream>
 namespace lab2 {
     template <typename DateType>
-    struct Event {
-        public: 
-            ~Event(){
-                delete date;
-            };
-            Event(std::string n, int d, int m, int y){
-                event_name = n;
-                date = new DateType(y, m, d);
-            };
+        struct Event {
+            public: 
+                ~Event(){
+                    delete date;
+                };
+                Event(std::string n, int d, int m, int y){
+                    event_name = n;
+                    date = new DateType(y, m, d);
+                };
 
                 std::string event_name;
                 DateType * date;
@@ -27,7 +27,15 @@ namespace lab2 {
                     Calendar(const Calendar<U> & other) {
                         date = new DateType((*other.date));
                         for(auto a : other.event_list){
-                            event_list.push_back(new Event<DateType>(a -> event_name, a -> date -> day(), a -> date -> month(), a -> date -> year()));
+                            //event_list.push_back(new Event<DateType>(a -> event_name, a -> date -> day(), a -> date -> month(), a -> date -> year()));
+
+                            DateType tmp(*(a->date));
+                            /*std::cout << "=====dates=====" << std::endl;
+                            std::cout << *(a->date) << std::endl;
+                            std::cout << (tmp) << std::endl;
+                            std::cout << "=====dates=====" << std::endl;
+*/
+                            event_list.push_back(new Event<DateType>(a -> event_name, tmp.day(), tmp.month(), tmp.year()));
                         }
                     }
                 ~Calendar();
