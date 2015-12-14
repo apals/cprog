@@ -130,14 +130,14 @@ namespace lab2 {
 
     Date::Date(int year, int month, int day){
         if(year < 1858 || year > 2558)
-            throw std::out_of_range("Invalid year");
+            throw std::invalid_argument("Invalid year");
         if(month < 1 || month > 12)
-            throw std::out_of_range("Invalid month");
+            throw std::invalid_argument("Invalid month");
         curr_year = year;
         curr_month = month;
 
         if(day < 1 || day > days_this_month())
-            throw std::out_of_range("Invalid day");
+            throw std::invalid_argument("Invalid day");
         curr_day = day;
     }
 

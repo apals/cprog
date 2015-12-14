@@ -31,19 +31,17 @@ namespace lab2 {
                         }
                     }
                 ~Calendar();
-                bool set_date(int d, int m, int y);
+                void set_date(int d, int m, int y);
                 bool isEqual(Event<DateType> * e, std::string event_name, int d, int m, int y);
                 bool isValid(std::string event_name, int d, int m, int y);
 
                 bool add_event(std::string event_name, int d, int m, int y);
                 bool add_event(std::string event_name, int d, int m);
                 bool add_event(std::string event_name, int d);
-                bool add_event(std::string event_name);
 
                 bool remove_event(std::string event_name, int d, int m, int y);
                 bool remove_event(std::string event_name, int d, int m);
                 bool remove_event(std::string event_name, int d);
-                bool remove_event(std::string event_name);
 
                 template <typename Other>
                     friend std::ostream& operator<<(std::ostream &os, Calendar<Other> const & c);
@@ -52,5 +50,5 @@ namespace lab2 {
         };
 }
 
-#include "calendar_impl.hpp"
+#include "calendar_impl.h"
 #endif
