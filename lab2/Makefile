@@ -13,7 +13,7 @@ gregorian.o: gregorian.cpp
 		$(CC) $(FLAGS) -c gregorian.cpp
 julian.o: julian.cpp
 		$(CC) $(FLAGS) -c julian.cpp
-calendar.o: calendar.hpp
+calendar.o: calendar.hpp calendar_impl.hpp
 		$(CC) $(FLAGS) -c calendar.hpp -o calendar.o
 
 clean:
