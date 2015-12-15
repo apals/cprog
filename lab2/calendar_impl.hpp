@@ -24,10 +24,13 @@ namespace lab2 {
     template <typename DateType>
         bool Calendar<DateType>::set_date(int y, int m, int d) {
             try {
-                DateType date(y, m, d);
-            } catch(const std::exception& e) { 
+                //std::cout << "Trying to set date to " << y << "-" << m << "-" << d << std::endl;
+                DateType datetest(y, m, d);
+            } catch(const std::exception& e) {
+                //std::cout << "setting date failed" << std::endl;
                 return false; 
             }
+                //std::cout << "setting date succeeded" << std::endl;
             delete date;
             date = new DateType(y, m, d);
             return true;
@@ -146,12 +149,12 @@ namespace lab2 {
 
             for(auto a : c.event_list) {
 
-                /*            if((*(a->date)).year() < c.date->year()
+                if((*(a->date)).year() < c.date->year()
                               || ((*(a->date)).year() == c.date->year() && (*(a->date)).month() < c.date->month())
-                              || ((*(a->date)).year() == c.date->year() && (*(a->date)).month() == c.date->month() && b.day() < c.date->day()))
+                              || ((*(a->date)).year() == c.date->year() && (*(a->date)).month() == c.date->month() && (*(a->date)).day() < c.date->day()))
                               continue;
 
-*/
+
                 os << "BEGIN:VEVENT" << std::endl;
                 os << "SUMMARY:" + a->event_name << std::endl;
 
