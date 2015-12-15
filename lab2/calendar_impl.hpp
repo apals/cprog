@@ -52,7 +52,7 @@ namespace lab2 {
         bool Calendar<DateType>::add_event(std::string event_name, int d, int m, int y) {
             if(!isValid(event_name, d, m, y))
                 return false;
-            //std::cout << "Adding event: " << d << " - " << m << " - " << y << std::endl;
+           //std::cout << "Adding event: " << d << " - " << m << " - " << y << std::endl;
             Event<DateType> * e = new Event<DateType>(event_name, d, m, y);
             //std::cout << "Added event : " << *(e->date) << std::endl;
             event_list.push_back(e);
@@ -142,15 +142,13 @@ namespace lab2 {
             os << "PRODID:-//hacksw/handcal//NONSGML v1.0//EN" << std::endl;
 
             for(auto a : c.event_list) {
-                DateType b = *(a->date);
-                
 
-                if(b.year() < c.date->year()
-                        || (b.year() == c.date->year() && b.month() < c.date->month())
-                        || (b.year() == c.date->year() && b.month() == c.date->month() && b.day() < c.date->day()))
+    /*            if((*(a->date)).year() < c.date->year()
+                        || ((*(a->date)).year() == c.date->year() && (*(a->date)).month() < c.date->month())
+                        || ((*(a->date)).year() == c.date->year() && (*(a->date)).month() == c.date->month() && b.day() < c.date->day()))
                     continue;
 
-
+*/
                 os << "BEGIN:VEVENT" << std::endl;
                 os << "SUMMARY:" + a->event_name << std::endl;
 

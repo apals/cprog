@@ -6,9 +6,9 @@ namespace lab2 {
         // För att få nuvarande tid
         time_t mytime;
 
-        //time(&mytime);
+        time(&mytime);
 
-        k_time(&mytime);
+        //k_time(&mytime);
 
         // För att få ut datum lokalt 
         struct tm *t = gmtime(&mytime);

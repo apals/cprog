@@ -20,16 +20,16 @@ int main(){
                      */  }
     { 
         // WORKS!!!
-/*                       Gregorian g (1858, 11, 16);
-                         Julian j (g);
-                         std::cout << "SHOULD BE 1858-11-4 " << j << std::endl; // shall print 1858-11-4
-                         std::cout << "should be 1858-11-16 " << g << std::endl; // shall print 1858-11-16
+        /*                       Gregorian g (1858, 11, 16);
+                                 Julian j (g);
+                                 std::cout << "SHOULD BE 1858-11-4 " << j << std::endl; // shall print 1858-11-4
+                                 std::cout << "should be 1858-11-16 " << g << std::endl; // shall print 1858-11-16
 
-                         Julian j2(1858, 11, 4);
-                         Gregorian g2(j2);
-                         std::cout << "SHOULD BE 1858-11-4 " << j2 << std::endl; // shall print 1858-11-4
-                         std::cout << "should be 1858-11-16 " << g2 << std::endl; // shall print 1858-11-16
-  */                        }
+                                 Julian j2(1858, 11, 4);
+                                 Gregorian g2(j2);
+                                 std::cout << "SHOULD BE 1858-11-4 " << j2 << std::endl; // shall print 1858-11-4
+                                 std::cout << "should be 1858-11-16 " << g2 << std::endl; // shall print 1858-11-16
+                                 */                        }
     { 
         /** THIS WORKS TOO **/
         /*   Date * p1 = new Julian ();
@@ -119,17 +119,26 @@ int main(){
         cal.add_event("fizbar", -1, -1, -1);
         cal.add_event("fizbar", 0, 0, 0);
         cal.remove_event("foobar", 12, 8, 2015);
-       std::cout << cal << std::endl;
-       //std::cout << (*cal.date) << std::endl;
-       
-       std::cout << "----------------" << std::endl;
-        
+        std::cout << cal << std::endl;
+        std::cout << (*cal.date) << std::endl;
+
+        std::cout << "----------------" << std::endl;
+
         //std::cout << "check below ----------------" << std::endl;
-        
+
         Calendar<Gregorian> cal2(cal);
         std::cout << cal2 << std::endl;
-        //std::cout << "----------------" << std::endl;
-        //std::cout << (*cal2.date) << std::endl;
+        std::cout << "----------------" << std::endl;
+        std::cout << (*cal2.date) << std::endl;
 
+        /*lab2::Calendar<lab2::Julian> cj;
+
+          cj.set_date  (1900, 1, 1);
+
+          cj.add_event ("birbaz", 12, 10);
+          cj.add_event ("foobar", 12);
+
+          std::cout << lab2::Calendar<lab2::Gregorian> (cj);
+          */
     }
 }

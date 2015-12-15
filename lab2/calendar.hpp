@@ -27,15 +27,15 @@ namespace lab2 {
                     Calendar(const Calendar<U> & other) {
                         date = new DateType((*other.date));
                         for(auto a : other.event_list){
-                            event_list.push_back(new Event<DateType>(a -> event_name, a -> date -> day(), a -> date -> month(), a -> date -> year()));
+                            //event_list.push_back(new Event<DateType>(a -> event_name, a -> date -> day(), a -> date -> month(), a -> date -> year()));
 
-                            //DateType tmp(*(a->date));
+                            DateType tmp(*(a->date));
                             /*std::cout << "=====dates=====" << std::endl;
                             std::cout << *(a->date) << std::endl;
                             std::cout << (tmp) << std::endl;
                             std::cout << "=====dates=====" << std::endl;
 */
-                            //event_list.push_back(new Event<DateType>(a -> event_name, tmp.day(), tmp.month(), tmp.year()));
+                            event_list.push_back(new Event<DateType>(a -> event_name, tmp.day(), tmp.month(), tmp.year()));
                         }
                     }
                 ~Calendar();
