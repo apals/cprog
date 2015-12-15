@@ -141,7 +141,7 @@ int main(){
           std::cout << lab2::Calendar<lab2::Gregorian> (cj);
           */
         
-        Calendar<Gregorian> greg;
+        /*Calendar<Gregorian> greg;
         std::cout << greg << std::endl;
         greg.set_date(2012, 2, 29);
         greg.add_event("pNGVXBK", 7, 2);
@@ -149,6 +149,35 @@ int main(){
         greg.set_date(1990, 2, 29);
         std::cout << "-------------" << std::endl;
         std::cout << greg << std::endl;
-        std::cout << (*greg.date) << std::endl;
+        std::cout << (*greg.date) << std::endl;*/
+
+        Calendar<Gregorian> gregge;
+        Calendar<Gregorian> gregge2;
+        gregge.set_date(1990, 2, 29);
+        gregge.add_event("das", 21, 1);
+        gregge2.set_date(1990, 2, 29);
+        gregge2.add_event("das", 21, 1);
+        gregge2.set_date(2001, 1, 1);
+        gregge2.remove_event("das", 21, 1);
+        gregge.add_event("das", 21, 1);
+        gregge2.set_date(1990, 2, 29);
+        gregge.add_event("das", 21, 1);
+
+        std::cout << gregge << std::endl;
+        std::cout << gregge2 << std::endl;
+
+        Calendar<Julian> julle(gregge);
+        Calendar<Julian> julle2(gregge2);
+        Calendar<Julian> julle3(julle2);
+        std::cout << julle3 << std::endl;
+        julle.remove_event("sd", 1);
+        std::cout << julle << std::endl;
+        julle.set_date(0, 1, -20);
+        julle.add_event("sd", 1, -1);
+
+        julle.remove_event("sd", 1, -1);
+        julle.add_event("asd", 2000, 1, 1);
+        julle.remove_event("asd", 2000, 1, 1);
+        std::cout << julle << std::endl;
     }
 }

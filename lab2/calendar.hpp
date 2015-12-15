@@ -8,7 +8,9 @@ namespace lab2 {
         struct Event {
             public: 
                 ~Event(){
+                    std::cerr << "destructor event" << std::endl;
                     delete date;
+                    std::cerr << "done with destructor event" << std::endl;
                 };
                 Event(std::string n, int d, int m, int y){
                     event_name = n;

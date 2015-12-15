@@ -15,10 +15,13 @@ namespace lab2 {
 
     template <typename DataType>
         Calendar<DataType>::~Calendar() {
+            std::cerr << "destructor calendar" << std::endl;
             for(auto a : event_list) {
                 delete a;
             }
+            //event_list.erase(event_list.begin(), event_list.end());
             delete date;
+            std::cerr << "done with destructor calendar" << std::endl;
         }
 
     template <typename DateType>
@@ -143,6 +146,7 @@ namespace lab2 {
 
     template <typename DateType>
         std::ostream& operator<<(std::ostream &os, const Calendar<DateType> & c) {
+            std::cerr << "about to print the CAL" << std::endl;
             os << "BEGIN:VCALENDAR" << std::endl;
             os << "VERSION:2.0" << std::endl;
             os << "PRODID:-//hacksw/handcal//NONSGML v1.0//EN" << std::endl;
