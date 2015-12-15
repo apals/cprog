@@ -8,9 +8,9 @@ namespace lab2 {
         struct Event {
             public: 
                 ~Event(){
-                    std::cerr << "destructor event" << std::endl;
+                    //std::cerr << "destructor event" << std::endl;
                     delete date;
-                    std::cerr << "done with destructor event" << std::endl;
+                    //std::cerr << "done with destructor event" << std::endl;
                 };
                 Event(std::string n, int d, int m, int y){
                     event_name = n;
@@ -25,6 +25,20 @@ namespace lab2 {
             public:
                 Calendar();
 
+                Calendar(const Calendar<DateType> & other){
+                    //std::cout << "copy assign of same type" << std::endl;
+                    //std::cout << *(other.date) << std::endl;
+
+                    date = new DateType((*other.date).year(), (*other.date).month(), (*other.date).day());
+                    //std::cout << *(date) << std::endl; 
+
+                    for(auto a : other.event_list){
+
+                        DateType tmp(*(a->date));
+                        event_list.push_back(new Event<DateType>(a -> event_name, (a->date)->day(), (a->date) ->month(), (a -> date) -> year()));
+                    }
+                }
+
                 template <typename U>
                     Calendar(const Calendar<U> & other) {
                         date = new DateType((*other.date));
@@ -32,11 +46,6 @@ namespace lab2 {
                             //event_list.push_back(new Event<DateType>(a -> event_name, a -> date -> day(), a -> date -> month(), a -> date -> year()));
 
                             DateType tmp(*(a->date));
-                            /*std::cout << "=====dates=====" << std::endl;
-                            std::cout << *(a->date) << std::endl;
-                            std::cout << (tmp) << std::endl;
-                            std::cout << "=====dates=====" << std::endl;
-*/
                             event_list.push_back(new Event<DateType>(a -> event_name, tmp.day(), tmp.month(), tmp.year()));
                         }
                     }

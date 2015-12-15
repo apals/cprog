@@ -34,7 +34,7 @@ namespace lab2 {
 
     //Copy constructor
     Date::Date(const Date & obj) {
-        //std::cout << "Date::copy constructor" << std::endl;
+//        std::cout << "Date::copy constructor" << std::endl;
         int mjd = obj.mod_julian_day();
           curr_year = mjd_to_year(mjd);
           curr_month = mjd_to_month(mjd);
@@ -136,6 +136,7 @@ namespace lab2 {
 
 
     Date::Date(int year, int month, int day){
+        std::cerr << "date constructor y m d " << std::endl;
         if(year < 1858 || year > 2558)
             throw std::out_of_range("Invalid year");
         if(month < 1 || month > 12)
@@ -219,7 +220,7 @@ namespace lab2 {
      * 3: The year is also evenly divisible by 400. Then it is a leap year.
      */
     bool Date::is_leap_year(int year) const{
-
+        std::cerr << "date::is leap year " << std::endl;
         //CRITERIA 1
         if(year % 4 != 0) {
             return false;

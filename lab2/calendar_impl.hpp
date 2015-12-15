@@ -13,31 +13,43 @@ namespace lab2 {
             date = new DateType();
         }
 
-    template <typename DataType>
-        Calendar<DataType>::~Calendar() {
-            std::cerr << "destructor calendar" << std::endl;
+    template <typename DateType>
+        Calendar<DateType>::~Calendar() {
+            //std::cerr << "destructor calendar" << std::endl;
             for(auto a : event_list) {
                 delete a;
             }
             //event_list.erase(event_list.begin(), event_list.end());
             delete date;
-            std::cerr << "done with destructor calendar" << std::endl;
+            //std::cerr << "done with destructor calendar" << std::endl;
         }
 
     template <typename DateType>
         bool Calendar<DateType>::set_date(int y, int m, int d) {
+            /*if(d == 29 && m == 2) {
+
+                if(!(date->is_leap_year(y))) {
+                    return false;
+                } else {
+
+                }
+            }*/
+            if(date->is_leap_year(y)) {
+                std::cout << "its yeah a ieap year" << std::endl;
+
+            }
             try {
-                //std::cout << "Trying to set date to " << y << "-" << m << "-" << d << std::endl;
-                DateType datetest(y, m, d);
+                std::cout << "Trying to set date to " << y << "-" << m << "-" << d << std::endl;
+                DateType * a = new DateType(y, m, d);
             } catch(const std::exception& e) {
-                //std::cout << "setting date failed" << std::endl;
+                std::cout << "setting date failed" << std::endl;
+                //std::cout << e << std::endl;
                 return false; 
             }
-                //std::cout << "setting date succeeded" << std::endl;
+            //std::cout << "setting date succeeded" << std::endl;
             delete date;
             date = new DateType(y, m, d);
             return true;
-
         }
 
     template <typename DateType>
@@ -146,7 +158,7 @@ namespace lab2 {
 
     template <typename DateType>
         std::ostream& operator<<(std::ostream &os, const Calendar<DateType> & c) {
-            std::cerr << "about to print the CAL" << std::endl;
+            //std::cerr << "about to print the CAL" << std::endl;
             os << "BEGIN:VCALENDAR" << std::endl;
             os << "VERSION:2.0" << std::endl;
             os << "PRODID:-//hacksw/handcal//NONSGML v1.0//EN" << std::endl;
@@ -154,9 +166,9 @@ namespace lab2 {
             for(auto a : c.event_list) {
 
                 if((*(a->date)).year() < c.date->year()
-                              || ((*(a->date)).year() == c.date->year() && (*(a->date)).month() < c.date->month())
-                              || ((*(a->date)).year() == c.date->year() && (*(a->date)).month() == c.date->month() && (*(a->date)).day() < c.date->day()))
-                              continue;
+                        || ((*(a->date)).year() == c.date->year() && (*(a->date)).month() < c.date->month())
+                        || ((*(a->date)).year() == c.date->year() && (*(a->date)).month() == c.date->month() && (*(a->date)).day() < c.date->day()))
+                    continue;
 
 
                 os << "BEGIN:VEVENT" << std::endl;

@@ -2,6 +2,7 @@
 namespace lab2 {
 
     Julian::Julian(): Gregorian() {
+        std::cerr << " julian constructor " << std::endl;
         int mjd = Gregorian::mod_julian_day();
         curr_year = mjd_to_year(mjd);
         curr_month = mjd_to_month(mjd);
@@ -9,12 +10,15 @@ namespace lab2 {
     }
 
     Julian::Julian(const Date& g){
+//        std::cout << "julian const date&g const" << std::endl;
+        //std::cout << g.year() << std::endl;
         curr_year = mjd_to_year(g.mod_julian_day());
         curr_month = mjd_to_month(g.mod_julian_day());
         curr_day = mjd_to_day(g.mod_julian_day());
     }
 
     Julian& Julian::operator=(const Date& other) {
+  //      std::cout << "julian = const" << std::endl;
         Julian tmp(other);
         std::swap(curr_year, tmp.curr_year);
         std::swap(curr_month, tmp.curr_month);
@@ -44,6 +48,7 @@ namespace lab2 {
     }
 
     bool Julian::is_leap_year(int year) const {
+        std::cerr << " julian:: is leap year " << std::endl;
         return year % 4 == 0;
     }
 
