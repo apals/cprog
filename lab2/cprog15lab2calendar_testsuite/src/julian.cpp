@@ -1,4 +1,4 @@
-#include "julian.hpp"
+#include "julian.h"
 namespace lab2 {
 
     Julian::Julian(): Gregorian() {
@@ -28,7 +28,6 @@ namespace lab2 {
     Julian::~Julian(){}
 
     int Julian::mod_julian_day() const {
-        //std::cout << "Julian mod_julian_day " << std::endl;
         int a = floor((14 - month())/12);
         int y = year() + 4800 - a;
         int m = month() + 12 * a - 3;

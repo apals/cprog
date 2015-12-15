@@ -10,13 +10,18 @@ struct T1 {
 
 unsigned int T1::object_count = 0;
 int main () {
-    Vector<int> vec2 = {12, 252};
-    Vector<int> vec5 = std::move(std::move(vec2));
-    Vector<int> vec(2);
-    vec.insert(0, 1);
-    vec.insert(0, 1);
-    vec.insert(0, 1);
-    vec.insert(0, 1);
-    vec.insert(0, 1);
+    Vector<int> a;
+//    std::cout << a[1] << std::endl;
+    //a[1] = 42;
+    a.reset();
+    a.insert(0, 123);
+    a.insert(0, 321);
+    a.insert(0, 42);
+    a.insert(0, 100);
+    std::cout << a[0] << " : " <<a[1]<<" : " << a[2] << ":  " <<a[3] << std::endl;
+    a.erase(0);
+    a.erase(0);
+    a.erase(0);
+    std::cout << a[0] << std::endl;
 
 }
