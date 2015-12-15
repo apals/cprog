@@ -111,18 +111,18 @@ int main(){
     }
 
     {
-        Calendar<Julian> cal;
-        cal.add_event("fizbar", 12, 8, 2015);
-        cal.set_date(1900, 1, 1);
-        cal.add_event("birbaz", 12, 10);
-        cal.add_event("foobar", 12);
-        cal.add_event("fizbar", -1, -1, -1);
-        cal.add_event("fizbar", 0, 0, 0);
-        cal.remove_event("foobar", 12, 8, 2015);
-        std::cout << cal << std::endl;
-        std::cout << (*cal.date) << std::endl;
+        /*Calendar<Julian> cal;
+          cal.add_event("fizbar", 12, 8, 2015);
+          cal.set_date(1900, 1, 1);
+          cal.add_event("birbaz", 12, 10);
+          cal.add_event("foobar", 12);
+          cal.add_event("fizbar", -1, -1, -1);
+          cal.add_event("fizbar", 0, 0, 0);
+          cal.remove_event("foobar", 12, 8, 2015);
+          std::cout << cal << std::endl;
+          std::cout << (*cal.date) << std::endl;
 
-        std::cout << "----------------" << std::endl;
+          std::cout << "----------------" << std::endl;
 
         //std::cout << "check below ----------------" << std::endl;
 
@@ -130,7 +130,7 @@ int main(){
         std::cout << cal2 << std::endl;
         std::cout << "----------------" << std::endl;
         std::cout << (*cal2.date) << std::endl;
-
+        */
         /*lab2::Calendar<lab2::Julian> cj;
 
           cj.set_date  (1900, 1, 1);
@@ -140,5 +140,15 @@ int main(){
 
           std::cout << lab2::Calendar<lab2::Gregorian> (cj);
           */
+        
+        Calendar<Gregorian> greg;
+        std::cout << greg << std::endl;
+        greg.set_date(2012, 2, 29);
+        greg.add_event("pNGVXBK", 7, 2);
+        greg.remove_event("pNGVXBK", 11, -9);
+        greg.set_date(1990, 2, 29);
+        std::cout << "-------------" << std::endl;
+        std::cout << greg << std::endl;
+        std::cout << (*greg.date) << std::endl;
     }
 }

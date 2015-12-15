@@ -23,11 +23,14 @@ namespace lab2 {
 
     template <typename DateType>
         bool Calendar<DateType>::set_date(int y, int m, int d) {
-            delete date;
             try {
-                date = new DateType(y, m, d);
-                return true;
-            } catch(const std::exception& e) { return false; }
+                DateType date(y, m, d);
+            } catch(const std::exception& e) { 
+                return false; 
+            }
+            delete date;
+            date = new DateType(y, m, d);
+            return true;
 
         }
 
@@ -52,7 +55,7 @@ namespace lab2 {
         bool Calendar<DateType>::add_event(std::string event_name, int d, int m, int y) {
             if(!isValid(event_name, d, m, y))
                 return false;
-           //std::cout << "Adding event: " << d << " - " << m << " - " << y << std::endl;
+            //std::cout << "Adding event: " << d << " - " << m << " - " << y << std::endl;
             Event<DateType> * e = new Event<DateType>(event_name, d, m, y);
             //std::cout << "Added event : " << *(e->date) << std::endl;
             event_list.push_back(e);
@@ -143,10 +146,10 @@ namespace lab2 {
 
             for(auto a : c.event_list) {
 
-    /*            if((*(a->date)).year() < c.date->year()
-                        || ((*(a->date)).year() == c.date->year() && (*(a->date)).month() < c.date->month())
-                        || ((*(a->date)).year() == c.date->year() && (*(a->date)).month() == c.date->month() && b.day() < c.date->day()))
-                    continue;
+                /*            if((*(a->date)).year() < c.date->year()
+                              || ((*(a->date)).year() == c.date->year() && (*(a->date)).month() < c.date->month())
+                              || ((*(a->date)).year() == c.date->year() && (*(a->date)).month() == c.date->month() && b.day() < c.date->day()))
+                              continue;
 
 */
                 os << "BEGIN:VEVENT" << std::endl;
@@ -154,15 +157,20 @@ namespace lab2 {
 
 
 
-                //TODO: DO THIS WITH DAY TOO!
-                if((*(a->date)).month() >= 10)
-                    os << "DTSTART:" << (*a->date).year() <<(*a->date).month() <<(*a->date).day() << "T000000" << std::endl;
-                else
-                    os << "DTSTART:" <<(*a->date).year() << "0" <<(*a->date).month() <<(*a->date).day() << "T000000" << std::endl;
+                int month = (*a->date).month();
+                int day = (*a->date).day();
+                os << "DTSTART:" << (*a->date).year();
+                if(month < 10)
+                    os << "0";
+                os << month;
+                if(day < 10)
+                    os << "0";
+                os << day;
+                os << "T000000" << std::endl;
                 os << "END:VEVENT" << std::endl;
             }
             return os << "END:VCALENDAR";
-           
+
         }
 
 }
