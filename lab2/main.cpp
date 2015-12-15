@@ -120,15 +120,16 @@ int main(){
         cal.add_event("fizbar", 0, 0, 0);
         cal.remove_event("foobar", 12, 8, 2015);
        std::cout << cal << std::endl;
-       std::cout << (*cal.date) << std::endl;
+       //std::cout << (*cal.date) << std::endl;
+       
        std::cout << "----------------" << std::endl;
         
         //std::cout << "check below ----------------" << std::endl;
         
         Calendar<Gregorian> cal2(cal);
         std::cout << cal2 << std::endl;
-        std::cout << "----------------" << std::endl;
-        std::cout << (*cal2.date) << std::endl;
+        //std::cout << "----------------" << std::endl;
+        //std::cout << (*cal2.date) << std::endl;
 
     }
 }
