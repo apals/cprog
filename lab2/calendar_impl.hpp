@@ -26,24 +26,11 @@ namespace lab2 {
 
     template <typename DateType>
         bool Calendar<DateType>::set_date(int y, int m, int d) {
-            /*if(d == 29 && m == 2) {
-
-                if(!(date->is_leap_year(y))) {
-                    return false;
-                } else {
-
-                }
-            }*/
-            if(date->is_leap_year(y)) {
-                std::cout << "its yeah a ieap year" << std::endl;
-
-            }
             try {
-                std::cout << "Trying to set date to " << y << "-" << m << "-" << d << std::endl;
-                DateType * a = new DateType(y, m, d);
+//                std::cout << "Trying to set date to " << y << "-" << m << "-" << d << std::endl;
+                DateType a(y, m, d);
             } catch(const std::exception& e) {
-                std::cout << "setting date failed" << std::endl;
-                //std::cout << e << std::endl;
+  //              std::cout << "setting date failed" << std::endl;
                 return false; 
             }
             //std::cout << "setting date succeeded" << std::endl;

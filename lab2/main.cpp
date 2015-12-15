@@ -151,7 +151,7 @@ int main(){
           std::cout << greg << std::endl;
           std::cout << (*greg.date) << std::endl;*/
 
-        /*Calendar<Gregorian> gregge2;
+        Calendar<Gregorian> gregge2;
           gregge2.set_date(1990, 2, 29);
           gregge2.add_event("das", 21, 1);
           gregge2.set_date(2001, 1, 1);
@@ -166,19 +166,18 @@ int main(){
           std::cout << (julle2) << std::endl;
           std::cout << "------------------" << std::endl;
           std::cout << (*julle3.date) << std::endl;
-          std::cout << (julle3) << std::endl; */
+          std::cout << (julle3) << std::endl; 
         Calendar<Gregorian> greg;
         Calendar<Julian> jul;
-
         if(greg.set_date(1900, 2, 29)) {
-            std::cout << "Greg could set 1900 2 29 " << std::endl;
+            std::cout << " gregge could set " << std::endl;
         }
+        std::cout << "--------------" << std::endl;
         if(jul.set_date(1900, 2, 29)) {
             std::cout << "Jul could set 1900 2 29 " << std::endl;
+        } else {
+            std::cout << "Jul could not " << std::endl;
         }
 
-        if(jul.date->is_leap_year(1900)) {
-            std::cout << "1900 is a leap year " << std::endl;
-        }
     }
 }
