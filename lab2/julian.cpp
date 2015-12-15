@@ -1,4 +1,5 @@
 #include "julian.hpp"
+#include <stdexcept>
 namespace lab2 {
 
     Julian::Julian(): Gregorian() {
