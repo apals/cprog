@@ -79,9 +79,12 @@ Vector<T>& Vector<T>::operator=(const Vector<T>& other)
     try {
         Vector<T> tmp(other);
 
+        //Should this be a reference to other?
         std::swap(vector_size, tmp.vector_size);
         std::swap(vector_capacity, tmp.vector_capacity);
         std::swap(vect, tmp.vect);
+
+        //return *tmp
     }
     catch(...)
     {
