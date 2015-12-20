@@ -37,7 +37,7 @@ namespace lab2 {
             unsigned int day() const;
             virtual unsigned int week_day() const;
             unsigned int days_per_week() const;
-            virtual unsigned int days_this_month() const;
+            unsigned int days_this_month() const;
             std::string week_day_name() const;
             std::string month_name() const;
             virtual void add_year(int n);
@@ -48,6 +48,7 @@ namespace lab2 {
             virtual int mjd_to_month(int mjd) const;
             virtual int mjd_to_year(int mjd) const;
             virtual bool is_leap_year(int year) const;
+            void setYMD(int y, int m, int d);
 
         protected:
             int curr_year;

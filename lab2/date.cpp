@@ -6,9 +6,9 @@ namespace lab2 {
         // För att få nuvarande tid
         time_t mytime;
 
-        time(&mytime);
+        //time(&mytime);
 
-        //k_time(&mytime);
+        k_time(&mytime);
 
         // För att få ut datum lokalt 
         struct tm *t = gmtime(&mytime);
@@ -34,18 +34,18 @@ namespace lab2 {
 
     //Copy constructor
     Date::Date(const Date & obj) {
-        //std::cout << "Date::copy constructor" << std::endl;
+        //        std::cout << "Date::copy constructor" << std::endl;
         int mjd = obj.mod_julian_day();
-          curr_year = mjd_to_year(mjd);
-          curr_month = mjd_to_month(mjd);
-          curr_day = mjd_to_day(mjd);
-          curr_days_per_week = obj.curr_days_per_week;
-        
-      /* curr_year = obj.curr_year;
-        curr_month = obj.curr_month;
-        curr_day = obj.curr_day;
-        curr_week_day = obj.curr_week_day;
-        curr_days_per_week = obj.curr_days_per_week;*/
+        curr_year = mjd_to_year(mjd);
+        curr_month = mjd_to_month(mjd);
+        curr_day = mjd_to_day(mjd);
+        curr_days_per_week = obj.curr_days_per_week;
+
+        /* curr_year = obj.curr_year;
+           curr_month = obj.curr_month;
+           curr_day = obj.curr_day;
+           curr_week_day = obj.curr_week_day;
+           curr_days_per_week = obj.curr_days_per_week;*/
     }
 
     Date::~Date(){}
@@ -136,6 +136,7 @@ namespace lab2 {
 
 
     Date::Date(int year, int month, int day){
+        //std::cerr << "date constructor y m d " << std::endl;
         if(year < 1858 || year > 2558)
             throw std::out_of_range("Invalid year");
         if(month < 1 || month > 12)
@@ -193,6 +194,7 @@ namespace lab2 {
     }
 
     unsigned int Date::days_this_month() const{
+        //std::cout << "Date::days_this_month " << std::endl;
         int days_this_month = 30;
 
         //Count knuckles
@@ -204,6 +206,7 @@ namespace lab2 {
 
         //If february and leap year
         if (curr_month == 2) {
+          //  std::cout << "curr month == 2" << std::endl;
             if (is_leap_year(curr_year)) 
                 days_this_month = 29;
             else 
@@ -219,7 +222,7 @@ namespace lab2 {
      * 3: The year is also evenly divisible by 400. Then it is a leap year.
      */
     bool Date::is_leap_year(int year) const{
-
+        //std::cout << " Date::is leap year " << std::endl;
         //CRITERIA 1
         if(year % 4 != 0) {
             return false;
@@ -366,5 +369,10 @@ namespace lab2 {
 
     int Date::mjd_to_year(int mjd) const {
         return mjd_to_date(mjd, 2, true);
+    }
+    void Date::setYMD(int y, int m, int d) {
+        curr_year = y;
+        curr_month = m;
+        curr_day = d;
     }
 }
