@@ -1,3 +1,9 @@
+/*
+The size_t type is the unsigned integer type that is the result of the sizeof operator (and the offsetof operator), so it is guaranteed to be big enough to contain the size of the biggest object your system can handle (e.g., a static array of 8Gb).
+
+The size_t type may be bigger than, equal to, or smaller than an unsigned int, and your compiler might make assumptions about it for optimization.
+ */
+
 #include <stdio.h>
 #include <vector>
 #include <iostream>
@@ -29,3 +35,8 @@ int main(){
  *
  * De ska kunna jämföras med != operatorn. Om det är olika typer måste det finnas funktionalitet för att jämföra dessa.
  */
+
+
+
+
+// dennis.j.johannson@gmail.com
