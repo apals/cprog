@@ -43,19 +43,18 @@ namespace lab2 {
             virtual void add_year(int n);
             virtual void add_month(int n);
             virtual int mod_julian_day() const;
-            int mjd_to_date(int mjd, int mode, bool greg) const;
-            virtual int mjd_to_day(int mjd) const;
-            virtual int mjd_to_month(int mjd) const;
-            virtual int mjd_to_year(int mjd) const;
-            virtual bool is_leap_year(int year) const;
-            void setYMD(int y, int m, int d);
 
         protected:
+            virtual bool is_leap_year(int year) const;
             int curr_year;
             unsigned int curr_month;
             unsigned int curr_day;
             unsigned int curr_week_day;
             unsigned int curr_days_per_week = 7;
+            int mjd_to_date(int mjd, int mode, bool greg) const;
+            virtual int mjd_to_day(int mjd) const;
+            virtual int mjd_to_month(int mjd) const;
+            virtual int mjd_to_year(int mjd) const;
     };
 }
 #endif

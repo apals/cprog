@@ -57,9 +57,6 @@ namespace lab2 {
             - 32083;
         return jdn-2400001;
     }
-    bool Julian::asd(){
-        return true;
-    }
 
     bool Julian::is_leap_year(int year) const {
         return year % 4 == 0;

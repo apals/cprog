@@ -370,9 +370,4 @@ namespace lab2 {
     int Date::mjd_to_year(int mjd) const {
         return mjd_to_date(mjd, 2, true);
     }
-    void Date::setYMD(int y, int m, int d) {
-        curr_year = y;
-        curr_month = m;
-        curr_day = d;
-    }
 }

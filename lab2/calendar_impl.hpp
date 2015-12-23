@@ -3,11 +3,6 @@
 #include <iostream>
 namespace lab2 {
 
-    /*template <typename , typename DateType>
-      Calendar<DateType>::Calendar(Calendar<T> other) {
-      date = new DateType(other.date);
-      }
-      */
     template <typename DateType>
         Calendar<DateType>::Calendar() {
             date = new DateType();
@@ -15,25 +10,19 @@ namespace lab2 {
 
     template <typename DateType>
         Calendar<DateType>::~Calendar() {
-            //std::cerr << "destructor calendar" << std::endl;
             for(auto a : event_list) {
                 delete a;
             }
-            //event_list.erase(event_list.begin(), event_list.end());
             delete date;
-            //std::cerr << "done with destructor calendar" << std::endl;
         }
 
     template <typename DateType>
         bool Calendar<DateType>::set_date(int y, int m, int d) {
             try {
-//                std::cout << "Trying to set date to " << y << "-" << m << "-" << d << std::endl;
                 DateType a(y, m, d);
             } catch(const std::exception& e) {
-  //              std::cout << "setting date failed" << std::endl;
                 return false; 
             }
-            //std::cout << "setting date succeeded" << std::endl;
             delete date;
             date = new DateType(y, m, d);
             return true;
@@ -60,9 +49,7 @@ namespace lab2 {
         bool Calendar<DateType>::add_event(std::string event_name, int d, int m, int y) {
             if(!isValid(event_name, d, m, y))
                 return false;
-            //std::cout << "Adding event: " << d << " - " << m << " - " << y << std::endl;
             Event<DateType> * e = new Event<DateType>(event_name, d, m, y);
-            //std::cout << "Added event : " << *(e->date) << std::endl;
             event_list.push_back(e);
             return true;
         }
