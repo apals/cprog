@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <string>
+#include "Player.hpp"
 namespace lab3 {
 
     class Game {
@@ -22,6 +23,7 @@ namespace lab3 {
         void print_story();
         void print_options();
         void parse_input(int input);
+        Player * player;
     };
 }
 

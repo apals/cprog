@@ -7,6 +7,8 @@
 //
 
 #include "StartingRoom.hpp"
+#include "Room.hpp"
+#include <map>
 #include <string>
 
 namespace lab3 {
@@ -15,8 +17,10 @@ namespace lab3 {
         
     }
     
-    std::map<std::string, Room> StartingRoom::get_adjacent_rooms() {
-        std::map<std::string, Room> rooms;
+    std::map<std::string, Room *> StartingRoom::get_adjacent_rooms() {
+        std::map<std::string, Room *> rooms;
+
+        rooms["left"] = GET_ALL_ROOMS()["2"];
         return rooms;
     }
     

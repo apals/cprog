@@ -9,14 +9,20 @@
 #ifndef StartingRoom_hpp
 #define StartingRoom_hpp
 
-#include <stdio.h>
 #include "Room.hpp"
+#include <map>
+
+
 namespace lab3 {
-    class StartingRoom : Room {
+
+    class StartingRoom : public Room {
     public:
         StartingRoom(std::string name);
-        virtual std::map<std::string, Room> get_adjacent_rooms();
+        std::map<std::string, Room *> get_adjacent_rooms();
+        
     };
+    
+    
 }
 
 #endif /* StartingRoom_hpp */

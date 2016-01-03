@@ -12,4 +12,8 @@ namespace lab3 {
     int Actor::hp() {
         return curr_hp;
     }
+    
+    Room * Actor::location() {
+        return curr_location;
+    }
 }

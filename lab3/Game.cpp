@@ -18,6 +18,7 @@ namespace lab3 {
     }
 
     void Game::init() {
+        player = new Player();
         
     }
     
@@ -34,6 +35,8 @@ namespace lab3 {
     }
     
     void Game::print_options() {
+        player->print_location();
+        Room * player_location = player->location();
         std::cout << "1. die" << std::endl;
         std::cout << "2. not die " << std::endl;
         int a;

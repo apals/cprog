@@ -10,14 +10,17 @@
 #define Actor_hpp
 
 #include <stdio.h>
-
+#include "Room.hpp"
 namespace lab3 {
     
     class Actor {
     public:
+        Actor() {};
         int hp();
-    private:
+        Room * location();
+    protected:
         int curr_hp;
+        Room * curr_location;
     };
     
    
