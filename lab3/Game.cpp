@@ -25,7 +25,6 @@ namespace lab3 {
         rooms["1"] = room1;
         rooms["2"] = room2;
         
-        //run this line after creating rooms
         player = new Player(room1);
         actors.push_back(player);
     }
@@ -44,14 +43,14 @@ namespace lab3 {
     
     void Game::play() {
         
+        player->print_location();
+        Room * player_location = player->location();
+        player_location->directions();
         
         for(auto a : actors) {
             a->action();
         }
         
-        player->print_location();
-        Room * player_location = player->location();
-        player_location->directions();
         
     }
     

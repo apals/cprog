@@ -11,16 +11,28 @@
 #include <map>
 #include "Room.hpp"
 #include <iostream>
+#include <vector>
+#include <sstream>
+#include "Utils.hpp"
+
 namespace lab3 {
-    
     
     void Player::print_location() {
         std::cout << "You are in " << curr_location->name() << std::endl;
     }
     
     void Player::action() {
-        std::cout << "Player action" << std::endl;
+        std::cout << "> ";
         std::string a;
-        std::cin >> a;
+        std::getline(std::cin, a);
+        std::vector<std::string> tokens = lab3::split(a, ' ');
+        if(tokens[0].compare("go") == 0) {
+            go(tokens[1]);
+        }
     }
+    
+    
+   
+    
+
 }

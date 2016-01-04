@@ -8,6 +8,7 @@
 
 #include "Actor.hpp"
 #include <string>
+#include <iostream>
 namespace lab3 {
     
     int Actor::hp() {
@@ -29,9 +30,19 @@ namespace lab3 {
     void Actor::action() {
         
     }
+    
     void Actor::go(std::string direction) {
+        std::map<std::string, Room * >::iterator it = curr_location->neighbors.find(direction);
         
+        
+        if(it != curr_location->neighbors.end()){
+            curr_location = curr_location->neighbors[direction];
+            std::cout << "I am now in " << curr_location->name() << std::endl;
+        } else {
+            std::cout << "You can't walk that way" << std::endl;
+        }
     }
+    
     void Actor::fight(Actor * a) {
         
     }

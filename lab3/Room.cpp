@@ -22,7 +22,7 @@ namespace lab3 {
     void Room::directions() {
         std::cout << "Directions: " << std::endl;
         for(auto const &ent1 : neighbors) {
-            std::cout << ent1.first << " : " << ent1.second->name() << std::endl;
+            std::cout << ent1.first << ": " << ent1.second->name() << std::endl;
         }
     }
     
