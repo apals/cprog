@@ -14,7 +14,6 @@ namespace lab3 {
     Game::Game() {
         init();
         print_story();
-        print_options();
     }
 
     void Game::init() {
@@ -43,19 +42,17 @@ namespace lab3 {
         
     }
     
-    void Game::print_options() {
+    void Game::play() {
+        
+        
+        for(auto a : actors) {
+            a->action();
+        }
+        
         player->print_location();
         Room * player_location = player->location();
         player_location->directions();
-        /*for(auto const &ent1 : player_location->directions()) {
-            std::cout << ent1.first << " : " << ent1.second->get_name() << std::endl;
-        }*/
         
-        
-        int a;
-        std::cin >> a;
-        std::cout << a << std::endl;
-        parse_input(a);
     }
     
     std::map<std::string, Room *> Game::GET_ALL_ROOMS() {

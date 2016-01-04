@@ -17,4 +17,10 @@ namespace lab3 {
     void Player::print_location() {
         std::cout << "You are in " << curr_location->name() << std::endl;
     }
+    
+    void Player::action() {
+        std::cout << "Player action" << std::endl;
+        std::string a;
+        std::cin >> a;
+    }
 }

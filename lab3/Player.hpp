@@ -17,6 +17,7 @@ namespace lab3 {
     public:
         Player(Room * room) : Actor(room) {}
         void print_location();
+        virtual void action();
     };
 }
 

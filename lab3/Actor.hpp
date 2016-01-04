@@ -26,7 +26,7 @@ namespace lab3 {
         
         std::string type();
         std::string name();
-        void action();
+        virtual void action();
         void go(std::string direction);
         void fight(Actor * a);
         void talk_to(Actor * a);
