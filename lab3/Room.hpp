@@ -12,22 +12,34 @@
 #include <stdio.h>
 #include <map>
 #include <string>
+#include "Actor.hpp"
 
 namespace lab3 {
+    
+    //circular dependencies, this fixes it
+    class Actor;
     
     class Room {
     public:
         Room(std::string name);
-        virtual std::map<std::string, Room *> get_adjacent_rooms();
-        std::string get_name();
+        std::string name();        
+        virtual void directions();
+        virtual Room * neighbor(std::string direction);
+
+        
+        std::string description();
+        void enter(Actor * a);
+        void leave(Actor * a);
+        std::map<std::string, Room *> neighbors;
     private:
         std::string room_name;
+        std::string room_description;
     };
     
     
     
     
-    std::map<std::string, Room * > GET_ALL_ROOMS();
+   // std::map<std::string, Room * > GET_ALL_ROOMS();
     
 }
 

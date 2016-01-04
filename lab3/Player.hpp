@@ -13,9 +13,9 @@
 #include "Actor.hpp"
 namespace lab3 {
     
-    class Player : Actor {
+    class Player : public Actor {
     public:
-        Player();
+        Player(Room * room) : Actor(room) {}
         void print_location();
     };
 }

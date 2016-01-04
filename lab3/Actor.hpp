@@ -11,16 +11,32 @@
 
 #include <stdio.h>
 #include "Room.hpp"
+#include "Object.hpp"
 namespace lab3 {
     
+    //circular dependency fix
+    class Room;
+    
     class Actor {
+        
     public:
-        Actor() {};
+        Actor(Room * location) : curr_location(location) {};
         int hp();
-        Room * location();
+        virtual Room * location();
+        
+        std::string type();
+        std::string name();
+        void action();
+        void go(std::string direction);
+        void fight(Actor * a);
+        void talk_to(Actor * a);
+        void pick_up(Object * o);
+        void drop(Object * o);
+        
     protected:
         int curr_hp;
         Room * curr_location;
+        int curr_type;
     };
     
    

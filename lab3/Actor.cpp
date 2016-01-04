@@ -7,6 +7,7 @@
 //
 
 #include "Actor.hpp"
+#include <string>
 namespace lab3 {
     
     int Actor::hp() {
@@ -15,5 +16,32 @@ namespace lab3 {
     
     Room * Actor::location() {
         return curr_location;
+    }
+    
+    
+    
+    std::string Actor::type() {
+        return "";
+    }
+    std::string Actor::name() {
+        return "";
+    }
+    void Actor::action() {
+        
+    }
+    void Actor::go(std::string direction) {
+        
+    }
+    void Actor::fight(Actor * a) {
+        
+    }
+    void Actor::talk_to(Actor * a) {
+        
+    }
+    void Actor::pick_up(Object * o) {
+        
+    }
+    void Actor::drop(Object * o) {
+        
     }
 }

@@ -9,31 +9,36 @@
 #include "Room.hpp"
 #include <map>
 #include <string>
-#include "StartingRoom.hpp"
+#include <iostream>
 namespace lab3 {
     
-    Room::Room(std::string name) {
-        room_name = name;
+    Room::Room(std::string name) : room_name(name) {
     }
     
-    std::string Room::get_name() {
+    std::string Room::name() {
         return room_name;
     }
     
-    std::map<std::string, Room *> Room::get_adjacent_rooms() {
-        std::map<std::string, Room *> rooms;
-        return rooms;
+    void Room::directions() {
+        std::cout << "Directions: " << std::endl;
+        for(auto const &ent1 : neighbors) {
+            std::cout << ent1.first << " : " << ent1.second->name() << std::endl;
+        }
     }
     
-    std::map<std::string, Room *> GET_ALL_ROOMS() {
-        StartingRoom * startingRoom = new StartingRoom("koK");
-        StartingRoom * room2 = new StartingRoom("Room 2");
+    Room * Room::neighbor(std::string direction) {
+        return neighbors[direction];
+    }
+    
+    std::string Room::description() {
+        return " asd " ;
+    }
+    
+    void enter(Actor * a) {
         
-        std::map<std::string, Room *> rooms;
-        rooms["1"] = startingRoom;
-        rooms["2"] = room2;
+    }
+    
+    void leave(Actor * a) {
         
-        
-        return rooms;
-    };
+    }
 }

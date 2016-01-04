@@ -12,7 +12,6 @@
 
 int main() {
 
-    std::cout << "i am running" << std::endl;
     lab3::Game * game = new lab3::Game();
     while(game->is_running()) {
         

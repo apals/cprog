@@ -18,8 +18,16 @@ namespace lab3 {
     }
 
     void Game::init() {
-        player = new Player();
+        Room * room1 = new Room("Room 1");
+        Room * room2 = new Room("Room 2");
         
+        room1->neighbors["right"] = room2;
+        room2->neighbors["left"] = room1;
+        rooms["1"] = room1;
+        rooms["2"] = room2;
+        
+        //run this line after creating rooms
+        player = new Player(room1);
     }
     
     bool Game::is_running() {
@@ -37,11 +45,19 @@ namespace lab3 {
     void Game::print_options() {
         player->print_location();
         Room * player_location = player->location();
-        std::cout << "1. die" << std::endl;
-        std::cout << "2. not die " << std::endl;
+        player_location->directions();
+        /*for(auto const &ent1 : player_location->directions()) {
+            std::cout << ent1.first << " : " << ent1.second->get_name() << std::endl;
+        }*/
+        
+        
         int a;
         std::cin >> a;
         std::cout << a << std::endl;
         parse_input(a);
+    }
+    
+    std::map<std::string, Room *> Game::GET_ALL_ROOMS() {
+        return rooms;
     }
 }

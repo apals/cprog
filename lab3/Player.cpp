@@ -12,14 +12,9 @@
 #include "Room.hpp"
 #include <iostream>
 namespace lab3 {
-    Player::Player() : Actor() {
-        std::map<std::string, Room*> ooms = GET_ALL_ROOMS();
-
-        Room * location = GET_ALL_ROOMS()["1"];
-        curr_location = location;
-    }
+    
     
     void Player::print_location() {
-        std::cout << "You are in " << curr_location->get_name() << std::endl;
+        std::cout << "You are in " << curr_location->name() << std::endl;
     }
 }
