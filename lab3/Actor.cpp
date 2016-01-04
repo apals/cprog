@@ -41,12 +41,14 @@ namespace lab3 {
         } else {
             std::cout << "what r u doing u stupid thats just miffo" << std::endl;
         }
+        std::cout << std::endl;
     }
     
     
     void Actor::fight(Actor * a) {
         std::cout << name() << " is trying to fight " << a->name() << std::endl;
         a->lose_hp(5);
+        std::cout << std::endl;
     }
     
     void Actor::talk_to(Actor * a) {
@@ -76,6 +78,7 @@ namespace lab3 {
     
     void Actor::print_location() {
         std::cout << name() << " is in " << curr_location->name() << std::endl;
+        std::cout << std::endl;
     }
     
     void Actor::print_inventory() {
@@ -83,5 +86,6 @@ namespace lab3 {
         for(const auto & i : inventory) {
             std::cout << '\t' << i->name() << std::endl;
         }
+        std::cout << std::endl;
     }
 }

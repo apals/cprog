@@ -24,6 +24,7 @@ namespace lab3 {
         for(auto const &ent1 : neighbors) {
             std::cout << '\t' << ent1.first << ": " << ent1.second->name() << std::endl;
         }
+        std::cout << std::endl;
     }
     
     void Room::print_actors_in_room() {
@@ -31,6 +32,7 @@ namespace lab3 {
         for(auto const & a : actors_in_room) {
             std::cout << '\t' << a->name() << std::endl;
         }
+        std::cout << std::endl;
     }
     
     void Room::print_objects_in_room() {
@@ -38,6 +40,7 @@ namespace lab3 {
         for(auto const & o : objects_in_room) {
             std::cout << '\t' << o->name() << std::endl;
         }
+        std::cout << std::endl;
     }
     
     Room * Room::neighbor(std::string direction) {
