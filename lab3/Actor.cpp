@@ -63,6 +63,10 @@ namespace lab3 {
         inventory.erase(std::remove(inventory.begin(), inventory.end(), o), inventory.end());
     }
     
+    void Actor::use(Object * o) {
+        
+    }
+    
     void Actor::lose_hp(int amt) {
         curr_hp -= amt;
         std::cout << "Ouch, " << name() << " just got hit! Remaining HP: " << curr_hp << std::endl;

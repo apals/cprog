@@ -52,6 +52,9 @@ namespace lab3 {
             if(a->is_alive()) {
                 a->action();
             } else {
+                
+                //remove actor from room
+                a->location()->leave(a);
                 actors.erase(std::remove(actors.begin(), actors.end(), a), actors.end());
                 delete a;
             }

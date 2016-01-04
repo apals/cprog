@@ -85,6 +85,16 @@ namespace lab3 {
             std::cout << "hwat u doing u cant drop " << tokens[1] << std::endl;
             
         }
+        
+        else if(tokens[0].compare("use") == 0) {
+            
+            for(const auto & a : inventory) {
+                if(tokens[1].compare(a->name()) == 0) {
+                    use(a);
+                    return;
+                }
+            }
+        }
     }
     
     std::string Player::type() {

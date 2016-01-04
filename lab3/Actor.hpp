@@ -33,6 +33,7 @@ namespace lab3 {
         void talk_to(Actor * a);
         void pick_up(Object * o);
         void drop(Object * o);
+        void use(Object * o);
         void lose_hp(int amt);
         bool is_alive();
         void print_location();
