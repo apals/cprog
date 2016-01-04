@@ -16,15 +16,16 @@ namespace lab3 {
     
     //circular dependency fix
     class Room;
+    class Object;
     
     class Actor {
         
     public:
-        Actor(Room * location) : curr_location(location) {};
+        Actor(std::string name, Room * location);
         int hp();
         virtual Room * location();
         
-        std::string type();
+        virtual std::string type() = 0;
         std::string name();
         virtual void action();
         void go(std::string direction);
@@ -32,11 +33,16 @@ namespace lab3 {
         void talk_to(Actor * a);
         void pick_up(Object * o);
         void drop(Object * o);
-        
+        void lose_hp(int amt);
+        bool is_alive();
+        void print_location();
+        void print_inventory();
     protected:
-        int curr_hp;
+        int curr_hp = 6;
         Room * curr_location;
         int curr_type;
+        std::string curr_name;
+        std::vector<Object *> inventory;
     };
     
    

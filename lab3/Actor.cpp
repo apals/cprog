@@ -11,6 +11,10 @@
 #include <iostream>
 namespace lab3 {
     
+    Actor::Actor(std::string name, Room * location) : curr_name(name), curr_location(location) {
+        curr_location->enter(this);
+    };
+    
     int Actor::hp() {
         return curr_hp;
     }
@@ -19,14 +23,10 @@ namespace lab3 {
         return curr_location;
     }
     
-    
-    
-    std::string Actor::type() {
-        return "";
-    }
     std::string Actor::name() {
-        return "";
+        return curr_name;
     }
+    
     void Actor::action() {
         
     }
@@ -34,25 +34,54 @@ namespace lab3 {
     void Actor::go(std::string direction) {
         std::map<std::string, Room * >::iterator it = curr_location->neighbors.find(direction);
         
-        
         if(it != curr_location->neighbors.end()){
+            curr_location->leave(this);
             curr_location = curr_location->neighbors[direction];
-            std::cout << "I am now in " << curr_location->name() << std::endl;
+            curr_location->enter(this);
         } else {
-            std::cout << "You can't walk that way" << std::endl;
+            std::cout << "what r u doing u stupid thats just miffo" << std::endl;
         }
     }
     
+    
     void Actor::fight(Actor * a) {
-        
+        std::cout << name() << " is trying to fight " << a->name() << std::endl;
+        a->lose_hp(5);
     }
+    
     void Actor::talk_to(Actor * a) {
         
     }
     void Actor::pick_up(Object * o) {
-        
+        curr_location->leave(o);
+        inventory.push_back(o);
     }
     void Actor::drop(Object * o) {
+        curr_location->enter(o);
+        inventory.erase(std::remove(inventory.begin(), inventory.end(), o), inventory.end());
+    }
+    
+    void Actor::lose_hp(int amt) {
+        curr_hp -= amt;
+        std::cout << "Ouch, " << name() << " just got hit! Remaining HP: " << curr_hp << std::endl;
         
+        if (curr_hp <= 0) {
+            std::cout << name() << " just died... " << std::endl;
+        }
+    }
+    
+    bool Actor::is_alive() {
+        return curr_hp > 0;
+    }
+    
+    void Actor::print_location() {
+        std::cout << name() << " is in " << curr_location->name() << std::endl;
+    }
+    
+    void Actor::print_inventory() {
+        std::cout << "Inventory: " << std::endl;
+        for(const auto & i : inventory) {
+            std::cout << '\t' << i->name() << std::endl;
+        }
     }
 }

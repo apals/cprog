@@ -16,5 +16,6 @@ int main() {
     while(game->is_running()) {
         game->play();
     }
+    std::cout << "Exiting.." << std::endl;
     return 0;
 }

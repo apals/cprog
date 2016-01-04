@@ -15,9 +15,11 @@ namespace lab3 {
     
     class Player : public Actor {
     public:
-        Player(Room * room) : Actor(room) {}
-        void print_location();
+        Player(std::string name, Room * room) : Actor(name, room) {
+            curr_hp = 100;
+        }
         virtual void action();
+        virtual std::string type();
     };
 }
 

@@ -8,6 +8,11 @@
 
 #include "Object.hpp"
 namespace lab3 {
+    
+    Object::Object(std::string name, Room * location) : curr_name(name), curr_location(location) {
+        curr_location->enter(this);
+    }
+    
     int Object::weight() {
         return 3;
     }
@@ -18,5 +23,9 @@ namespace lab3 {
     
     int Object::price() {
         return 2;
+    }
+    
+    std::string Object::name() {
+        return curr_name;
     }
 }

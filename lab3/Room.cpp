@@ -19,10 +19,24 @@ namespace lab3 {
         return room_name;
     }
     
-    void Room::directions() {
+    void Room::print_directions() {
         std::cout << "Directions: " << std::endl;
         for(auto const &ent1 : neighbors) {
-            std::cout << ent1.first << ": " << ent1.second->name() << std::endl;
+            std::cout << '\t' << ent1.first << ": " << ent1.second->name() << std::endl;
+        }
+    }
+    
+    void Room::print_actors_in_room() {
+        std::cout << "Actors in room: " << std::endl;
+        for(auto const & a : actors_in_room) {
+            std::cout << '\t' << a->name() << std::endl;
+        }
+    }
+    
+    void Room::print_objects_in_room() {
+        std::cout << "Objects in room: " << std::endl;
+        for(auto const & o : objects_in_room) {
+            std::cout << '\t' << o->name() << std::endl;
         }
     }
     
@@ -34,11 +48,19 @@ namespace lab3 {
         return " asd " ;
     }
     
-    void enter(Actor * a) {
-        
+    void Room::enter(Actor * a) {
+        actors_in_room.push_back(a);
     }
     
-    void leave(Actor * a) {
-        
+    void Room::leave(Actor * a) {
+        actors_in_room.erase(std::remove(actors_in_room.begin(), actors_in_room.end(), a), actors_in_room.end());
+    }
+    
+    void Room::enter(Object * a) {
+        objects_in_room.push_back(a);
+    }
+    
+    void Room::leave(Object * a) {
+        objects_in_room.erase(std::remove(objects_in_room.begin(), objects_in_room.end(), a), objects_in_room.end());
     }
 }

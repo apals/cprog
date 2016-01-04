@@ -10,13 +10,23 @@
 #define Object_hpp
 
 #include <stdio.h>
+#include <string>
+#include "Room.hpp"
 namespace lab3 {
+    
+    class Room;
  
     class Object {
     public:
+        Object(std::string name, Room * location);
         int weight();
         int volume();
         int price();
+        std::string name();
+        Room * location();
+    private:
+        std::string curr_name;
+        Room * curr_location;
         
     };
 }

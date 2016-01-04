@@ -7,6 +7,7 @@
 //
 
 #include "Game.hpp"
+#include "Troll.hpp"
 #include <iostream>
 #include <string>
 namespace lab3 {
@@ -15,22 +16,26 @@ namespace lab3 {
         init();
         print_story();
     }
-
+    
     void Game::init() {
         Room * room1 = new Room("Room 1");
         Room * room2 = new Room("Room 2");
+        
+        Object * o = new Object("knarck", room1);
         
         room1->neighbors["right"] = room2;
         room2->neighbors["left"] = room1;
         rooms["1"] = room1;
         rooms["2"] = room2;
         
-        player = new Player(room1);
+        player = new Player("Player", room1);
+        Troll * troll = new Troll("Troll1", room2);
         actors.push_back(player);
+        actors.push_back(troll);
     }
     
     bool Game::is_running() {
-        return true;
+        return player->hp() > 0;
     }
     
     void Game::print_story() {
@@ -42,13 +47,14 @@ namespace lab3 {
     }
     
     void Game::play() {
-        
-        player->print_location();
-        Room * player_location = player->location();
-        player_location->directions();
-        
+    
         for(auto a : actors) {
-            a->action();
+            if(a->is_alive()) {
+                a->action();
+            } else {
+                actors.erase(std::remove(actors.begin(), actors.end(), a), actors.end());
+                delete a;
+            }
         }
         
         
