@@ -28,6 +28,7 @@ namespace lab3 {
         
         //run this line after creating rooms
         player = new Player(room1);
+        actors.push_back(player);
     }
     
     bool Game::is_running() {
