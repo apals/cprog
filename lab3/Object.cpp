@@ -9,9 +9,7 @@
 #include "Object.hpp"
 namespace lab3 {
     
-    Object::Object(std::string name, Room * location) : curr_name(name), curr_location(location) {
-        curr_location->enter(this);
-    }
+    Object::Object(std::string name) : curr_name(name){}
     
     int Object::weight() {
         return 3;
@@ -27,5 +25,10 @@ namespace lab3 {
     
     std::string Object::name() {
         return curr_name;
+    }
+    
+    void Object::set_location(Room *location){
+        curr_location = location;
+        curr_location -> enter(this);
     }
 }

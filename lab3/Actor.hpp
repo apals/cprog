@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "Room.hpp"
 #include "Object.hpp"
+#include "Container.hpp"
 namespace lab3 {
     
     //circular dependency fix
@@ -44,7 +45,7 @@ namespace lab3 {
         Room * curr_location;
         int curr_type;
         std::string curr_name;
-        std::vector<Object *> inventory;
+        std::vector<Container *> inventory;
     };
     
    

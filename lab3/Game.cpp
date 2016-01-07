@@ -21,17 +21,24 @@ namespace lab3 {
     
     void Game::init() {
         
+        Object * knark = new Object("knark");
+        Object * vaktitem = new Object("vaktbricka");
+        Object * cigg = new Object("cigarettes");
+        Object * addeskeys = new Object("addeps nycklar");
+        
+        
         //these are memory leaks right????? since we can't reference room1,2 or o from outside init scope
-        Room * addep = new Room("Adde Ps lya");
-        
-        
-        Room * stures = new Room("Sturecompagniet");
-        Object * o = new Object("knarck", stures);
-        LockedRoom * kb = new LockedRoom("KBs knarkarkvart", std::vector<Object *>{o});
-        
-        
+        LockedRoom * addep = new LockedRoom("Adde Ps lya", std::vector<Object *>{addeskeys});
+        Room * stureskon = new Room("Kön till Sturecompagniet");
         Room * odenplan = new Room("Odenplan");
+        Room * stureplan = new Room("Stureplan");
+        Room * seven_eleven = new Room("7Eleven");
+        LockedRoom * kb = new LockedRoom("KBs knarkarkvart", std::vector<Object *>{knark});
+        LockedRoom * stures = new LockedRoom("Sturecompagniet", std::vector<Object *>{vaktitem, cigg});
         
+        player = new Player("Player", addep);
+        Boss * troll = new Boss("Mange", kb);
+        Troll * vakt = new Troll("Vakt", stureskon);
         
         addep->neighbors["west"] = odenplan;
         odenplan->neighbors["east"] = addep;
@@ -39,22 +46,39 @@ namespace lab3 {
         odenplan->neighbors["west"] = kb;
         kb->neighbors["east"] = odenplan;
         
-        addep->neighbors["east"] = stures;
-        stures->neighbors["west"] = addep;
+        addep->neighbors["east"] = stureskon;
+        stureskon->neighbors["west"] = addep;
         
-        player = new Player("Player", addep);
-        Boss * troll = new Boss("Mange", kb);
+        stureskon->neighbors["entrance"] = stures;
+        stures->neighbors["out"] = stureskon;
         
-        Object * o2 = new Object("vaktItem", stures);
-        Troll * vakt = new Troll("Vakt", stures);
-        vakt->pick_up(o2);
+        stureskon->neighbors["east"] = stureplan;
+        stureplan->neighbors["west"] = stureskon;
         
+        stureplan->neighbors["east"] = seven_eleven;
+        seven_eleven->neighbors["west"] = stureplan;
+        
+        knark->set_location(stures);
+        vaktitem->set_location(stureskon);
+        vakt->pick_up(vaktitem);
+        
+        addeskeys -> set_location(addep);
+        player->pick_up(addeskeys);
+        
+        cigg->set_location(seven_eleven);
         
         rooms.push_back(addep);
+        rooms.push_back(stureskon);
+        rooms.push_back(odenplan);
+        rooms.push_back(kb);
         rooms.push_back(stures);
+        rooms.push_back(seven_eleven);
+        rooms.push_back(stureplan);
         
-        objects.push_back(o);
-        objects.push_back(o2);
+        objects.push_back(knark);
+        objects.push_back(vaktitem);
+        objects.push_back(cigg);
+        objects.push_back(addeskeys);
         
         
         actors.push_back(player);

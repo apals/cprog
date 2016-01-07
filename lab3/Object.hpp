@@ -18,12 +18,13 @@ namespace lab3 {
  
     class Object {
     public:
-        Object(std::string name, Room * location);
+        Object(std::string name);
         int weight();
         int volume();
         int price();
         std::string name();
         Room * location();
+        void set_location(Room * location);
     private:
         std::string curr_name;
         Room * curr_location;

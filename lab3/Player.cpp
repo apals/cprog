@@ -33,13 +33,9 @@ namespace lab3 {
         std::getline(std::cin, a);
         std::vector<std::string> tokens = lab3::split(a, ' ');
         
-        if(tokens[0].compare("help") == 0) {
-            std::cout << "these are the commands.." << std::endl;
-            return;
-        }
         
-        if(tokens.size() < 2) {
-            std::cout << "Invalid" << std::endl;
+        if(tokens.size() < 2 || tokens[0].compare("help") == 0) {
+            std::cout << "these are the commands.." << std::endl;
             return;
         }
         
