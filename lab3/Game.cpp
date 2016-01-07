@@ -28,7 +28,7 @@ namespace lab3 {
         Room * stures = new Room("Sturecompagniet");
         Object * o = new Object("knarck", stures);
         LockedRoom * kb = new LockedRoom("KBs knarkarkvart", std::vector<Object *>{o});
-
+        
         
         Room * odenplan = new Room("Odenplan");
         
@@ -42,12 +42,19 @@ namespace lab3 {
         addep->neighbors["east"] = stures;
         stures->neighbors["west"] = addep;
         
-        rooms["1"] = addep;
-        rooms["2"] = stures;
-        
         player = new Player("Player", addep);
         Boss * troll = new Boss("Mange", kb);
+        
+        Object * o2 = new Object("vaktItem", stures);
         Troll * vakt = new Troll("Vakt", stures);
+        vakt->pick_up(o2);
+        
+        
+        rooms.push_back(addep);
+        rooms.push_back(stures);
+        
+        objects.push_back(o);
+        objects.push_back(o2);
         
         
         actors.push_back(player);
@@ -64,7 +71,7 @@ namespace lab3 {
     }
     
     void Game::play() {
-    
+        
         for(auto a : actors) {
             
             if(a->is_alive()) {
@@ -80,7 +87,4 @@ namespace lab3 {
         
     }
     
-    std::map<std::string, Room *> Game::GET_ALL_ROOMS() {
-        return rooms;
-    }
 }

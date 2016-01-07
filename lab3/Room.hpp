@@ -47,10 +47,6 @@ namespace lab3 {
     };
     
     
-    
-    
-   // std::map<std::string, Room * > GET_ALL_ROOMS();
-    
 }
 
 #endif /* Room_hpp */

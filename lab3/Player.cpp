@@ -33,6 +33,16 @@ namespace lab3 {
         std::getline(std::cin, a);
         std::vector<std::string> tokens = lab3::split(a, ' ');
         
+        if(tokens[0].compare("help") == 0) {
+            std::cout << "these are the commands.." << std::endl;
+            return;
+        }
+        
+        if(tokens.size() < 2) {
+            std::cout << "Invalid" << std::endl;
+            return;
+        }
+        
         if(tokens[0].compare("go") == 0) {
             go(tokens[1]);
         }
@@ -97,6 +107,10 @@ namespace lab3 {
             
             //item user is trying to use was not found
             std::cout << "hwat u doing u cant use " << tokens[1] << std::endl;
+        }
+        
+        else {
+            std::cout << "Invalid" << std::endl;
         }
     }
     

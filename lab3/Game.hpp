@@ -27,8 +27,9 @@ namespace lab3 {
     private:
         void print_story();
         Player * player;
-        std::map<std::string, Room *> rooms;
+        std::vector<Room *> rooms;
         std::vector<Actor *> actors;
+        std::vector<Object *> objects;
     };
     
 }

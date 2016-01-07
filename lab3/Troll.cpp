@@ -13,6 +13,8 @@
 namespace lab3 {
     
     void Troll::action() {
+        
+        //Fight other actors in room. Don't fight yourself.
         for(const auto & a : curr_location->actors_in_room) {
             if(a->name().compare(name()) != 0) {
                 fight(a);
@@ -20,6 +22,7 @@ namespace lab3 {
             }
         }
         
+        //Go to random adjacent room
         size_t neighbors_size = curr_location->neighbors.size();
         srand(time(NULL));
         int index = rand() % neighbors_size;
@@ -32,7 +35,6 @@ namespace lab3 {
             }
             i++;
         }
-        
     }
     
     std::string Troll::type() {

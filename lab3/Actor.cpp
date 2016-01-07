@@ -85,6 +85,10 @@ namespace lab3 {
         
         if (curr_hp <= 0) {
             std::cout << name() << " just died... " << std::endl;
+            
+            for(auto const & item : inventory) {
+                drop(item);
+            }
         }
     }
     
