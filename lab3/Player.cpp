@@ -94,6 +94,9 @@ namespace lab3 {
                     return;
                 }
             }
+            
+            //item user is trying to use was not found
+            std::cout << "hwat u doing u cant use " << tokens[1] << std::endl;
         }
     }
     

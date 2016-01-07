@@ -51,8 +51,9 @@ namespace lab3 {
         return " asd " ;
     }
     
-    void Room::enter(Actor * a) {
+    bool Room::enter(Actor * a) {
         actors_in_room.push_back(a);
+        return true;
     }
     
     void Room::leave(Actor * a) {

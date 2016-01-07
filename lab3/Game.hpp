@@ -26,7 +26,6 @@ namespace lab3 {
         void play();
     private:
         void print_story();
-        void parse_input(int input);
         Player * player;
         std::map<std::string, Room *> rooms;
         std::vector<Actor *> actors;

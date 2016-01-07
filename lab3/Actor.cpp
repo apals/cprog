@@ -34,14 +34,26 @@ namespace lab3 {
     void Actor::go(std::string direction) {
         std::map<std::string, Room * >::iterator it = curr_location->neighbors.find(direction);
         
+        //If room to direction exists
         if(it != curr_location->neighbors.end()){
-            curr_location->leave(this);
-            curr_location = curr_location->neighbors[direction];
-            curr_location->enter(this);
+            
+            //
+            if (curr_location->neighbors[direction]->enter(this)) {
+                curr_location->leave(this);
+                curr_location = curr_location->neighbors[direction];
+            } else {
+                std::cout << "For some reason you can't enter that place...";
+            }
+            
+            
         } else {
             std::cout << "what r u doing u stupid thats just miffo" << std::endl;
         }
         std::cout << std::endl;
+    }
+    
+    std::vector<Object *> Actor::get_inventory() {
+        return inventory;
     }
     
     

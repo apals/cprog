@@ -27,17 +27,18 @@ namespace lab3 {
         
         virtual std::string type() = 0;
         std::string name();
-        virtual void action();
+        virtual void action() = 0;
         void go(std::string direction);
         void fight(Actor * a);
         void talk_to(Actor * a);
         void pick_up(Object * o);
         void drop(Object * o);
         void use(Object * o);
-        void lose_hp(int amt);
+        virtual void lose_hp(int amt);
         bool is_alive();
         void print_location();
         void print_inventory();
+        std::vector<Object *> get_inventory();
     protected:
         int curr_hp = 6;
         Room * curr_location;

@@ -33,7 +33,7 @@ namespace lab3 {
 
         
         std::string description();
-        void enter(Actor * a);
+        virtual bool enter(Actor * a);
         void leave(Actor * a);
         void enter(Object * o);
         void leave(Object * o);

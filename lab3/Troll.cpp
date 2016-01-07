@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include <stdlib.h>     /* srand, rand */
 #include "Troll.hpp"
 
 namespace lab3 {
@@ -18,6 +19,20 @@ namespace lab3 {
                 return;
             }
         }
+        
+        size_t neighbors_size = curr_location->neighbors.size();
+        srand(time(NULL));
+        int index = rand() % neighbors_size;
+        int i = 0;
+        for(auto const &ent1 : curr_location->neighbors) {
+            if(i == index) {
+                go(ent1.first);
+                std::cout << name() << " went to " << ent1.second->name() << std::endl;
+                return;
+            }
+            i++;
+        }
+        
     }
     
     std::string Troll::type() {
