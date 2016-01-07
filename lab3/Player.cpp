@@ -80,7 +80,7 @@ namespace lab3 {
         
         else if(tokens[0].compare("drop") == 0) {
             
-            for(const auto & a : inventory) {
+            for(const auto & a : inventory->items()) {
                 if(tokens[1].compare(a->name()) == 0) {
                     drop(a);
                     return;
@@ -94,7 +94,7 @@ namespace lab3 {
         
         else if(tokens[0].compare("use") == 0) {
             
-            for(const auto & a : inventory) {
+            for(const auto & a : inventory->items()) {
                 if(tokens[1].compare(a->name()) == 0) {
                     use(a);
                     return;

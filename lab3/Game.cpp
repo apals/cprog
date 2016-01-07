@@ -36,9 +36,12 @@ namespace lab3 {
         LockedRoom * kb = new LockedRoom("KBs knarkarkvart", std::vector<Object *>{knark});
         LockedRoom * stures = new LockedRoom("Sturecompagniet", std::vector<Object *>{vaktitem, cigg});
         
-        player = new Player("Player", addep);
+        kb -> set_npc_entrance("Mange");
+        
+        player = new Player("Player", stureskon);
         Boss * troll = new Boss("Mange", kb);
         Troll * vakt = new Troll("Vakt", stureskon);
+        
         
         addep->neighbors["west"] = odenplan;
         odenplan->neighbors["east"] = addep;

@@ -18,6 +18,7 @@ namespace lab3 {
     //circular dependency fix
     class Room;
     class Object;
+    class Container;
     
     class Actor {
         
@@ -26,7 +27,7 @@ namespace lab3 {
         int hp();
         virtual Room * location();
         
-        virtual std::string type() = 0;
+        virtual std::string type();
         std::string name();
         virtual void action() = 0;
         void go(std::string direction);
@@ -45,7 +46,7 @@ namespace lab3 {
         Room * curr_location;
         int curr_type;
         std::string curr_name;
-        std::vector<Container *> inventory;
+        Container * inventory;
     };
     
    

@@ -12,6 +12,7 @@
 namespace lab3 {
     
     Actor::Actor(std::string name, Room * location) : curr_name(name), curr_location(location) {
+        inventory = new Container("Backpack");
         curr_location->enter(this);
     };
     
@@ -42,7 +43,7 @@ namespace lab3 {
                 curr_location->leave(this);
                 curr_location = curr_location->neighbors[direction];
             } else {
-                std::cout << "For some reason you can't enter that place...";
+                std::cout << name() << ": For some reason you can't enter that place...";
             }
             
             
@@ -53,7 +54,11 @@ namespace lab3 {
     }
     
     std::vector<Object *> Actor::get_inventory() {
-        return inventory;
+        return inventory->items();
+    }
+    
+    std::string Actor::type() {
+        return "Actor";
     }
     
     
@@ -68,11 +73,11 @@ namespace lab3 {
     }
     void Actor::pick_up(Object * o) {
         curr_location->leave(o);
-        inventory.push_back(o);
+        inventory->add_item(o);
     }
     void Actor::drop(Object * o) {
         curr_location->enter(o);
-        inventory.erase(std::remove(inventory.begin(), inventory.end(), o), inventory.end());
+        inventory->remove_item(o);
     }
     
     void Actor::use(Object * o) {
@@ -86,7 +91,7 @@ namespace lab3 {
         if (curr_hp <= 0) {
             std::cout << name() << " just died... " << std::endl;
             
-            for(auto const & item : inventory) {
+            for(auto const & item : inventory->items()) {
                 drop(item);
             }
         }
@@ -103,8 +108,9 @@ namespace lab3 {
     
     void Actor::print_inventory() {
         std::cout << "Inventory: " << std::endl;
-        for(const auto & i : inventory) {
-            std::cout << '\t' << i->name() << std::endl;
+        std::cout << '\t' << inventory->name() << ":" << std::endl;
+        for(const auto & i : get_inventory()) {
+            std::cout << "\t\t" << i->name() << std::endl;
         }
         std::cout << std::endl;
     }

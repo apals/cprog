@@ -16,10 +16,14 @@
 namespace lab3 {
     class LockedRoom : public Room {
     public:
-        LockedRoom(std::string name, std::vector<Object *> items) : Room(name), needed_items(items) {}
+        LockedRoom(std::string name, std::vector<Object *> items) : Room(name), needed_items(items){}
         virtual bool enter(Actor * a);
+        void set_npc_entrance(std::string type){
+            unlimited_entrance.push_back(type);
+        }
     private:
         std::vector<Object *> needed_items;
+        std::vector<std::string> unlimited_entrance;
     };
 }
 

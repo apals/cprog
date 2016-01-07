@@ -14,6 +14,13 @@ namespace lab3 {
     
     bool LockedRoom::enter(Actor * a) {
         
+        for(auto const & npc : unlimited_entrance){
+            if(a -> name().compare(npc) ==  0) {
+                actors_in_room.push_back(a);
+                return true;
+            }
+        }
+        
         //only stop the player (in this case type Player)
         /*if(a->name().compare("Player") != 0) {
             actors_in_room.push_back(a);
