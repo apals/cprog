@@ -17,5 +17,6 @@ int main() {
         game->play();
     }
     std::cout << "Exiting.." << std::endl;
+    delete game;
     return 0;
 }

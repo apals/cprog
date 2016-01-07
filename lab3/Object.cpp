@@ -7,6 +7,8 @@
 //
 
 #include "Object.hpp"
+#include <iostream>
+#include "Actor.hpp"
 namespace lab3 {
     
     Object::Object(std::string name) : curr_name(name){}
@@ -30,5 +32,14 @@ namespace lab3 {
     void Object::set_location(Room *location){
         curr_location = location;
         curr_location -> enter(this);
+    }
+    
+    bool Object::use(Actor * a) {
+        std::cout << "Nothing happens.." << std::endl;
+        return false;
+    }
+    
+    Object::~Object() {
+        
     }
 }

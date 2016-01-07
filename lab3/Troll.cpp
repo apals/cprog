@@ -30,7 +30,6 @@ namespace lab3 {
         for(auto const &ent1 : curr_location->neighbors) {
             if(i == index) {
                 go(ent1.first);
-                std::cout << name() << " went to " << ent1.second->name() << std::endl;
                 return;
             }
             i++;

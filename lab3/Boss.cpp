@@ -20,7 +20,7 @@ namespace lab3 {
         std::cout << "Ouch, " << name() << " just got hit! Remaining HP: " << curr_hp << std::endl;
         if(curr_hp <= 0) {
             std::cout << "You defeated " << name() << ", you deserve to win." << std::endl;
-            exit(0);
+            //exit(0);
         }
     }
     

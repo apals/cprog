@@ -11,6 +11,7 @@
 #include "Boss.hpp"
 #include "LockedRoom.hpp"
 #include "SmokeRoom.hpp"
+#include "Gainomax.hpp"
 #include <iostream>
 #include <string>
 namespace lab3 {
@@ -26,7 +27,7 @@ namespace lab3 {
         Object * vaktitem = new Object("vaktbricka");
         Object * cigg = new Object("cigarettes");
         Object * addeskeys = new Object("addeps nycklar");
-        
+        Gainomax * gainomax = new Gainomax("Gainomax");
         
         //these are memory leaks right????? since we can't reference room1,2 or o from outside init scope
         LockedRoom * addep = new LockedRoom("Adde Ps lya", std::vector<Object *>{addeskeys});
@@ -67,6 +68,7 @@ namespace lab3 {
         seven_eleven->neighbors["west"] = stureplan;
         
         knark->set_location(stures);
+        gainomax->set_location(addep);
         vaktitem->set_location(stureskon);
         vakt->pick_up(vaktitem);
         
@@ -82,11 +84,13 @@ namespace lab3 {
         rooms.push_back(stures);
         rooms.push_back(seven_eleven);
         rooms.push_back(stureplan);
+        rooms.push_back(rokruta);
         
         objects.push_back(knark);
         objects.push_back(vaktitem);
         objects.push_back(cigg);
         objects.push_back(addeskeys);
+        objects.push_back(gainomax);
         
         
         actors.push_back(player);
@@ -95,7 +99,7 @@ namespace lab3 {
     }
     
     bool Game::is_running() {
-        return player->hp() > 0;
+        return player->hp() > 0 && running;
     }
     
     void Game::print_story() {
@@ -109,6 +113,9 @@ namespace lab3 {
             if(a->is_alive()) {
                 a->action();
             } else {
+                if(a->name().compare("Mange") == 0) {
+                    finish();
+                }
                 //remove actor from room
                 a->location()->leave(a);
                 actors.erase(std::remove(actors.begin(), actors.end(), a), actors.end());
@@ -118,5 +125,25 @@ namespace lab3 {
         
         
     }
+    
+    void Game::finish() {
+        running = false;
+    }
+    
+    Game::~Game() {
+        std::cout << "Game destructor " << std::endl;
+        for(auto const & a : actors) {
+            delete a;
+        }
+        
+        for(auto const & a : objects) {
+            delete a;
+        }
+        
+        for(auto const & a : rooms) {
+            delete a;
+        }
+    }
+    
     
 }

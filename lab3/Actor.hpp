@@ -24,6 +24,7 @@ namespace lab3 {
         
     public:
         Actor(std::string name, Room * location);
+        virtual ~Actor();
         int hp();
         virtual Room * location();
         

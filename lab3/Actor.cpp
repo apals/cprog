@@ -11,7 +11,7 @@
 #include <iostream>
 namespace lab3 {
     
-    Actor::Actor(std::string name, Room * location) : curr_name(name), curr_location(location) {
+    Actor::Actor(std::string name, Room * location) : curr_location(location), curr_name(name) {
         inventory = new Container("Backpack");
         curr_location->enter(this);
     };
@@ -43,7 +43,9 @@ namespace lab3 {
                 curr_location->leave(this);
                 curr_location = curr_location->neighbors[direction];
             } else {
-                std::cout << name() << ": For some reason you can't enter that place...";
+                //print error msg only for player
+                if(name().compare("Player") == 0)
+                    std::cout << name() << ": For some reason you can't enter that place...";
             }
             
             
@@ -81,7 +83,10 @@ namespace lab3 {
     }
     
     void Actor::use(Object * o) {
-        
+        if(o->use(this)) {
+            inventory->remove_item(o);
+            delete o;
+        }
     }
     
     void Actor::lose_hp(int amt) {
@@ -113,5 +118,10 @@ namespace lab3 {
             std::cout << "\t\t" << i->name() << std::endl;
         }
         std::cout << std::endl;
+    }
+    
+    Actor::~Actor() {
+        std::cout << "Actor destructor" << std::endl;
+        delete inventory;
     }
 }

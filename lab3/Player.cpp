@@ -35,7 +35,12 @@ namespace lab3 {
         
         
         if(tokens.size() < 2 || tokens[0].compare("help") == 0) {
-            std::cout << "these are the commands.." << std::endl;
+            std::cout << "These are the commands: " << std::endl;
+            std::cout << '\t' << "go <dir>" << std::endl;
+            std::cout << '\t' << "fight <name>" << std::endl;
+            std::cout << '\t' << "pickup <item>" << std::endl;
+            std::cout << '\t' << "drop <item>" << std::endl;
+            std::cout << '\t' << "use <item>" << std::endl;
             return;
         }
         

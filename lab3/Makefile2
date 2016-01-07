@@ -1,0 +1,42 @@
+
+CC = g++
+
+FLAGS = -std=c++11 -g -Wall -pedantic
+
+main.out: SmokeRoom.o Boss.o LockedRoom.o Troll.o Utils.o Object.o Player.o Room.o Game.o Container.o
+	$(CC) $(FLAGS) SmokeRoom.o Boss.o LockedRoom.o Troll.o Utils.o Container.o Object.o Player.o Room.o Game.o -o main.out
+
+SmokeRoom.o: SmokeRoom.cpp SmokeRoom.hpp Actor.hpp Actor.cpp
+	$(CC) $(FLAGS) -c SmokeRoom.cpp
+
+Boss.o: Boss.cpp Boss.hpp Troll.cpp Troll.hpp Actor.cpp Actor.hpp
+	$(CC) $(FLAGS) -c Boss.cpp
+
+LockedRoom.o: Room.hpp Room.cpp LockedRoom.hpp LockedRoom.cpp
+	$(CC) $(FLAGS) -c LockedRoom.cpp
+
+Troll.o: Troll.cpp Troll.hpp Actor.cpp Actor.hpp
+	$(CC) $(FLAGS) -c Troll.cpp
+
+Utils.o: Utils.cpp Utils.hpp
+	$(CC) $(FLAGS) -c Utils.cpp
+
+Object.o: Object.cpp Object.hpp
+	$(CC) $(FLAGS) -c Object.cpp
+
+
+Player.o: Player.cpp Player.hpp Actor.cpp Actor.hpp
+	$(CC) $(FLAGS) -c Player.cpp
+
+Room.o: Room.cpp Room.hpp
+	$(CC) $(FLAGS) -c Room.cpp
+
+Game.o: Game.cpp Game.hpp Troll.hpp Boss.hpp LockedRoom.hpp SmokeRoom.hpp
+	$(CC) $(FLAGS) -c Game.cpp
+
+Container.o: Container.cpp Container.hpp
+	$(CC) $(FLAGS) -c Container.cpp
+
+clean:
+	rm -f main.out *.o
+

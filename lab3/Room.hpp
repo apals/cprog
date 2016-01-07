@@ -25,6 +25,7 @@ namespace lab3 {
     class Room {
     public:
         Room(std::string name);
+        virtual ~Room();
         std::string name();        
         virtual void print_directions();
         virtual void print_actors_in_room();

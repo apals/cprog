@@ -67,4 +67,6 @@ namespace lab3 {
     void Room::leave(Object * a) {
         objects_in_room.erase(std::remove(objects_in_room.begin(), objects_in_room.end(), a), objects_in_room.end());
     }
+    Room::~Room() {
+    }
 }
