@@ -10,6 +10,7 @@
 #include "Troll.hpp"
 #include "Boss.hpp"
 #include "LockedRoom.hpp"
+#include "SmokeRoom.hpp"
 #include <iostream>
 #include <string>
 namespace lab3 {
@@ -35,10 +36,11 @@ namespace lab3 {
         Room * seven_eleven = new Room("7Eleven");
         LockedRoom * kb = new LockedRoom("KBs knarkarkvart", std::vector<Object *>{knark});
         LockedRoom * stures = new LockedRoom("Sturecompagniet", std::vector<Object *>{vaktitem, cigg});
+        SmokeRoom * rokruta = new SmokeRoom("Rökruta");
         
         kb -> set_npc_entrance("Mange");
         
-        player = new Player("Player", stureskon);
+        player = new Player("Player", addep);
         Boss * troll = new Boss("Mange", kb);
         Troll * vakt = new Troll("Vakt", stureskon);
         
@@ -54,6 +56,9 @@ namespace lab3 {
         
         stureskon->neighbors["entrance"] = stures;
         stures->neighbors["out"] = stureskon;
+        
+        stures->neighbors["smoke"] = rokruta;
+        rokruta->neighbors["in"] = stures;
         
         stureskon->neighbors["east"] = stureplan;
         stureplan->neighbors["west"] = stureskon;
