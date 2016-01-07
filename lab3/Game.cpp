@@ -12,6 +12,7 @@
 #include "LockedRoom.hpp"
 #include "SmokeRoom.hpp"
 #include "Gainomax.hpp"
+#include "Vakt.hpp"
 #include <iostream>
 #include <string>
 namespace lab3 {
@@ -39,11 +40,15 @@ namespace lab3 {
         LockedRoom * stures = new LockedRoom("Sturecompagniet", std::vector<Object *>{vaktitem, cigg});
         SmokeRoom * rokruta = new SmokeRoom("Rökruta");
         
-        kb -> set_npc_entrance("Mange");
+        kb->set_npc_entrance("Mange");
+        addep->set_npc_entrance("DoggeDoggelito");
+        kb->set_npc_entrance("DoggeDoggelito");
+        stures->set_npc_entrance("DoggeDoggelito");
         
         player = new Player("Player", addep);
         Boss * troll = new Boss("Mange", kb);
-        Troll * vakt = new Troll("Vakt", stureskon);
+        Vakt * vakt = new Vakt("Vakt", stureskon);
+        Troll * dogge = new Troll("DoggeDoggelito", seven_eleven);
         
         
         addep->neighbors["west"] = odenplan;
@@ -96,6 +101,7 @@ namespace lab3 {
         actors.push_back(player);
         actors.push_back(troll);
         actors.push_back(vakt);
+        actors.push_back(dogge);
     }
     
     bool Game::is_running() {
