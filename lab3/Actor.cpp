@@ -90,7 +90,6 @@ namespace lab3 {
     void Actor::use(Object * o) {
         if(o->use(this)) {
             inventory->remove_item(o);
-            delete o;
         }
     }
     

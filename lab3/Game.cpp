@@ -30,7 +30,7 @@ namespace lab3 {
         Object * addeskeys = new Object("addepsnycklar");
         Gainomax * gainomax = new Gainomax("Gainomax");
         
-        LockedRoom * addep = new LockedRoom("Adde Ps lya", "Du står i Adde Ps hem. Det kanske ligger en Gainomax under en av soffkuddarna...",  std::vector<Object *>{addeskeys});
+        LockedRoom * addep = new LockedRoom("Adde Ps lya", "Du står i Adde Ps hem. Det kanske ligger en Gainomax under en av soffkuddarna...",  std::vector<Object *>{});
         Room * stureskon = new Room("Kön till Sturecompagniet", "Här står fjorton hundra hormonstinna 19-åringar vars mål ikväll är att spendera pappas pengar");
         Room * odenplan = new Room("Odenplan", "Gu va trevligt här på OdenP!");
         Room * stureplan = new Room("Stureplan", "u know sturep");
