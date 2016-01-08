@@ -24,10 +24,11 @@ namespace lab3 {
     
     class Room {
     public:
-        Room(std::string name);
+        Room(std::string name, std::string description);
         virtual ~Room();
         std::string name();        
         virtual void print_directions();
+        virtual void print_description();
         virtual void print_actors_in_room();
         virtual void print_objects_in_room();
         virtual Room * neighbor(std::string direction);

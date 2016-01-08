@@ -31,14 +31,14 @@ namespace lab3 {
         Gainomax * gainomax = new Gainomax("Gainomax");
         
         //these are memory leaks right????? since we can't reference room1,2 or o from outside init scope
-        LockedRoom * addep = new LockedRoom("Adde Ps lya", std::vector<Object *>{addeskeys});
-        Room * stureskon = new Room("Kön till Sturecompagniet");
-        Room * odenplan = new Room("Odenplan");
-        Room * stureplan = new Room("Stureplan");
-        Room * seven_eleven = new Room("7Eleven");
-        LockedRoom * kb = new LockedRoom("KBs knarkarkvart", std::vector<Object *>{knark});
-        LockedRoom * stures = new LockedRoom("Sturecompagniet", std::vector<Object *>{vaktitem, cigg});
-        SmokeRoom * rokruta = new SmokeRoom("Rökruta");
+        LockedRoom * addep = new LockedRoom("Adde Ps lya", "addep",  std::vector<Object *>{addeskeys});
+        Room * stureskon = new Room("Kön till Sturecompagniet", "cola kids");
+        Room * odenplan = new Room("Odenplan", "oden P");
+        Room * stureplan = new Room("Stureplan", "u know sturep");
+        Room * seven_eleven = new Room("7Eleven", "sleven");
+        LockedRoom * kb = new LockedRoom("KBs knarkarkvart", "Kb", std::vector<Object *>{knark});
+        LockedRoom * stures = new LockedRoom("Sturecompagniet", "thiensa", std::vector<Object *>{vaktitem, cigg});
+        SmokeRoom * rokruta = new SmokeRoom("Rökruta", "here u smoke lol");
         
         kb->set_npc_entrance("Mange");
         addep->set_npc_entrance("DoggeDoggelito");

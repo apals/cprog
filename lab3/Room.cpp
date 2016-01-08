@@ -12,7 +12,7 @@
 #include <iostream>
 namespace lab3 {
     
-    Room::Room(std::string name) : room_name(name) {
+    Room::Room(std::string name, std::string description) : room_name(name), room_description(description) {
     }
     
     std::string Room::name() {
@@ -68,5 +68,9 @@ namespace lab3 {
         objects_in_room.erase(std::remove(objects_in_room.begin(), objects_in_room.end(), a), objects_in_room.end());
     }
     Room::~Room() {
+    }
+    
+    void Room::print_description() {
+        std::cout << room_description << std::endl;
     }
 }

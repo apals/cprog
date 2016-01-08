@@ -23,6 +23,7 @@ namespace lab3 {
         
         
         print_location();
+        curr_location->print_description();
         curr_location->print_directions();
         curr_location->print_actors_in_room();
         curr_location->print_objects_in_room();

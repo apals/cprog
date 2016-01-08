@@ -15,7 +15,7 @@
 namespace lab3 {
     class SmokeRoom : public Room {
     public:
-        SmokeRoom(std::string name) : Room(name) {}
+        SmokeRoom(std::string name, std::string description) : Room(name, description) {}
         virtual bool enter(Actor * a);
     };
 }
