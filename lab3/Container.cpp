@@ -14,7 +14,7 @@ namespace lab3 {
         return 3;
     }
     
-    void Container::add_item(Object * o) {
+    bool Container::add_item(Object * o) {
         int weight = 0;
         for(auto const & a : curr_items) {
             weight += a->weight();
@@ -22,8 +22,10 @@ namespace lab3 {
         
         if(weight < hold_weight()) {
             curr_items.push_back(o);
+            return true;
         } else {
             std::cout << "This container can't hold any more items.." << std::endl;
+            return false;
         }
     }
     

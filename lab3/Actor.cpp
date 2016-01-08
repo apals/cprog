@@ -74,8 +74,10 @@ namespace lab3 {
         
     }
     void Actor::pick_up(Object * o) {
-        curr_location->leave(o);
-        inventory->add_item(o);
+        if(inventory->add_item(o)) {
+            curr_location->leave(o);
+        }
+        
     }
     void Actor::drop(Object * o) {
         curr_location->enter(o);
