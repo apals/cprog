@@ -27,17 +27,16 @@ namespace lab3 {
         Object * knark = new Object("knark");
         Object * vaktitem = new Object("vaktbricka");
         Object * cigg = new Object("cigarettes");
-        Object * addeskeys = new Object("addepsnycklar");
         Gainomax * gainomax = new Gainomax("Gainomax");
         
         LockedRoom * addep = new LockedRoom("Adde Ps lya", "Du står i Adde Ps hem. Det kanske ligger en Gainomax under en av soffkuddarna...",  std::vector<Object *>{});
         Room * stureskon = new Room("Kön till Sturecompagniet", "Här står fjorton hundra hormonstinna 19-åringar vars mål ikväll är att spendera pappas pengar");
-        Room * odenplan = new Room("Odenplan", "Gu va trevligt här på OdenP!");
-        Room * stureplan = new Room("Stureplan", "u know sturep");
-        Room * seven_eleven = new Room("7Eleven", "sleven");
-        LockedRoom * kb = new LockedRoom("KBs knarkarkvart", "Kb", std::vector<Object *>{knark});
-        LockedRoom * stures = new LockedRoom("Sturecompagniet", "thiensa", std::vector<Object *>{vaktitem, cigg});
-        SmokeRoom * rokruta = new SmokeRoom("Rökruta", "here u smoke lol");
+        Room * odenplan = new Room("Odenplan", "Vem bryr sig vem hänger på odenplan. man ska va på STUREPLAN");
+        Room * stureplan = new Room("Stureplan", "Stureplan. Svampen. Trettio tusen taxibilar och schtekarnas paradis");
+        Room * seven_eleven = new Room("7Eleven", "7 Eleven Stureplan, var annars? Här jobbar unga damer som Dogge Doggelito älskar");
+        LockedRoom * kb = new LockedRoom("Hässelby", "Här känner Ken Ring alla. Han är Kungen i HBy som han kallar det.", std::vector<Object *>{knark});
+        LockedRoom * stures = new LockedRoom("Sturecompagniet", "Folk dansar vilt överallt till Ke$has underbara musik.", std::vector<Object *>{vaktitem, cigg});
+        SmokeRoom * rokruta = new SmokeRoom("Rökruta", "Rökarnas ruta. Fyra unga killar står och desperat raggar på en 18-årig blondin.");
         
         kb->set_npc_entrance("Mange");
         addep->set_npc_entrance("DoggeDoggelito");
@@ -76,8 +75,6 @@ namespace lab3 {
         vaktitem->set_location(stureskon);
         vakt->pick_up(vaktitem);
         
-        addeskeys -> set_location(addep);
-        player->pick_up(addeskeys);
         
         cigg->set_location(seven_eleven);
         
@@ -93,7 +90,6 @@ namespace lab3 {
         objects.push_back(knark);
         objects.push_back(vaktitem);
         objects.push_back(cigg);
-        objects.push_back(addeskeys);
         objects.push_back(gainomax);
         
         

@@ -11,7 +11,7 @@
 
 namespace lab3 {
     bool Gainomax::use(Actor * a) {
-        std::cout << a->name() << " just used " << name() << std::endl;
+        std::cout << a->name() << " just used " << name() << ". Your HP increased by 10! " << std::endl;
         a->set_hp(a->hp() + 10);
         return true;
     }
