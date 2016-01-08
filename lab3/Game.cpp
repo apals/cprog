@@ -31,9 +31,9 @@ namespace lab3 {
         Gainomax * gainomax = new Gainomax("Gainomax");
         
         //these are memory leaks right????? since we can't reference room1,2 or o from outside init scope
-        LockedRoom * addep = new LockedRoom("Adde Ps lya", "addep",  std::vector<Object *>{addeskeys});
-        Room * stureskon = new Room("Kön till Sturecompagniet", "cola kids");
-        Room * odenplan = new Room("Odenplan", "oden P");
+        LockedRoom * addep = new LockedRoom("Adde Ps lya", "Du står i Adde Ps hem. Det ligger en Gainomax under en av soffkuddarna",  std::vector<Object *>{addeskeys});
+        Room * stureskon = new Room("Kön till Sturecompagniet", "Här står fjorton hundra hormonstinna 19-åringar vars mål ikväll är att spendera pappas pengar");
+        Room * odenplan = new Room("Odenplan", "Gu va trevligt här på OdenP!");
         Room * stureplan = new Room("Stureplan", "u know sturep");
         Room * seven_eleven = new Room("7Eleven", "sleven");
         LockedRoom * kb = new LockedRoom("KBs knarkarkvart", "Kb", std::vector<Object *>{knark});
@@ -109,7 +109,7 @@ namespace lab3 {
     }
     
     void Game::print_story() {
-        std::cout << " i am the story of death and destruciton together with baracka obama i will rule the world mvh" << std::endl;
+        std::cout << "Ken Ring har gått vilse i Stockholm och vill inget hellre än att komma hem. Hjälp honom hitta knarket och ta sig tillbaka till Hässelby" << std::endl;
     }
     
     void Game::play() {
