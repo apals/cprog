@@ -7,10 +7,12 @@
 //
 
 #include "Gainomax.hpp"
+#include <iostream>
 
 namespace lab3 {
     bool Gainomax::use(Actor * a) {
-        a->lose_hp(10);
+        std::cout << a->name() << " just used " << name() << std::endl;
+        a->set_hp(a->hp() + 10);
         return true;
     }
     

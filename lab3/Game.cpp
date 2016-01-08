@@ -27,11 +27,10 @@ namespace lab3 {
         Object * knark = new Object("knark");
         Object * vaktitem = new Object("vaktbricka");
         Object * cigg = new Object("cigarettes");
-        Object * addeskeys = new Object("addeps nycklar");
+        Object * addeskeys = new Object("addepsnycklar");
         Gainomax * gainomax = new Gainomax("Gainomax");
         
-        //these are memory leaks right????? since we can't reference room1,2 or o from outside init scope
-        LockedRoom * addep = new LockedRoom("Adde Ps lya", "Du står i Adde Ps hem. Det ligger en Gainomax under en av soffkuddarna",  std::vector<Object *>{addeskeys});
+        LockedRoom * addep = new LockedRoom("Adde Ps lya", "Du står i Adde Ps hem. Det kanske ligger en Gainomax under en av soffkuddarna...",  std::vector<Object *>{addeskeys});
         Room * stureskon = new Room("Kön till Sturecompagniet", "Här står fjorton hundra hormonstinna 19-åringar vars mål ikväll är att spendera pappas pengar");
         Room * odenplan = new Room("Odenplan", "Gu va trevligt här på OdenP!");
         Room * stureplan = new Room("Stureplan", "u know sturep");

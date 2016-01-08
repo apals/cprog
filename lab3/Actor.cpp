@@ -45,14 +45,13 @@ namespace lab3 {
             } else {
                 //print error msg only for player
                 if(name().compare("Player") == 0)
-                    std::cout << name() << ": For some reason you can't enter that place...";
+                    std::cout << "For some reason you can't enter that place..." << std::endl;
             }
             
             
         } else {
             std::cout << "what r u doing u stupid thats just miffo" << std::endl;
         }
-        std::cout << std::endl;
     }
     
     std::vector<Object *> Actor::get_inventory() {
@@ -63,6 +62,10 @@ namespace lab3 {
         return "Actor";
     }
     
+    void Actor::set_hp(int hp) {
+        curr_hp = hp;
+        std::cout << name() << "'s HP is now " << curr_hp << std::endl;
+    }
     
     void Actor::fight(Actor * a) {
         std::cout << name() << " is trying to fight " << a->name() << std::endl;

@@ -42,6 +42,7 @@ namespace lab3 {
         void print_location();
         void print_inventory();
         std::vector<Object *> get_inventory();
+        void set_hp(int hp);
     protected:
         int curr_hp = 6;
         Room * curr_location;
