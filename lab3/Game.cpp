@@ -137,7 +137,6 @@ namespace lab3 {
     }
     
     Game::~Game() {
-        std::cout << "Game destructor " << std::endl;
         for(auto const & a : actors) {
             delete a;
         }

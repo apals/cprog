@@ -123,7 +123,6 @@ namespace lab3 {
     }
     
     Actor::~Actor() {
-        std::cout << "Actor destructor" << std::endl;
         delete inventory;
     }
 }
