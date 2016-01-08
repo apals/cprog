@@ -28,8 +28,8 @@ namespace lab3 {
         int hp();
         virtual Room * location();
         
-        virtual std::string type();
-        std::string name();
+        virtual std::string type() const;
+        std::string name() const;
         virtual void action() = 0;
         void go(std::string direction);
         void fight(Actor * a);
@@ -38,10 +38,10 @@ namespace lab3 {
         void drop(Object * o);
         void use(Object * o);
         virtual void lose_hp(int amt);
-        bool is_alive();
-        void print_location();
-        void print_inventory();
-        std::vector<Object *> get_inventory();
+        bool is_alive() const;
+        void print_location() const;
+        void print_inventory() const;
+        std::vector<Object *> get_inventory() const;
         void set_hp(int hp);
     protected:
         int curr_hp = 6;

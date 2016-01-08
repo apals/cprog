@@ -36,7 +36,7 @@ namespace lab3 {
         }
     }
     
-    std::string Troll::type() {
+    std::string Troll::type() const {
         return "Troll";
     }
 }

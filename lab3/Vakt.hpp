@@ -18,7 +18,7 @@ namespace lab3 {
     public:
         Vakt(std::string name, Room * room) : Actor(name, room) {}
         virtual void action();
-        virtual std::string type();
+        virtual std::string type() const;
     };
 }
 

@@ -19,7 +19,7 @@ namespace lab3 {
             curr_hp = 100;
         }
         virtual void action();
-        virtual std::string type();
+        virtual std::string type() const;
     };
 }
 

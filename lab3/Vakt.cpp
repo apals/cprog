@@ -24,7 +24,7 @@ namespace lab3 {
         }
     }
     
-    std::string Vakt::type() {
+    std::string Vakt::type() const {
         return "Vakt";
     }
 }

@@ -27,10 +27,10 @@ namespace lab3 {
         Room(std::string name, std::string description);
         virtual ~Room();
         std::string name();        
-        virtual void print_directions();
-        virtual void print_description();
-        virtual void print_actors_in_room();
-        virtual void print_objects_in_room();
+        virtual void print_directions() const;
+        virtual void print_description() const;
+        virtual void print_actors_in_room() const;
+        virtual void print_objects_in_room() const;
         virtual Room * neighbor(std::string direction);
 
         

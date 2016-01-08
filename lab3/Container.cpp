@@ -10,7 +10,7 @@
 #include <iostream>
 
 namespace lab3 {
-    int Container::hold_weight() {
+    int Container::hold_weight() const {
         return 3;
     }
     

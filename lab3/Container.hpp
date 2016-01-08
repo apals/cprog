@@ -20,7 +20,7 @@ namespace lab3 {
     class Container {
     public:
         Container(std::string name) : curr_name(name) {};
-        int hold_weight();
+        int hold_weight() const;
         bool add_item(Object * o);
         void remove_item(Object * o);
         std::vector<Object *> items();

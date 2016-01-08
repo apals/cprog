@@ -16,7 +16,7 @@ namespace lab3 {
     class Boss : public Troll {
     public:
         Boss(std::string name, Room * room) : Troll(name, room) {}
-        virtual std::string type();
+        virtual std::string type() const;
         virtual void lose_hp(int amt);
         virtual void action();
     };

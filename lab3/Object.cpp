@@ -13,19 +13,19 @@ namespace lab3 {
     
     Object::Object(std::string name) : curr_name(name){}
     
-    int Object::weight() {
+    int Object::weight() const {
         return 1;
     }
     
-    int Object::volume() {
+    int Object::volume() const {
         return 2;
     }
     
-    int Object::price() {
+    int Object::price() const {
         return 2;
     }
     
-    std::string Object::name() {
+    std::string Object::name() const {
         return curr_name;
     }
     

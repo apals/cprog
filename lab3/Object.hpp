@@ -22,11 +22,11 @@ namespace lab3 {
     public:
         Object(std::string name);
         virtual ~Object();
-        int weight();
-        int volume();
-        int price();
-        std::string name();
-        Room * location();
+        int weight() const;
+        int volume() const;
+        int price() const;
+        std::string name() const;
+        Room * location() const;
         void set_location(Room * location);
         virtual bool use(Actor * a);
     private:

@@ -24,7 +24,7 @@ namespace lab3 {
         return curr_location;
     }
     
-    std::string Actor::name() {
+    std::string Actor::name() const {
         return curr_name;
     }
     
@@ -54,11 +54,11 @@ namespace lab3 {
         }
     }
     
-    std::vector<Object *> Actor::get_inventory() {
+    std::vector<Object *> Actor::get_inventory() const {
         return inventory->items();
     }
     
-    std::string Actor::type() {
+    std::string Actor::type() const {
         return "Actor";
     }
     
@@ -106,16 +106,16 @@ namespace lab3 {
         }
     }
     
-    bool Actor::is_alive() {
+    bool Actor::is_alive() const {
         return curr_hp > 0;
     }
     
-    void Actor::print_location() {
+    void Actor::print_location() const {
         std::cout << name() << " is in " << curr_location->name() << std::endl;
         std::cout << std::endl;
     }
     
-    void Actor::print_inventory() {
+    void Actor::print_inventory() const {
         std::cout << "Inventory: " << std::endl;
         std::cout << '\t' << inventory->name() << ":" << std::endl;
         for(const auto & i : get_inventory()) {

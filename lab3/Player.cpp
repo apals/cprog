@@ -117,7 +117,7 @@ namespace lab3 {
         }
     }
     
-    std::string Player::type() {
+    std::string Player::type() const {
         return "Player";
     }
     

@@ -11,7 +11,7 @@
 
 namespace lab3 {
     
-    std::string Boss::type() {
+    std::string Boss::type() const {
         return "Boss";
     }
     
