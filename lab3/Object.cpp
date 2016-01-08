@@ -14,7 +14,7 @@ namespace lab3 {
     Object::Object(std::string name) : curr_name(name){}
     
     int Object::weight() {
-        return 3;
+        return 1;
     }
     
     int Object::volume() {

@@ -11,11 +11,20 @@
 
 namespace lab3 {
     int Container::hold_weight() {
-        return 5;
+        return 3;
     }
     
     void Container::add_item(Object * o) {
-        curr_items.push_back(o);
+        int weight = 0;
+        for(auto const & a : curr_items) {
+            weight += a->weight();
+        }
+        
+        if(weight < hold_weight()) {
+            curr_items.push_back(o);
+        } else {
+            std::cout << "This container can't hold any more items.." << std::endl;
+        }
     }
     
     void Container::remove_item(Object * o) {
